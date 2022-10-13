@@ -22,6 +22,9 @@ $phone-size: 780px;
     --input-color: #303030;
 }
 
+body, span.hr, referral-gifts li{
+    --bg-color: #17181C;
+}
 
 .form-control, .btn-icon{
     --bg-color: #fff;
@@ -72,10 +75,6 @@ nav img{
 }
 
 
-
-body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
-}
 
 .checkbox-wrapper{
     --bg-color: #fff;
