@@ -1,0 +1,19 @@
+<div class="overlay">
+    <div class="artboard"></div>
+
+    <form class="window popup" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1 class="window__title">Auto-renewal activation</h1>
+        
+        <fieldset class="window__body">
+            <div class="control-wrapper">
+                <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                <checkbox-agreement formControlName="agreement"></checkbox-agreement>
+            </div>
+
+            <button class="btn btn--primary">
+                <btn-loader text="Start"></btn-loader>
+            </button>
+        </fieldset>
+    </form>
+
+</div>

@@ -1,0 +1,6 @@
+<div class="user row" *ngVar="(user|async) as user" [class.user--loading]="!user">
+    <div class="user__avatar">
+        <img [src]="user.avatar" alt="" *ngIf="user">
+    </div>
+    <h2 class="window__title user__name">{{user?.full_name}}</h2>
+</div>

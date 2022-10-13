@@ -1,0 +1,9 @@
+<app-router-loader></app-router-loader>
+<nav class="nav row">
+    <a class="nav__link" [href]="siteUrl">
+        <img [src]="logo" alt="Go to main" class="nav__logo" id="owner-logo">
+        <!-- asd -->
+    </a>
+
+    <button class="btn btn--outline-secondary nav__btn" id="logout" (click)="auth.logout()">Logout</button>
+</nav>

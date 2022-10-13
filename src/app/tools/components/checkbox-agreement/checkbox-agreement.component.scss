@@ -1,0 +1,50 @@
+
+.checkbox-wrapper{
+    position: relative;
+    column-gap: 10px;
+    grid-template-columns: auto 1fr;
+
+    &__input{
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg-color);
+        border-radius: var(--radius);
+    }
+    
+    &__input svg{
+        opacity: 0;
+        height: 9px;
+        width: 16px;
+        path{
+            stroke: var(--input-color);
+        }
+    } 
+
+    &__label{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--text-color--label);
+    }
+    
+    input:checked + &__input svg{
+        opacity: 1;
+    }
+}
+
+*{
+    transition: .3s;
+}
+
+
+
+input[type=radio], input[type=checkbox]{
+    display: none;
+}
+
+a{
+    text-decoration: underline;
+}

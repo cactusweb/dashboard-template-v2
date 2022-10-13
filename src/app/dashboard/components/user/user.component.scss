@@ -1,0 +1,27 @@
+.user{
+    display: grid;
+    justify-content: start;
+    column-gap: 16px;
+    border-radius: var(--radius);
+
+    &--loading{
+        background-color: var(--color--loading-data);
+    }
+
+    &__avatar{
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+
+        img{
+            height: inherit;
+            width: inherit;
+            border-radius: inherit;
+        }
+    }
+
+    &__name{
+        font-weight: 600;
+        word-break: break-all;
+    }
+}

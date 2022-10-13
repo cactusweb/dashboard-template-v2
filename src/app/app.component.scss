@@ -1,0 +1,32 @@
+:host{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 24px;
+    box-sizing: border-box;
+    padding: 40px 80px;
+
+    @media screen and ( max-width: 780px ) {
+        padding: 30px 20px 24px;
+    }
+}
+
+main{
+    display: grid;
+    position: relative;
+}
+
+#notifications-block{
+    position: fixed;
+    z-index: 100;
+    right: 30px;
+    bottom: 78px;
+    max-height: calc(100% - 70px);
+    overflow: hidden;
+
+    @media screen and ( max-width: 600px ) {
+        right: 50%;
+        transform: translate(50%, 0%);
+        bottom: 32px;
+    }
+    // pointer-events: none;
+}

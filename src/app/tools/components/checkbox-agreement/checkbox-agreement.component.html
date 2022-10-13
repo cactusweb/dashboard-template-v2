@@ -1,0 +1,14 @@
+
+<div class="checkbox-wrapper row">
+    <input type="checkbox" name="" id="agreement" [(ngModel)]="val" (ngModelChange)="writeValue(val)">
+
+    <label class="checkbox-wrapper__input" for="agreement">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
+            <path d="M1 3.49999L5.21053 7L11 1" stroke="#303030" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+    </label>
+
+    <label for="agreement" class="checkbox-wrapper__label">
+        I agree with the <a [href]="siteUrl + '/user_agreement'" target="_blank">payment offer</a>
+    </label>
+</div>

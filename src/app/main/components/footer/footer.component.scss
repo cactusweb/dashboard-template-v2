@@ -1,0 +1,28 @@
+footer{
+    // padding: 0px 40px;
+    display: grid;
+    row-gap: 12px;
+    justify-items: center;
+    justify-content: center;
+}
+
+*{
+    color: var(--color--secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+#user-agreement{
+    text-decoration: underline;
+}
+
+#powered-by{
+    font-weight: 600;
+}
+
+.link{
+    &:hover{
+        color: var(--color--secondary-hover)
+    }
+}

@@ -1,0 +1,55 @@
+.window{
+    row-gap: 24px;
+}
+
+.full-width{
+    gap: 16px;
+    grid-template-columns: 1fr 120px;
+    @media screen and ( max-width: 780px ) {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+    }
+}
+
+
+.form-control{
+    grid-template-columns: 1fr auto;
+    padding: 0px;
+    padding-left: 12px;
+    text-align: left;
+}
+
+.btn{
+    position: relative;
+    top: -1px;
+    right: -1px;
+
+    svg{
+        @media screen and ( max-width: 780px ) {
+            height: 17px;
+            width: 17px;
+        }
+    }
+
+    &--loading svg{
+        animation: rotate 1s linear 0s infinite normal ;
+        transform-origin: center center;
+    }
+}
+
+#used{
+    @media screen and ( min-width: (780px+1) ) {
+        display: none;
+    }
+}
+
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+}

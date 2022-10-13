@@ -1,0 +1,88 @@
+$phone-size: 780px;
+
+:root{
+    --color--secondary: #737373;
+    --color--secondary-hover: #CFCFCF;
+
+    --text-color--label: #fff;
+
+    --text-color--btn: #303030;
+    
+    --primary-color: #11BB7D; 
+    --primary-color--hover: #12D38D;
+
+    --success-color: #47B44B;
+    --success-color--hover: #46CD4B;
+
+    --err-color: #E55353;
+    --err-color--hover: #F04343;
+
+    --color--loading-data: #262626;
+
+    --input-color: #303030;
+}
+
+
+.form-control, .btn-icon{
+    --bg-color: #fff;
+    --placeholder: #a1a1a1;
+    --radius: 8px;
+    --border: #fff;
+}
+
+
+.window{
+    --radius: 18px;
+    --bg-color: #303030;
+}
+
+
+nav img{
+    --heigth: 40px;
+    @media screen and ( max-width: 780px ) {
+        --heigth: 40px;
+    }
+}
+
+.btn{
+    --color: #303030;
+    &--success, &--err{
+        --color: #303030;
+    }
+
+
+    &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
+        --color: #fff;
+    }
+}
+
+.btn, .user{
+    --radius: 8px;
+}
+
+
+.notification{
+    --err-color: #BF3D3D;
+    --info-color: #217A59;
+    --success-color: #18A326;
+    --text-color: #fff;
+}
+
+
+
+body, span.hr, referral-gifts li{
+    --bg-color: #17181C;
+}
+
+.checkbox-wrapper{
+    --bg-color: #fff;
+    --radius: 4px;
+}
+
+app-router-loader .loading{
+    --bg-color: #11BB7D;
+}
+
+#referral-gifts{
+    --radius: 12px;
+}

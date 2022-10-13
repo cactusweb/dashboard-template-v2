@@ -1,0 +1,28 @@
+<div class="control-wrapper" [class.control-wrapper--disabled]="payment && payment.way == ''">
+    <span class="control-wrapper__label">Payment info</span>
+    <div class="form-control">
+        {{ getCardNum() }}
+    </div>
+</div>
+
+<div class="control-wrapper" [class.control-wrapper--disabled]="payment && payment.way == ''" *ngVar="(payment?.last_4) as isStart">
+    <span class="control-wrapper__label">Auto-renewal</span>
+    <button 
+        class="btn"
+        [ngClass]="{ 
+            'btn--success': !isStart, 
+            'btn--err': isStart,
+            'btn--loading': loading
+        }" 
+        [disabled]="!payment || loading || !payment.way" 
+        (click)="isStart ? cancel() : bindCard()"
+    >
+        <btn-loader [text]="isStart ? 'Cancel' : 'Activate'" [isSpinner]="loading"></btn-loader>
+    </button>
+</div>
+
+
+<bind-card 
+    *ngIf="showBindCardForm"
+    (onClose)="showBindCardForm = false"
+></bind-card>
