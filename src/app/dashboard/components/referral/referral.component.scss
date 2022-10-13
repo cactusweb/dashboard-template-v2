@@ -9,6 +9,7 @@
     color: var(--text-color--label);
     line-height: 20px;
     height: 38px;
+    font-weight: 500;
 
     &:hover svg path{
         fill: var(--primary-color)
