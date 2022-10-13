@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <button class="btn btn--primary" (click)="onClose.emit()">Cancel</button>
-            <button class="btn btn--outline-err" (click)="onApprove.emit()">Unbind</button>
+            <button class="btn btn--outline-err" (click)="onApprove.emit(); onClose.emit()">Unbind</button>
         </div>
     </div>
 </div>
