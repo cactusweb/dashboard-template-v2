@@ -7,14 +7,15 @@
         </svg>
     </button>
     
-    <button class="btn" id="prizes" (mouseover)="viewGifts = true" (mouseout)="viewGifts = false">
-        Prizes
-
-        <svg class="btn__svg" xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-            <path d="M10.5 20C4.97715 20 0.5 15.5228 0.5 10C0.5 4.47715 4.97715 0 10.5 0C16.0228 0 20.5 4.47715 20.5 10C20.4939 15.5203 16.0203 19.9939 10.5 20ZM2.5 10.172C2.54732 14.5732 6.14111 18.1095 10.5425 18.086C14.944 18.0622 18.4995 14.4875 18.4995 10.086C18.4995 5.68451 14.944 2.10977 10.5425 2.086C6.14111 2.06246 2.54732 5.59876 2.5 10V10.172ZM12.5 15H9.5V11H8.5V9H11.5V13H12.5V15ZM11.5 7H9.5V5H11.5V7Z" fill="white"/>
-        </svg>
+    <div class="gifts-wrapper">
+        <button class="btn" id="prizes" (mouseover)="viewGifts = true" (mouseout)="viewGifts = false">
+            Prizes
+            <svg class="btn__svg" xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                <path d="M10.5 20C4.97715 20 0.5 15.5228 0.5 10C0.5 4.47715 4.97715 0 10.5 0C16.0228 0 20.5 4.47715 20.5 10C20.4939 15.5203 16.0203 19.9939 10.5 20ZM2.5 10.172C2.54732 14.5732 6.14111 18.1095 10.5425 18.086C14.944 18.0622 18.4995 14.4875 18.4995 10.086C18.4995 5.68451 14.944 2.10977 10.5425 2.086C6.14111 2.06246 2.54732 5.59876 2.5 10V10.172ZM12.5 15H9.5V11H8.5V9H11.5V13H12.5V15ZM11.5 7H9.5V5H11.5V7Z" fill="white"/>
+            </svg>
+        </button>
         <referral-gifts [class.active]="viewGifts"></referral-gifts>
-    </button>
+    </div>
 
     <p class="score row">
         <span class="score__label">Points:</span>
