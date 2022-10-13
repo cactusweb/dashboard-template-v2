@@ -406,7 +406,9 @@ main > *{
         grid-template-columns: 1fr auto;
         column-gap: 16px;
         align-content: center;
-        width: 295px;
+        // width: 295px;
+        min-width: 115px;
+        max-width: 295px;
 
         transition: .2s;
         overflow: hidden;
