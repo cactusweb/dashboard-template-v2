@@ -1,6 +1,11 @@
 {
-  "name": "dashboard",
+  "name": "cactusdash-template",
   "version": "2.0.0",
+  "keywords": ["angular", "dashboard", "cactusweb", "cactusmanager", "rxjs", "discord", "license-manager"],
+  "author": {
+    "name": "CactusWeb",
+    "url": "https://cactusweb.io"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
