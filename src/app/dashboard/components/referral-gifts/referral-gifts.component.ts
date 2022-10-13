@@ -49,10 +49,9 @@ export class ReferralGiftsComponent implements OnInit, AfterContentInit {
         maxWidth = l.offsetWidth
     })
 
-    labels.forEach(l => {
-      console.log( maxWidth, l )
+    labels.forEach(l => 
       this.renderer.setStyle(l, 'width', `${maxWidth}px`)
-    })
+    )
   }
 
 }

@@ -37,7 +37,7 @@
     padding-bottom: 4px;
 
     &:not(:last-child){
-        border-bottom: .5px solid --bg-color;
+        border-bottom: .5px solid var(--bg-color);
     }
 
     &__prize{
