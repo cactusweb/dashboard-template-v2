@@ -14,6 +14,11 @@ body, span.hr{
     background: var(--bg-color);
 }
 
+body{
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 
 a{text-decoration: none;}
