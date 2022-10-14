@@ -50,14 +50,11 @@
     }
 }
 
-#prizes{
+.gifts-wrapper{
+    position: relative;
     @media screen and ( max-width: 410px ) {
         grid-row: 2/3;
         width: auto;
         justify-self: start;
     }
-}
-
-.gifts-wrapper{
-    position: relative;
 }
