@@ -101,6 +101,9 @@ export class LicenseService {
   public bindLicense( data: { key: string } ): Observable<License>{
     return this.http.request( Requests['bindLicense'], data )
       .pipe(
+        map((l: License) => {
+          return { ...l, expires_in: l.expires_in*1000, bought_at: l.bought_at*1000, created_at: l.created_at*1000 }
+        }),
         tap(d => this.license = d),
         tap(() => this.router.navigate(['/dashboard'])),
         tap(() => this.tools.generateNotification('Licenses binded', 'success')),
