@@ -11,6 +11,10 @@
     height: 38px;
     font-weight: 500;
 
+    svg path{
+        fill: var(--text-color--label)
+    }
+
     &:hover svg path{
         fill: var(--primary-color)
     }
