@@ -1,10 +1,10 @@
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'https://api.cactusweb.io/api/v2/user',
 
-  ownerName: 'CactusSoft',
-  site: 'http://localhost:4200',
-  landing: '',
+  ownerName: 'SPirates',
+  site: 'https://dash.spirates.io',
+  landing: 'https://spirates.io',
   
   logo: '/assets/logo.svg',
   paymentInFrame: false
