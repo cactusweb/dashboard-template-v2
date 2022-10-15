@@ -229,10 +229,10 @@ main > *{
     }
 
     &--primary{
-        background-color: var(--primary-color);
+        background: var(--primary-color);
         color: var(--color);
         &:hover:not(:disabled){
-            background-color: var(--primary-color--hover);
+            background: var(--primary-color--hover);
         }
     }
 
