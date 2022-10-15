@@ -1,7 +1,7 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #501BD4; 
+    --primary-color: #581EE9; 
     --primary-color--hover: #5216E9;
     
     --text-color--label: #EBE9FF;
@@ -59,9 +59,9 @@ body, span.hr, referral-gifts li{
 
 
 nav img{
-    --heigth: 60px;
+    --heigth: 70px;
     @media screen and ( max-width: 780px ) {
-        --heigth: 60px;
+        --heigth: 70px;
     }
 }
 
