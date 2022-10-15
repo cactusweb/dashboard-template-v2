@@ -1,11 +1,11 @@
-<div class="control-wrapper" [class.control-wrapper--disabled]="payment && payment.way == ''">
+<div class="control-wrapper" [class.control-wrapper--disabled]="paymentIsDisabled()">
     <span class="control-wrapper__label">Payment info</span>
     <div class="form-control">
         {{ getCardNum() }}
     </div>
 </div>
 
-<div class="control-wrapper" [class.control-wrapper--disabled]="payment && payment.way == ''" *ngVar="(payment?.last_4) as isStart">
+<div class="control-wrapper" [class.control-wrapper--disabled]="paymentIsDisabled()" *ngVar="(payment?.last_4) as isStart">
     <span class="control-wrapper__label">Auto-renewal</span>
     <button 
         class="btn"
@@ -14,7 +14,7 @@
             'btn--err': isStart,
             'btn--loading': loading
         }" 
-        [disabled]="!payment || loading || !payment.way" 
+        [disabled]="loading || paymentIsDisabled()" 
         (click)="isStart ? cancel() : bindCard()"
     >
         <btn-loader [text]="isStart ? 'Cancel' : 'Activate'" [isSpinner]="loading"></btn-loader>
