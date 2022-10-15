@@ -17,6 +17,8 @@ const routes: Routes = [
     // { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) }
 ]
 
+routes.unshift({ path: 'bind-nft', loadChildren: () => import('./bind-nft/bind-nft.module').then(m => m.BindNftModule), data: { title: ' - Get license by NFT'} })
+
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
