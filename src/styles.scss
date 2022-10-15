@@ -447,7 +447,10 @@ main > *{
         &__btn{
             width: 20px;
             height: 20px;
-            padding: 0px
+            padding: 0px;
+            svg path{
+                fill: var(--text-color)
+            }
         }
 
     }
