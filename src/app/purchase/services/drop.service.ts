@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, catchError, EMPTY, filter, finalize, Observable, take, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, filter, finalize, map, Observable, take, tap, throwError } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { License } from 'src/app/dashboard/interfaces/license';
 import { LicenseService } from 'src/app/dashboard/services/license.service';
@@ -89,6 +89,9 @@ export class DropService {
     return this.http.request( Requests['purchaseFree'], { email }, this.drop.id )
       .pipe(
         tap(d => this.$purchaseState.next('status-success')),
+        map((l: License) => {
+          return { ...l, expires_in: l.expires_in*1000, bought_at: l.bought_at*1000, created_at: l.created_at*1000 }
+        }),
         tap(d => this.lic.onNewLicense(d)),
         catchError(err => {
           this.$purchaseState.next('status-failed')
