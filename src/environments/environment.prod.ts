@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'https://api.cactusweb.io/api/v2/user',
 
   ownerName: 'CactusSoft',
