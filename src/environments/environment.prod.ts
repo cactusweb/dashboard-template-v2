@@ -1,11 +1,11 @@
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'https://api.cactusweb.io/api/v2/user',
 
-  ownerName: 'CactusSoft',
-  site: 'http://localhost:4200',
+  ownerName: 'OmegaMirror SOL',
+  site: 'https://sol.omegamirror.tools',
   landing: '',
   
-  logo: '/assets/logo.svg',
+  logo: '/assets/logo.png',
   paymentInFrame: false
 };
