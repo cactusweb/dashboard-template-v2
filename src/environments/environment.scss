@@ -3,15 +3,15 @@ $phone-size: 780px;
 :root{
     // --primary-color: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);; 
     // --primary-color--hover: linear-gradient(90deg, #764DD8 -17.66%, #E44143 112.34%);;
-    --primary-color: #B6488B;
+    --primary-color: #CF52D2;
     
     --text-color--label: #EBEBEB;
 
     --input-color: #EBEBEB;
     
     
-    --err-color: #DA4848;
-    --err-color--hover: #EB3A3A;
+    --err-color: #FF3D3D;
+    --err-color--hover: #EF2F2F;
 
 
     --success-color: #449647;
@@ -22,7 +22,7 @@ $phone-size: 780px;
     --color--secondary-hover: #EBEBEB;
 
     
-    --color--loading-data: #6B2B3E;
+    --color--loading-data: #593147;
 }
 
 
@@ -32,7 +32,7 @@ body, span.hr, referral-gifts li{
 
 .window{
     --radius: 18px;
-    --bg-color: radial-gradient(96% 196% at 2.75% 4.5%, rgba(61,61,61, .7) 0%, rgba(61,61,61,.2) 100% );
+    --bg-color: radial-gradient(95.86% 195.79% at 2.75% 4.52%, rgba(61, 61, 61, 0.8) 0%, rgba(61, 61, 61, 0.3) 100%);
 }
 
 
@@ -74,7 +74,7 @@ nav img{
 
 .notification{
     --err-color: #D43F3F;
-    --info-color: #8C50AD;
+    --info-color: #831E59;
     --success-color: #439246;
     --text-color: #EBEBEB;
 }
@@ -99,7 +99,6 @@ app-router-loader .loading{
 // custom styles
 .window{
     border: 1px solid rgba(78, 78, 78, 0.3);
-    // backdrop-filter: blur(40px) opacity(.5);
 }
 
 
@@ -109,9 +108,9 @@ body{
 }
 
 .btn--primary{
-    --primary-color: linear-gradient(90deg, #7656BF 18%, #CC4A4C 112%);
-    --primary-color--hover: linear-gradient(90deg, #7656BF 18%, #CC4A4C 112%);
+    --primary-color: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);
+    --primary-color--hover: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);
     &:not(:disabled):hover{
-        filter: brightness(1.2);
+        filter: brightness(1.1);
     }
 }
