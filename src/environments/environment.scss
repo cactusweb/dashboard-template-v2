@@ -1,56 +1,56 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #11BB7D; 
-    --primary-color--hover: #12D38D;
+    --primary-color: #1763AB; 
+    --primary-color--hover: #1570C6;
     
-    --text-color--label: #fff;
+    --text-color--label: #4D494B;
 
-    --input-color: #303030;
+    --input-color: #4D494B;
     
     
-    --err-color: #E55353;
-    --err-color--hover: #F04343;
+    --err-color: #C15050;
+    --err-color--hover: #CF4545;
 
 
-    --success-color: #47B44B;
-    --success-color--hover: #46CD4B;
+    --success-color: #5CB765;
+    --success-color--hover: #4FC25A;
 
 
-    --color--secondary: #737373;
-    --color--secondary-hover: #CFCFCF;
+    --color--secondary: #ADA597;
+    --color--secondary-hover: #FCE9CB;
 
     
-    --color--loading-data: #262626;
+    --color--loading-data: #f0dab8;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
+    --bg-color: #E0C8A1;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: #303030;
+    --bg-color: #FCE9CB;
 }
 
 
 .btn, .score__number{
-    --color: #303030;
+    --color: #FFFFFF;
     &--success, &--err{
-        --color: #303030;
+        --color: #FFFFFF;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #303030;
+        --color: #FFFFFF;
     }
 }
 
 .form-control, .btn-icon{
-    --bg-color: #fff;
-    --placeholder: #a2a2a2;
+    --bg-color: #FFF7EA;
+    --placeholder: #ADA597;
     --radius: 8px;
-    --border: #fff;
+    --border: #FFF7EA;
 }
 
 .btn-icon{
@@ -72,24 +72,34 @@ nav img{
 
 
 .notification{
-    --err-color: #BF3D3D;
-    --info-color: #166D4D;
-    --success-color: #18A326;
+    --err-color: #AB3434;
+    --info-color: #1A5E9F;
+    --success-color: #359639;
     --text-color: #fff;
 }
 
 
 
 .checkbox-wrapper{
-    --bg-color: #fff;
+    --bg-color: #FFF7EA;
     --radius: 4px;
-    --svg-color: #303030;
+    --svg-color: #4D494B;
 }
 
 app-router-loader .loading{
-    --bg-color: #11BB7D;
+    --bg-color: #1763AB;
 }
 
 #referral-gifts{
     --radius: 12px;
+}
+
+
+// custom styles
+body{
+    background-size: cover;
+    background-image: url('/assets/fp.png');
+    @media screen and ( max-width: 780px ) {
+        background-image: url('/assets/mp.png');
+    }
 }
