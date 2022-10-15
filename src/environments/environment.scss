@@ -1,7 +1,7 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #4973F2; 
+    --primary-color: #2F5FF0; 
     --primary-color--hover: #2D5EF1;
     
     --text-color--label: #F5F5F5;
@@ -9,19 +9,19 @@ $phone-size: 780px;
     --input-color: #0B0A32;
     
     
-    --err-color: #AD2C2C;
-    --err-color--hover: #B82A2A;
+    --err-color: #CE2C2C;
+    --err-color--hover: #D91919;
 
 
-    --success-color: #1F9D2C;
-    --success-color--hover: #1CAC2B;
+    --success-color: #28C538;
+    --success-color--hover: #1BDB2F;
 
 
     --color--secondary: #6362A4;
     --color--secondary-hover: #F5F5F5;
 
     
-    --color--loading-data: #1c1a42;
+    --color--loading-data: #16153D;
 }
 
 
@@ -59,7 +59,7 @@ body, span.hr, referral-gifts li{
 
 
 nav img{
-    --heigth: 60px;
+    --heigth: 70px;
     @media screen and ( max-width: 780px ) {
         --heigth: 60px;
     }
@@ -87,7 +87,7 @@ nav img{
 }
 
 app-router-loader .loading{
-    --bg-color: #0B0A32;
+    --bg-color: #2F5FF0;
 }
 
 #referral-gifts{
