@@ -10,6 +10,7 @@ import { PurchaseFormTitleComponent } from './components/purchase-form-title/pur
 import { StatusCheckComponent } from './components/status-check/status-check.component';
 import { StatusSuccessComponent } from './components/status-success/status-success.component';
 import { StatusFailedComponent } from './components/status-failed/status-failed.component';
+import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 
 const routes: Routes = [
   { path: '', component: PurchaseComponent }
@@ -24,6 +25,7 @@ const routes: Routes = [
     StatusCheckComponent,
     StatusSuccessComponent,
     StatusFailedComponent,
+    CurrencyConverterComponent,
   ],
   imports: [
     CommonModule,
