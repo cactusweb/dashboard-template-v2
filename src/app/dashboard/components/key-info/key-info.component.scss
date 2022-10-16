@@ -53,3 +53,13 @@
       transform: rotate(360deg);
     }
 }
+
+#infinity{
+    height: 16px; 
+    width: 18px; 
+    vertical-align: top;
+    @media screen and ( max-width: 780px ) {
+        height: 14px;
+        width: 16px;
+    }
+}
