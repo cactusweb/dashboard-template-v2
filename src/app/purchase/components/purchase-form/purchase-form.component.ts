@@ -1,20 +1,36 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { finalize, take } from 'rxjs';
+import { finalize, map, Observable, take } from 'rxjs';
 import { DropService } from '../../services/drop.service';
 
 @Component({
   selector: 'purchase-form',
   templateUrl: './purchase-form.component.html',
-  styleUrls: ['./purchase-form.component.scss']
+  styleUrls: ['./purchase-form.component.scss'],
+  providers: [CurrencyPipe]
 })
 export class PurchaseFormComponent implements OnInit {
   form!: FormGroup
-  loading: boolean = false
+  loading: boolean = false;
+
+  payment: Observable<{ way: string, currency: string, price: number }>
 
   constructor(
     private drop: DropService,
-  ) { }
+    private currency: CurrencyPipe
+  ) { 
+    this.payment = drop.getDrop()
+      .pipe(
+        map(d => {
+          return {
+            way: d.payment_way,
+            currency: d.currency,
+            price: d.price
+          }
+        })
+      )
+  }
 
   ngOnInit(): void {
     this.generateForm();
@@ -41,6 +57,13 @@ export class PurchaseFormComponent implements OnInit {
         next: d => d.key ? this.loading = false : null
       })
 
+  }
+
+  getDropPrice(payment: { way: string, currency: string, price: number }|null){
+    if ( !payment || payment.way == 'Tinkoff' && payment.currency !== 'RUB' )
+      return '';
+
+    return ` ` + this.currency.transform(payment.price, payment.currency||'USD', 'symbol-narrow', '1.0-1');
   }
 
 }
