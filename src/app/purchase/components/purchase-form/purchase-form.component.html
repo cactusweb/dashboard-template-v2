@@ -8,9 +8,18 @@
             <checkbox-agreement formControlName="agreement"></checkbox-agreement>
         </div>
 
-        <button class="btn btn--primary" [disabled]="loading || !form.controls['agreement'].value" [class.btn--loading]="loading">
-            <btn-loader [isSpinner]="loading" text="Purchase"></btn-loader>
-        </button>
+        <div class="btn-wrapper" *ngVar="(payment|async) as payment">
+            <button class="btn btn--primary" [disabled]="loading || !form.controls['agreement'].value" [class.btn--loading]="loading">
+                <btn-loader [isSpinner]="loading" 
+                    [text]="
+                        'Purchase' + getDropPrice(payment)
+                    "
+                ></btn-loader>
+            </button>
+            <currency-converter *ngIf="payment && payment.way == 'Tinkoff' && payment.currency != 'RUB'"
+                [class.disabled]="!form.controls['agreement'].value"
+            ></currency-converter>
+        </div>
     </fieldset>
 
 </form>
