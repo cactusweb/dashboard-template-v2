@@ -1,0 +1,40 @@
+.user{
+    display: grid;
+    row-gap: 10px;
+
+    justify-items: center;
+
+    &__avatar{
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+
+        // @media screen and ( max-width: 780px ) {
+        //     width: 48px;
+        //     height: 48px;
+        // }
+
+        img{
+            width: inherit;
+            height: inherit;
+            border-radius: inherit;
+        }
+    }
+
+    &--loading &__avatar{
+        background-color: var(--color--loading-data);
+    }
+
+    &--loading &__name{
+        height: 27px;
+        background-color: var(--color--loading-data);
+        display: inline-block;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 240px;
+    }
+
+    &__name{
+        word-break: break-all;
+    }
+}

@@ -1,0 +1,19 @@
+.window{
+    padding-bottom: 30px;
+}
+
+.window__body{
+    row-gap: 14px;
+}
+
+.window__title-container{
+    row-gap: 8px;
+    p{
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        @media screen and ( max-width: 780px ) {
+            font-size: 16px;
+        }
+    }
+}

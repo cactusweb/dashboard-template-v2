@@ -1,67 +1,67 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #11BB7D; 
-    --primary-color--hover: #12D38D;
+    --primary-color: #00AE98; 
+    --primary-color--hover: #00C6AD;
     
-    --text-color--label: #fff;
+    --text-color--label: #DEDEDE;
 
-    --input-color: #303030;
+    --input-color: #DEDEDE;
     
     
-    --err-color: #E55353;
-    --err-color--hover: #F04343;
+    --err-color: #CA4646;
+    --err-color--hover: #DC4545;
 
 
-    --success-color: #47B44B;
-    --success-color--hover: #46CD4B;
+    --success-color: #48A74B;
+    --success-color--hover: #45C149;
 
 
-    --color--secondary: #737373;
-    --color--secondary-hover: #CFCFCF;
+    --color--secondary: #6A6A6A;
+    --color--secondary-hover: #C4C4C4;
 
     
-    --color--loading-data: #262626;
+    --color--loading-data: #2C2C2C;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
+    --bg-color: #222222;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: #303030;
+    --bg-color: #333333;
 }
 
 
 .btn, .score__number{
-    --color: #303030;
+    --color: #222222;
     &--success, &--err{
-        --color: #303030;
+        --color: #222222;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #303030;
+        --color: #222222;
     }
 }
 
 .form-control, .btn-icon{
-    --bg-color: #fff;
-    --placeholder: #a2a2a2;
+    --bg-color: #222222;
+    --placeholder: #6B6B6B;
     --radius: 8px;
-    --border: #fff;
+    --border: #222222;
 }
 
 .btn-icon{
-    --bg-color: #fff;
+    --bg-color: #222222;
 }
 
 
 nav img{
-    --heigth: 60px;
+    --heigth: 65px;
     @media screen and ( max-width: 780px ) {
-        --heigth: 60px;
+        --heigth: 65px;
     }
 }
 
@@ -72,23 +72,46 @@ nav img{
 
 
 .notification{
-    --err-color: #BF3D3D;
-    --info-color: #166D4D;
-    --success-color: #18A326;
+    --err-color: #EC4242;
+    --info-color: #45CDBC;
+    --success-color: #48D34D;
 }
 
 
 
 .checkbox-wrapper{
-    --bg-color: #fff;
+    --bg-color: #DEDEDE;
     --radius: 4px;
-    --svg-color: #303030;
+    --svg-color: #222222;
 }
 
 app-router-loader .loading{
-    --bg-color: #11BB7D;
+    --bg-color: #00AE98;
 }
 
 #referral-gifts{
     --radius: 12px;
+}
+
+
+
+// custom styles
+body{
+    background-image: url('/assets/fp.png');
+    background-size: cover;
+}
+
+
+.nft-link{
+    height: 20px !important;
+    width: auto !important;
+    justify-self: center;
+    color: #A0A0A0;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+app-bind .window{
+    padding-bottom: 30px;
 }

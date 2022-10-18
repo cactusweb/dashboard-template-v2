@@ -1,0 +1,14 @@
+<div class="window">
+    <app-user></app-user>
+
+    <div class="window__body">
+        <button class="btn btn--outline-primary"
+            [class.btn--loading]="loading"
+            [disabled]="loading"
+            (click)="!connected ? onConnectWallet() : getLicense()"
+        >
+            <btn-loader [isSpinner]="loading" [text]="!connected ? 'Connect wallet' : 'Get license'"></btn-loader>
+        </button>
+        <a routerLink="/bind" class="btn nft-link">I have a license</a>
+    </div>
+</div>
