@@ -101,3 +101,18 @@ body{
     background-image: url('/assets/fp.png');
     background-size: cover;
 }
+
+
+.nft-link{
+    height: 20px !important;
+    width: auto !important;
+    justify-self: center;
+    color: #A0A0A0;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+app-bind .window{
+    padding-bottom: 30px;
+}
