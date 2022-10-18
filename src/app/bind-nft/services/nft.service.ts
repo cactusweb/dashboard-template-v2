@@ -19,7 +19,7 @@ export class NftService {
   private provider;
   public signer!: Signer;
   
-  private $bindStatus = new BehaviorSubject<'form'|'err'>('err')
+  private $bindStatus = new BehaviorSubject<'form'|'err'>('form')
   public bindStatus = this.$bindStatus.asObservable();
 
 

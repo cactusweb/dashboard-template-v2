@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NftService } from './services/nft.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { NftService } from './services/nft.service';
   templateUrl: './bind-nft.component.html',
   styleUrls: ['./bind-nft.component.scss']
 })
-export class BindNftComponent implements OnInit {
+export class BindNftComponent implements OnInit, OnDestroy {
   isConnected: boolean = false;
 
 
@@ -17,4 +17,7 @@ export class BindNftComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void {
+    this.nft.changeBindStatus('form')
+  }
 }
