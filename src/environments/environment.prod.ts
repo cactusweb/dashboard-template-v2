@@ -2,10 +2,10 @@ export const environment = {
   production: true,
   apiUrl: 'https://api.cactusweb.io/api/v2/user',
 
-  ownerName: 'CactusSoft',
-  site: 'http://localhost:4200',
+  ownerName: 'OmegaMirror ETH',
+  site: 'https://eth.omegamirror.tools',
   landing: '',
   
-  logo: '/assets/logo.svg',
+  logo: '/assets/logo.png',
   paymentInFrame: false
 };
