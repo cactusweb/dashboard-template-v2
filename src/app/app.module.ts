@@ -10,6 +10,7 @@ import { Interceptor } from './tools/services/interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { MainModule } from './main/main.module';
 import { LoginModule } from './login/login.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginModule } from './login/login.module';
     HttpClientModule,
     ToolsModule,
     MainModule,
-    LoginModule
+    LoginModule,
+    NotificationsModule
   ],
   providers: [
     HttpService, 
