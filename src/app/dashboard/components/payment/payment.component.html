@@ -1,6 +1,6 @@
 <div class="control-wrapper" [class.control-wrapper--disabled]="paymentIsDisabled()">
     <span class="control-wrapper__label">Payment info</span>
-    <div class="form-control row">
+    <div class="form-control form-control--btn">
         {{ getCardNum() }}
 
         <button class="btn btn-icon btn-icon--primary" *ngIf="!paymentIsDisabled()" (click)="bindCard()" [disabled]="loading">

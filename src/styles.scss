@@ -384,6 +384,17 @@ main > *{
     // @media screen and ( max-width: $phone-size ) {
     //     height: 40px;
     // }
+    &--btn{
+        @extend .row;
+        grid-template-columns: 1fr auto;
+        padding: 0px;
+        
+        .btn-icon{
+            position: relative;
+            top: -1px;
+            right: -1px;
+        }
+    }
 
     &::placeholder{
         color: var(--placeholder);
