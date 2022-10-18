@@ -70,8 +70,8 @@ export class NftService {
           this.tools.generateNotification(err.error?.message || 'Smth went wrong');
           return throwError(err)
         })
-      )
-    return res.nonce || "";
+      ).toPromise();
+    return res.nonce;
   }
 
   async getSignature(nonce: string): Promise<string>{
