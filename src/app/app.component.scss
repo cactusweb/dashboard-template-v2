@@ -14,19 +14,3 @@ main{
     display: grid;
     position: relative;
 }
-
-#notifications-block{
-    position: fixed;
-    z-index: 100;
-    right: 30px;
-    bottom: 78px;
-    max-height: calc(100% - 70px);
-    overflow: hidden;
-
-    @media screen and ( max-width: 600px ) {
-        right: 50%;
-        transform: translate(50%, 0%);
-        bottom: 32px;
-    }
-    // pointer-events: none;
-}
