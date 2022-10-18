@@ -408,67 +408,6 @@ main > *{
 
 
 
-
-
-
-
-
-#notifications-block{
-
-    .notification{
-        padding: 0px 16px;
-        border-radius: 8px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        column-gap: 16px;
-        align-content: center;
-        width: 295px;
-
-        transition: .2s;
-        overflow: hidden;
-        max-height: 0px;
-        transform-origin: bottom;
-
-        &--show{
-            padding: 13px 16px;
-            max-height: initial;
-            margin-top: 8px;
-        }
-
-        &--primary{
-            background-color: var(--info-color);
-        }
-
-        &--success{
-            background-color: var(--success-color);
-        }
-
-        &--err{
-            background-color: var(--err-color);
-        }
-
-        &__text{
-            color: var(--text-color);
-            font-size: 14px;
-            font-weight: 400;
-            overflow: hidden;
-            word-break: break-word;
-        }
-
-        &__btn{
-            width: 20px;
-            height: 20px;
-            padding: 0px;
-            svg path{
-                fill: var(--text-color)
-            }
-        }
-
-    }
-
-}
-
-
 .control-wrapper{
     display: grid;
     row-gap: 10px;
