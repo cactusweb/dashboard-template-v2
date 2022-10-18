@@ -28,7 +28,7 @@ export class PaymentComponent implements OnInit {
 
   getCardNum(){
     if ( !this.payment ) return '';
-    if ( !this.payment.last_4 ) return '—';
+    if ( !this.payment.last_4 || this.licenseType == 'lifetime' || this.licenseType == 'trial' ) return '—';
     return `**** ${this.payment.last_4}`
   }
 
@@ -57,6 +57,11 @@ export class PaymentComponent implements OnInit {
         error: () => {}
       })
       
+  }
+
+
+  paymentIsDisabled(){
+    return (this.payment && this.payment.way == '' || (this.licenseType == 'lifetime' || this.licenseType == 'trial'))
   }
 
 }
