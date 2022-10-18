@@ -33,6 +33,9 @@
     &__btn{
         height: 21px;
         width: 21px;
+        svg path{
+            fill: var(--text-color--label);
+        }
     }
 
     &--success &__icon path{
