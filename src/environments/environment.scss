@@ -1,56 +1,56 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #11BB7D; 
-    --primary-color--hover: #12D38D;
+    --primary-color: #5D9BF3; 
+    --primary-color--hover: #3885F2;
     
-    --text-color--label: #fff;
+    --text-color--label: #000000;
 
-    --input-color: #303030;
+    --input-color: #000;
     
     
-    --err-color: #E55353;
-    --err-color--hover: #F04343;
+    --err-color: #DB5757;
+    --err-color--hover: #E54848;
 
 
-    --success-color: #47B44B;
-    --success-color--hover: #46CD4B;
+    --success-color: #53C65E;
+    --success-color--hover: #43D952;
 
 
-    --color--secondary: #737373;
-    --color--secondary-hover: #CFCFCF;
+    --color--secondary: #BFBFBF;
+    --color--secondary-hover: #FFFFFF;
 
     
-    --color--loading-data: #262626;
+    --color--loading-data: #d5d5d5;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
+    --bg-color: #84A7D9;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: #303030;
+    --bg-color: #FFFFFF;
 }
 
 
 .btn, .score__number{
-    --color: #303030;
+    --color: #FFFFFF;
     &--success, &--err{
-        --color: #303030;
+        --color: #FFFFFF;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #303030;
+        --color: #FFFFFF;
     }
 }
 
 .form-control, .btn-icon{
     --bg-color: #fff;
-    --placeholder: #a2a2a2;
+    --placeholder: #BFBFBF;
     --radius: 8px;
-    --border: #fff;
+    --border: #00000060;
 }
 
 .btn-icon{
@@ -72,9 +72,9 @@ nav img{
 
 
 .notification{
-    --err-color: #BF3D3D;
-    --info-color: #166D4D;
-    --success-color: #18A326;
+    --err-color: #C14343;
+    --info-color: #2869C5;
+    --success-color: #189925;
 }
 
 
@@ -82,13 +82,21 @@ nav img{
 .checkbox-wrapper{
     --bg-color: #fff;
     --radius: 4px;
-    --svg-color: #303030;
+    --svg-color: #000;
 }
 
 app-router-loader .loading{
-    --bg-color: #11BB7D;
+    --bg-color: #559cff;
 }
 
 #referral-gifts{
     --radius: 12px;
+}
+
+
+
+// custom styles
+body{
+    background-image: url('/assets/bg.svg');
+    background-size: cover;
 }
