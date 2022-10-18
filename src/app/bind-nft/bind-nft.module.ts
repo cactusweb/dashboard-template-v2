@@ -9,6 +9,7 @@ import { UserComponent } from './components/user/user.component';
 import { NftService } from './services/nft.service';
 import { NftInterceptor } from './services/nft.interceptor';
 import { HttpService } from '../tools/services/http.service';
+import { ToolsModule } from '../tools/tools.module';
 
 const routes: Routes = [
   { path: '', component: BindNftComponent }
@@ -24,7 +25,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    HttpClientModule
+    HttpClientModule,
+    ToolsModule
   ],
   providers: [
     NftService, 

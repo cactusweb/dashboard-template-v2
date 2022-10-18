@@ -1,1 +1,16 @@
-<p>status-err works!</p>
+<div class="window">
+    <div class="window__title-container window__body">
+        <h1 class="window__title">Oops!</h1>
+        <p class="">it seems you don't have our NFT in your wallet.</p>
+    </div>
+
+    <div class="window__body">
+        <a class="btn btn--primary" 
+            href="https://opensea.io/collection/cactussoft-license" target="_blank" rel="noopener"
+        >
+            Buy NFT on OpenSea
+        </a>
+
+        <button class="btn" id="try-again" (click)="this.nft.changeBindStatus('form')">Try again</button>
+    </div>
+</div>

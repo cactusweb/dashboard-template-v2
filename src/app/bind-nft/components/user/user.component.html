@@ -1,1 +1,7 @@
-<p>user works!</p>
+<div class="user" [class.user--loading]="!(user|async)">
+    <span class="user__avatar">
+        <img [src]="(user|async)?.avatar" alt="" *ngIf="user|async">
+    </span>
+    <h2 class="window__title user__name"> {{ (user|async)?.full_name }} </h2>
+</div>
+

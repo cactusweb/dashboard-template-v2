@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NftService } from '../../services/nft.service';
 
 @Component({
   selector: 'app-status-err',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusErrComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public nft: NftService
+  ) { }
 
   ngOnInit(): void {
   }

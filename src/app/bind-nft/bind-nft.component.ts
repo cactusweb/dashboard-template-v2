@@ -9,17 +9,12 @@ import { NftService } from './services/nft.service';
 export class BindNftComponent implements OnInit {
   isConnected: boolean = false;
 
+
   constructor(
-    private nft: NftService
+    public nft: NftService,
   ) { }
 
   ngOnInit(): void {
-    // this.nft.createKey('asd', 'asdd')
-    //   .subscribe({
-    //     error: err => {}
-    //   })
   }
-
-
 
 }

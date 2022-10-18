@@ -1,0 +1,17 @@
+.window{
+    padding-bottom: 30px;
+
+    &__body{
+        row-gap: 14px;
+    }
+}
+
+.link{
+    justify-self: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #A0A0A0;
+    &:hover{
+        text-decoration: underline;
+    }
+}
