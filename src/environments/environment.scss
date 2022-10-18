@@ -1,67 +1,68 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #11BB7D; 
-    --primary-color--hover: #12D38D;
+    // --primary-color: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);; 
+    // --primary-color--hover: linear-gradient(90deg, #764DD8 -17.66%, #E44143 112.34%);;
+    --primary-color: #CF52D2;
     
-    --text-color--label: #fff;
+    --text-color--label: #EBEBEB;
 
-    --input-color: #303030;
+    --input-color: #EBEBEB;
     
     
-    --err-color: #E55353;
-    --err-color--hover: #F04343;
+    --err-color: #FF3D3D;
+    --err-color--hover: #EF2F2F;
 
 
-    --success-color: #47B44B;
-    --success-color--hover: #46CD4B;
+    --success-color: #449647;
+    --success-color--hover: #38AB3C;
 
 
-    --color--secondary: #737373;
-    --color--secondary-hover: #CFCFCF;
+    --color--secondary: #B4B4B4;
+    --color--secondary-hover: #EBEBEB;
 
     
-    --color--loading-data: #262626;
+    --color--loading-data: #593147;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
+    --bg-color: #97434A;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: #303030;
+    --bg-color: radial-gradient(95.86% 195.79% at 2.75% 4.52%, rgba(61, 61, 61, 0.8) 0%, rgba(61, 61, 61, 0.3) 100%);
 }
 
 
 .btn, .score__number{
-    --color: #303030;
+    --color: #EBEBEB;
     &--success, &--err{
-        --color: #303030;
+        --color: #EBEBEB;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #303030;
+        --color: #EBEBEB;
     }
 }
 
 .form-control, .btn-icon{
-    --bg-color: #fff;
-    --placeholder: #a2a2a2;
+    --bg-color: #5A2C41B2;
+    --placeholder: #AF8596;
     --radius: 8px;
-    --border: #fff;
+    --border: #5A2C41B2;
 }
 
 .btn-icon{
-    --bg-color: #fff;
+    --bg-color: #5A2C41B2;
 }
 
 
 nav img{
-    --heigth: 60px;
+    --heigth: 80px;
     @media screen and ( max-width: 780px ) {
-        --heigth: 60px;
+        --heigth: 80px;
     }
 }
 
@@ -72,23 +73,43 @@ nav img{
 
 
 .notification{
-    --err-color: #BF3D3D;
-    --info-color: #166D4D;
-    --success-color: #18A326;
+    --err-color: #D43F3F;
+    --info-color: #831E59;
+    --success-color: #439246;
 }
 
 
 
 .checkbox-wrapper{
-    --bg-color: #fff;
+    --bg-color: #EBEBEB;
     --radius: 4px;
-    --svg-color: #303030;
+    --svg-color: #643145;
 }
 
 app-router-loader .loading{
-    --bg-color: #11BB7D;
+    --bg-color: #4A2A38;
 }
 
 #referral-gifts{
     --radius: 12px;
+}
+
+
+// custom styles
+.window{
+    border: 1px solid rgba(78, 78, 78, 0.3);
+}
+
+
+body{
+    background-image: url('/assets/bg.png');
+    background-size: cover;
+}
+
+.btn--primary{
+    --primary-color: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);
+    --primary-color--hover: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);
+    &:not(:disabled):hover{
+        filter: brightness(1.1);
+    }
 }
