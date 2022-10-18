@@ -13,8 +13,6 @@
 
 
 .form-control{
-    grid-template-columns: 1fr auto;
-    padding: 0px;
     padding-left: 12px;
     text-align: left;
 }
@@ -61,5 +59,9 @@
     @media screen and ( max-width: 780px ) {
         height: 14px;
         width: 16px;
+    }
+
+    path{
+        fill: var(--input-color)
     }
 }
