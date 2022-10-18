@@ -3,3 +3,16 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 16px;
 }
+
+
+.form-control{
+    grid-template-columns: 1fr auto;
+    padding: 0px;
+    text-align: center;
+}
+
+.btn-icon{
+    position: relative;
+    top: -1px;
+    right: -1px;
+}
