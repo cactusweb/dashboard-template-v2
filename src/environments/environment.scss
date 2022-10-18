@@ -1,65 +1,65 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #11BB7D; 
-    --primary-color--hover: #12D38D;
+    --primary-color: #2F5FF0; 
+    --primary-color--hover: #2D5EF1;
     
-    --text-color--label: #fff;
+    --text-color--label: #F5F5F5;
 
-    --input-color: #303030;
+    --input-color: #0B0A32;
     
     
-    --err-color: #E55353;
-    --err-color--hover: #F04343;
+    --err-color: #CE2C2C;
+    --err-color--hover: #D91919;
 
 
-    --success-color: #47B44B;
-    --success-color--hover: #46CD4B;
+    --success-color: #28C538;
+    --success-color--hover: #1BDB2F;
 
 
-    --color--secondary: #737373;
-    --color--secondary-hover: #CFCFCF;
+    --color--secondary: #6362A4;
+    --color--secondary-hover: #F5F5F5;
 
     
-    --color--loading-data: #262626;
+    --color--loading-data: #16153D;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
+    --bg-color: #16153D;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: #303030;
+    --bg-color: #0B0A32;
 }
 
 
 .btn, .score__number{
-    --color: #303030;
+    --color: #0B0A32;
     &--success, &--err{
-        --color: #303030;
+        --color: #0B0A32;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #303030;
+        --color: #0B0A32;
     }
 }
 
 .form-control, .btn-icon{
-    --bg-color: #fff;
-    --placeholder: #a2a2a2;
+    --bg-color: #F5F5F5;
+    --placeholder: #717171;
     --radius: 8px;
-    --border: #fff;
+    --border: #F5F5F5;
 }
 
 .btn-icon{
-    --bg-color: #fff;
+    --bg-color: #F5F5F5;
 }
 
 
 nav img{
-    --heigth: 60px;
+    --heigth: 70px;
     @media screen and ( max-width: 780px ) {
         --heigth: 60px;
     }
@@ -72,21 +72,21 @@ nav img{
 
 
 .notification{
-    --err-color: #BF3D3D;
-    --info-color: #166D4D;
-    --success-color: #18A326;
+    --err-color: #9B2121;
+    --info-color: #1C398E;
+    --success-color: #12721B;
 }
 
 
 
 .checkbox-wrapper{
-    --bg-color: #fff;
+    --bg-color: #F5F5F5;
     --radius: 4px;
-    --svg-color: #303030;
+    --svg-color: #0B0A32;
 }
 
 app-router-loader .loading{
-    --bg-color: #11BB7D;
+    --bg-color: #2F5FF0;
 }
 
 #referral-gifts{
