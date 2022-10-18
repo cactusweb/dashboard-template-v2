@@ -1,67 +1,67 @@
 $phone-size: 780px;
 
 :root{
-    --primary-color: #11BB7D; 
-    --primary-color--hover: #12D38D;
+    --primary-color: #581EE9; 
+    --primary-color--hover: #5216E9;
     
-    --text-color--label: #fff;
+    --text-color--label: #EBE9FF;
 
-    --input-color: #303030;
+    --input-color: #EBE9FF;
     
     
-    --err-color: #E55353;
-    --err-color--hover: #F04343;
+    --err-color: #962E2E;
+    --err-color--hover: #B42F2F;
 
 
-    --success-color: #47B44B;
-    --success-color--hover: #46CD4B;
+    --success-color: #2C9636;
+    --success-color--hover: #2EAE3B;
 
 
-    --color--secondary: #737373;
-    --color--secondary-hover: #CFCFCF;
+    --color--secondary: #888299;
+    --color--secondary-hover: #EBE9FF;
 
     
-    --color--loading-data: #262626;
+    --color--loading-data: #281850;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #17181C;
+    --bg-color: #160C2E;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: #303030;
+    --bg-color: #170D33;
 }
 
 
 .btn, .score__number{
-    --color: #303030;
+    --color: #EBE9FF;
     &--success, &--err{
-        --color: #303030;
+        --color: #EBE9FF;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #303030;
+        --color: #EBE9FF;
     }
 }
 
 .form-control, .btn-icon{
-    --bg-color: #fff;
-    --placeholder: #a2a2a2;
+    --bg-color: #ffffff00;
+    --placeholder: #746E8D;
     --radius: 8px;
-    --border: #fff;
+    --border: #EBE9FF;
 }
 
 .btn-icon{
-    --bg-color: #fff;
+    --bg-color: #170D33;
 }
 
 
 nav img{
-    --heigth: 60px;
+    --heigth: 70px;
     @media screen and ( max-width: 780px ) {
-        --heigth: 60px;
+        --heigth: 70px;
     }
 }
 
@@ -72,23 +72,31 @@ nav img{
 
 
 .notification{
-    --err-color: #BF3D3D;
-    --info-color: #166D4D;
-    --success-color: #18A326;
+    --err-color: #A53838;
+    --info-color: #3D1899;
+    --success-color: #178421;
 }
 
 
 
 .checkbox-wrapper{
-    --bg-color: #fff;
+    --bg-color: #EBE9FF;
     --radius: 4px;
-    --svg-color: #303030;
+    --svg-color: #160C2E;
 }
 
 app-router-loader .loading{
-    --bg-color: #11BB7D;
+    --bg-color: #c6afff;
 }
 
 #referral-gifts{
     --radius: 12px;
+}
+
+
+
+// custom styles
+body{
+    background-image: url('/assets/bg.png');
+    background-size: cover;
 }
