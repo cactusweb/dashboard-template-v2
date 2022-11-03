@@ -1,0 +1,30 @@
+:host{
+    justify-self: center;
+    transition: .4s;
+    &.disabled{
+        opacity: .5;
+    }
+}
+
+.converter{
+    column-gap: 8px;
+    justify-content: space-between;
+    min-width: 100px;
+    padding: 0px 12px;
+    height: 37px;
+
+    border: 1px solid var(--primary-color);
+    border-top: none;
+    border-radius: 0px 0px 10px 10px;
+
+    *{
+        color: var(--primary-color);
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+
+svg path{
+    fill: var(--primary-color);
+}

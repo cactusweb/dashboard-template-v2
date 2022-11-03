@@ -6,7 +6,7 @@ export interface Drop {
     
     currency: 'RUB' | 'USD' | 'EUR',
     price: number,
-    to_tub: number,
+    to_rub: number,
 
     payment_way: '' | 'Tinkoff' | 'Ameria'
     tinkoff: { terminal_key: string }

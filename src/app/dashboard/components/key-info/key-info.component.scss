@@ -5,7 +5,7 @@
 .full-width{
     gap: 16px;
     grid-template-columns: 1fr 160px;
-    @media screen and ( max-width: 780px ) {
+    @media screen and ( max-width: 520px ) {
         grid-template-columns: 1fr;
         grid-auto-flow: row;
     }
@@ -13,8 +13,6 @@
 
 
 .form-control{
-    grid-template-columns: 1fr auto;
-    padding: 0px;
     padding-left: 12px;
     text-align: left;
 }
@@ -51,5 +49,19 @@
   
     to {
       transform: rotate(360deg);
+    }
+}
+
+#infinity{
+    height: 16px; 
+    width: 18px; 
+    vertical-align: top;
+    @media screen and ( max-width: 780px ) {
+        height: 14px;
+        width: 16px;
+    }
+
+    path{
+        fill: var(--input-color)
     }
 }

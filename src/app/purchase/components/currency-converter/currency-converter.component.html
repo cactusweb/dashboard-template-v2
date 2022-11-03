@@ -1,0 +1,11 @@
+<p class="converter row" *ngVar="(priceData|async) as priceData">
+    <ng-template [ngIf]="priceData">
+        <span class="converter__price">{{priceData.price | currency:(priceData.currency||'USD'):'symbol-narrow':'1.0-0'}}</span>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+            <path d="M1 3.14286H11M11 3.14286L8.77778 1M11 3.14286L8.77778 5.28571M1 7.42857H11M1 7.42857L3.22222 5.28571M1 7.42857L3.22222 9.57143" stroke="#11BB7D" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <span class="converter__price">{{priceData.rubPrice | currency:'RUB':'symbol-narrow':'1.0-0'}}</span>
+    </ng-template>
+</p>
