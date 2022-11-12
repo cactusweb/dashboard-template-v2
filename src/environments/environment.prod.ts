@@ -6,6 +6,6 @@ export const environment = {
   site: 'https://dash.twfjournal.com',
   landing: 'https://twfjournal.com',
   
-  logo: '/assets/logo.png',
+  logo: '/assets/logo.svg',
   paymentInFrame: false
 };

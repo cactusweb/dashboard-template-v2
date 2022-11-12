@@ -1,68 +1,67 @@
 $phone-size: 780px;
 
 :root{
-    // --primary-color: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);; 
-    // --primary-color--hover: linear-gradient(90deg, #764DD8 -17.66%, #E44143 112.34%);;
-    --primary-color: #CF52D2;
+    --primary-color: #1A3899;
+    --primary-color--hover: #163BB1;
     
-    --text-color--label: #EBEBEB;
+    --text-color--label: #FFFFFF;
 
-    --input-color: #EBEBEB;
+    --input-color: #FFFFFF;
     
     
-    --err-color: #FF3D3D;
-    --err-color--hover: #EF2F2F;
+    --err-color: #E05353;
+    --err-color--hover: #F45252;
 
 
-    --success-color: #449647;
-    --success-color--hover: #38AB3C;
+    --success-color: #30A54A;
+    --success-color--hover: #28BB48;
 
 
-    --color--secondary: #B4B4B4;
-    --color--secondary-hover: #EBEBEB;
+    --color--secondary: #CDCDCD;
+    --color--secondary-hover: #FFFFFF;
 
     
-    --color--loading-data: #593147;
+    --color--loading-data: #ffffff10;
 }
 
 
 body, span.hr, referral-gifts li{
-    --bg-color: #97434A;
+    --bg-color: #303CBA;
 }
 
 .window{
     --radius: 18px;
-    --bg-color: radial-gradient(95.86% 195.79% at 2.75% 4.52%, rgba(61, 61, 61, 0.8) 0%, rgba(61, 61, 61, 0.3) 100%);
+    --bg-color: rgba(255, 255, 255, 0.22);
 }
 
 
 .btn, .score__number{
-    --color: #EBEBEB;
+    --color: #FFFFFF;
     &--success, &--err{
-        --color: #EBEBEB;
+        --color: #FFFFFF;
     }
 
     &--outline-err:hover, &--outline-primary:hover, &--outline-success:hover{
-        --color: #EBEBEB;
+        --color: #FFFFFF;
     }
 }
 
 .form-control, .btn-icon{
-    --bg-color: #5A2C41B2;
-    --placeholder: #AF8596;
+    --bg-color: #ffffff00;
+    --placeholder: #ffffff60;
     --radius: 8px;
-    --border: #5A2C41B2;
+    --border: #ffffff60;
 }
 
 .btn-icon{
-    --bg-color: #5A2C41B2;
+    --bg-color: rgba(255, 255, 255, 0.0);;
 }
 
 
 nav img{
-    --heigth: 80px;
+    --heigth: 60px;
     @media screen and ( max-width: 780px ) {
-        --heigth: 80px;
+        --heigth: 60px;
     }
 }
 
@@ -73,17 +72,17 @@ nav img{
 
 
 .notification{
-    --err-color: #D43F3F;
-    --info-color: #CF52D2;
-    --success-color: #439246;
+    --err-color: #EF5F5F;
+    --info-color: #FFFFFF;
+    --success-color: #53CE5F;
 }
 
 
 
 .checkbox-wrapper{
-    --bg-color: #EBEBEB;
+    --bg-color: #FFFFFF;
     --radius: 4px;
-    --svg-color: #643145;
+    --svg-color: #1A3899;
 }
 
 app-router-loader .loading{
@@ -96,20 +95,19 @@ app-router-loader .loading{
 
 
 // custom styles
-.window{
-    border: 1px solid rgba(78, 78, 78, 0.3);
-}
-
-
 body{
     background-image: url('/assets/bg.png');
     background-size: cover;
+    @media screen and ( max-width: $phone-size ) {
+        background-position: -200px center !important;
+        background-size: auto 100%;
+    }
 }
 
-.btn--primary{
-    --primary-color: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);
-    --primary-color--hover: linear-gradient(90deg, #7656BF -17.66%, #CC4A4C 112.34%);
-    &:not(:disabled):hover{
-        filter: brightness(1.1);
-    }
+.btn-icon:hover svg path{
+    fill: var(--text-color--label) !important
+}
+
+.notification{
+    backdrop-filter: blur(2px);
 }
