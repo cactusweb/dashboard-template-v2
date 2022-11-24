@@ -1,6 +1,6 @@
 import { User } from "src/app/tools/interfaces/user"
 
-export interface Drop {
+export interface Order {
     Receipt: Record<any,any>,
     description: string,
     

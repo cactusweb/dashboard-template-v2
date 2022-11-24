@@ -7,7 +7,7 @@ import { LicenseService } from 'src/app/dashboard/services/license.service';
 import { Req } from 'src/app/tools/interfaces/req-map';
 import { HttpService } from 'src/app/tools/services/http.service';
 import { environment } from 'src/environments/environment';
-import { Drop } from '../interfaces/drop';
+import { Order } from '../interfaces/order';
 import { TinkoffService } from './tinkoff.service';
 
 declare const TinkoffWidget: any;
@@ -16,7 +16,7 @@ declare const TinkoffWidget: any;
   providedIn: 'root'
 })
 export class DropService {
-  private drop: Drop|undefined;
+  private drop: Order|undefined;
   private loading: boolean = false;
 
   public $purchaseState = new BehaviorSubject<'btn' | 'form' | 'payment' | 'status-check' | 'status-failed' | 'status-success' | 'status-payment-failed'>('btn')
@@ -30,9 +30,9 @@ export class DropService {
   }
 
 
-  getDrop(): Observable<Drop>{
+  getDrop(): Observable<Order>{
     if ( this.drop ) 
-      return new BehaviorSubject<Drop>(this.drop)
+      return new BehaviorSubject<Order>(this.drop)
 
     this.loading = true;
 
