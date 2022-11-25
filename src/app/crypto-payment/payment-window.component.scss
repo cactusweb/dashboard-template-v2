@@ -1,9 +1,11 @@
-.overlay{
-    padding: 30px 24px;
+:host{
+    display: grid;
+    max-width: 600px;
+    width: 100%;
 }
 
 .window{
-    max-width: 600px;
+    max-width: initial;
     width: 100%;
     row-gap: 24px;
     padding-top: 40px;
