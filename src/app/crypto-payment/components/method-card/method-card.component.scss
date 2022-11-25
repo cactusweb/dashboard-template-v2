@@ -1,0 +1,43 @@
+.method{
+    height: 44px;
+    display: grid;
+    row-gap: 2px;
+    
+    cursor: pointer;
+    transition: .3s;
+
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+
+    border: 1px solid transparent;
+
+    &:hover{
+        border-color: var(--primary-color);
+    }
+
+    &.btn--primary *{
+        color: var(--color) !important;
+    }
+
+    &.btn--primary:hover{
+        background-color: var(--primary-color);
+    }
+    
+
+    &__amount{
+        column-gap: 4px;
+    }
+
+    &__icon{
+        height: 16px;
+        width: auto;
+    }
+
+    *{
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 500;
+        color: var(--input-color)
+    }
+}

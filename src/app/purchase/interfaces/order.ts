@@ -1,4 +1,5 @@
 import { User } from "src/app/tools/interfaces/user"
+import { CryptoPaymentMethod } from "./crypto-payment-method"
 
 export interface Order {
     Receipt: Record<any,any>,
@@ -10,6 +11,7 @@ export interface Order {
 
     payment_way: '' | 'Tinkoff' | 'Ameria'
     tinkoff: { terminal_key: string }
+    crypto: CryptoPaymentMethod[]
 
     id: string
     
