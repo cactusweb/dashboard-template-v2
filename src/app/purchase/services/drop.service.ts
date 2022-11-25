@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, catchError, EMPTY, filter, finalize, map, Observable, take, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, filter, finalize, map, Observable, of, take, tap, throwError } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { License } from 'src/app/dashboard/interfaces/license';
 import { LicenseService } from 'src/app/dashboard/services/license.service';
@@ -41,7 +41,7 @@ export class DropService {
 
   getDrop(): Observable<Order>{
     if ( this.drop ) 
-      return new BehaviorSubject<Order>(this.drop)
+      return of<Order>(this.drop)
 
     this.loading = true;
 
