@@ -9,7 +9,9 @@
     </button>
 </div>
 
-<!-- <div class="overlay" *ngIf="showPayment && order"> -->
-    <!-- <div class="artboard" (click)="showPayment = false"></div> -->
-<payment-window *ngIf="showPayment && order" [order]="order" (onClose)="showPayment = false"></payment-window>
-<!-- </div> -->
+<payment-window *ngIf="showPayment && order" 
+    [order]="order" (onClose)="showPayment = false"
+    (onSuccess)="onSuccessRenew()"
+></payment-window>
+
+<renew-success *ngIf="showSuccessWindow" (onClose)="showSuccessWindow = false"></renew-success>

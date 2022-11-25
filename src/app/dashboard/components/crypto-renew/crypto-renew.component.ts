@@ -3,6 +3,7 @@ import { finalize, take } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { Order } from 'src/app/purchase/interfaces/order';
 import { HttpService } from 'src/app/tools/services/http.service';
+import { LicenseService } from '../../services/license.service';
 import { CryptoRenewService } from './crypto-renew.service';
 
 @Component({
@@ -18,9 +19,11 @@ export class CryptoRenewComponent implements OnInit {
   loading: boolean = false;
 
   showPayment: boolean = false;
+  showSuccessWindow: boolean = false;
 
   constructor(
-    private crypto: CryptoRenewService
+    private crypto: CryptoRenewService,
+    private license: LicenseService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +44,14 @@ export class CryptoRenewComponent implements OnInit {
         },
         error: e => {}
       })
+  }
+
+  onSuccessRenew(){
+    this.showPayment = false;
+    this.order = undefined;
+    this.crypto.resetOrder();
+    this.license.renewLicense()
+    this.showSuccessWindow = true;
   }
 
 }
