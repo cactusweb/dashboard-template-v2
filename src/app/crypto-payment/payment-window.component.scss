@@ -18,3 +18,9 @@ fieldset{
 info-link{
     margin-top: 8px;
 }
+
+.btn{
+    @media screen and ( max-width: 780px ) {
+        height: 44px;
+    }
+}
