@@ -19,7 +19,16 @@ export class DropService {
   private drop: Order|undefined;
   private loading: boolean = false;
 
-  public $purchaseState = new BehaviorSubject<'btn' | 'form' | 'payment' | 'status-check' | 'status-failed' | 'status-success' | 'status-payment-failed'>('btn')
+  public $purchaseState = new BehaviorSubject<
+    'btn' | 
+    'form' | 
+    'payment' | 
+    'crypto-payment' |
+    'status-check' | 
+    'status-failed' |
+    'status-success' |
+    'status-payment-failed'
+  >('btn')
 
   constructor(
     private http: HttpService,
