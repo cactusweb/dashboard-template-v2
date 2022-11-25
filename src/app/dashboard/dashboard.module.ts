@@ -15,6 +15,7 @@ import { BindCardModule } from '../bind-card/bind-card.module';
 import { UnbindApproveComponent } from './components/unbind-approve/unbind-approve.component';
 import { CryptoRenewComponent } from './components/crypto-renew/crypto-renew.component';
 import { CryptoPaymentModule } from '../crypto-payment/crypto-payment.module';
+import { RenewSuccessComponent } from './components/renew-success/renew-success.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent }
@@ -32,6 +33,7 @@ const routes: Routes = [
     ReferralGiftsComponent,
     UnbindApproveComponent,
     CryptoRenewComponent,
+    RenewSuccessComponent,
   ],
   imports: [
     CommonModule,
