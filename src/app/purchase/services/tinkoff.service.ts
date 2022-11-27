@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Drop } from '../interfaces/drop';
+import { Order } from '../interfaces/order';
 
 interface InpData{
   name: string,
@@ -29,7 +29,7 @@ export class TinkoffService {
   constructor() { }
 
 
-  getForm( drop: Drop, email: string, isBinding: boolean = false ){
+  getForm( drop: Order, email: string, isBinding: boolean = false ){
     drop.Receipt['Email'] = email;
     this.inpDatas[9].value = email
     

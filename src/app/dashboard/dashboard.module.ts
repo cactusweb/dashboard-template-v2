@@ -13,6 +13,9 @@ import { ToolsModule } from '../tools/tools.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BindCardModule } from '../bind-card/bind-card.module';
 import { UnbindApproveComponent } from './components/unbind-approve/unbind-approve.component';
+import { CryptoRenewComponent } from './components/crypto-renew/crypto-renew.component';
+import { CryptoPaymentModule } from '../crypto-payment/crypto-payment.module';
+import { RenewSuccessComponent } from './components/renew-success/renew-success.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent }
@@ -29,12 +32,15 @@ const routes: Routes = [
     LicenseInfoComponent,
     ReferralGiftsComponent,
     UnbindApproveComponent,
+    CryptoRenewComponent,
+    RenewSuccessComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ToolsModule,
-    BindCardModule
+    BindCardModule,
+    CryptoPaymentModule
   ],
   providers: [DatePipe, CurrencyPipe]
 })
