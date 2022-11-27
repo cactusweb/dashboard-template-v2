@@ -1,0 +1,4 @@
+<ng-container *ngVar="(nft.bindStatus|async) as status">
+    <app-form *ngIf="status == 'form'"></app-form>
+    <app-status-err *ngIf="status == 'err'"></app-status-err>
+</ng-container>
