@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { LicenseService } from 'src/app/dashboard/services/license.service';
-import { Drop } from 'src/app/purchase/interfaces/drop';
+import { Order } from 'src/app/purchase/interfaces/order';
 import { DropService } from 'src/app/purchase/services/drop.service';
 import { TinkoffService } from 'src/app/purchase/services/tinkoff.service';
 import { HttpService } from 'src/app/tools/services/http.service';
@@ -13,15 +13,15 @@ declare const TinkoffWidget: any;
   providedIn: 'root'
 })
 export class BindCardService {
-  bindOrder: Drop|undefined;
+  bindOrder: Order|undefined;
 
   constructor(
     private http: HttpService,
     private tinkoff: TinkoffService,
   ) { }
 
-  getBindOrder(): Observable<Drop>{
-    if ( this.bindOrder ) return new BehaviorSubject<Drop>(this.bindOrder).asObservable();
+  getBindOrder(): Observable<Order>{
+    if ( this.bindOrder ) return new BehaviorSubject<Order>(this.bindOrder).asObservable();
 
     return this.http.request( Requests['startSub'] )
       .pipe(
