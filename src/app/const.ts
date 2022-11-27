@@ -31,4 +31,6 @@ export const Requests: reqMap = {
 
     stopSub: { url: `/license/${ownerName}/subscription`, method: 'DELETE' },
     startSub: { url: `/license/${ownerName}/subscription`, method: 'GET' },
+
+    getRenewOrder: { url: `/license/${ownerName}/renew`, method: 'GET' }
 }
