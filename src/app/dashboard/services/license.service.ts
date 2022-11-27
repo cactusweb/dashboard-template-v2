@@ -147,4 +147,14 @@ export class LicenseService {
       )
   }
 
+
+  public renewLicense(){
+    if ( !this.license ) return
+    
+    this.license = {
+      ...this.license,
+      expires_in: this.license.expires_in ? new Date(this.license.expires_in).setMonth(new Date(this.license.expires_in).getMonth()+1) : this.license.expires_in
+    }
+  }
+
 }
