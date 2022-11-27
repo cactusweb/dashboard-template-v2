@@ -26,3 +26,7 @@ info-link{
         height: 44px;
     }
 }
+
+:host ::ng-deep .form-control{
+    height: 44px;
+}
