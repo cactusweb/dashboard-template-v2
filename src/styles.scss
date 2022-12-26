@@ -348,6 +348,13 @@ main > *{
     }
 
     
+    &--outline-err &__svg path{
+        fill: var(--err-color);
+    }
+    
+    &--outline-err:hover &__svg path{
+        fill: var(--color);
+    }
     
     ngx-spinner > div > div{
         width: 25px !important;
