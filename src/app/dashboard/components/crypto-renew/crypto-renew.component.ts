@@ -4,13 +4,13 @@ import { Requests } from 'src/app/const';
 import { Order } from 'src/app/purchase/interfaces/order';
 import { HttpService } from 'src/app/tools/services/http.service';
 import { LicenseService } from '../../services/license.service';
-import { CryptoRenewService } from './crypto-renew.service';
+import { RenewService } from '../../services/renew.service';
 
 @Component({
   selector: 'app-crypto-renew',
   templateUrl: './crypto-renew.component.html',
   styleUrls: ['./crypto-renew.component.scss'],
-  providers: [CryptoRenewService]
+  providers: [RenewService]
 })
 export class CryptoRenewComponent implements OnInit {
   @Input() disabled: boolean = false;
@@ -22,7 +22,7 @@ export class CryptoRenewComponent implements OnInit {
   showSuccessWindow: boolean = false;
 
   constructor(
-    private crypto: CryptoRenewService,
+    private renew: RenewService,
     private license: LicenseService
   ) { }
 
@@ -32,7 +32,7 @@ export class CryptoRenewComponent implements OnInit {
   getOrder(){
     this.loading = true;
 
-    this.crypto.getRenewOrder()
+    this.renew.getOrder()
       .pipe(
         take(1),
         finalize(() => this.loading = false)
@@ -49,7 +49,7 @@ export class CryptoRenewComponent implements OnInit {
   onSuccessRenew(){
     this.showPayment = false;
     this.order = undefined;
-    this.crypto.resetOrder();
+    this.renew.resetOrder();
     this.license.renewLicense()
     this.showSuccessWindow = true;
   }
