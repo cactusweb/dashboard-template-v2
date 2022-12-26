@@ -13,18 +13,16 @@
 
 <div class="control-wrapper" [class.control-wrapper--disabled]="paymentIsDisabled()" *ngVar="(payment?.last_4) as isStart">
     <span class="control-wrapper__label">Auto-renewal</span>
-    <button 
-        class="btn"
-        [ngClass]="{ 
-            'btn--success': !isStart, 
-            'btn--err': isStart,
-            'btn--loading': loading
-        }" 
+    <button *ngIf="!isStart"
+        class="btn btn--success"
+        [class.btn--loading]="loading" 
         [disabled]="loading || paymentIsDisabled()" 
-        (click)="isStart ? cancel() : bindCard()"
+        (click)="bindCard()"
     >
-        <btn-loader [text]="isStart ? 'Cancel' : 'Activate'" [isSpinner]="loading"></btn-loader>
+        <btn-loader text="Activate" [isSpinner]="loading"></btn-loader>
     </button>
+
+    <app-payment-action-btns *ngIf="isStart"></app-payment-action-btns>
 </div>
 
 

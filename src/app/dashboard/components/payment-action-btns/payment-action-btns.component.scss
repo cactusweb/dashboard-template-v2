@@ -1,0 +1,68 @@
+button span{
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.btn{
+    padding: 0px;
+    min-width: 48px;
+    transition: .4s;
+
+    @media screen and ( max-width: 781px ) {
+        width: 100% !important;
+    }
+
+    *{
+        transition: .1s;
+    }
+
+    &__svg{
+        margin-left: 0px;
+        path{
+            transition: .4s;
+        }
+    }
+    
+    .text{
+        opacity: 0;
+        display: none;
+    }
+
+    .icon{
+        display: grid;
+        place-items: center;
+    }
+
+    @media screen and ( min-width: 781px) {
+        .icon{
+            opacity: 0;
+            display: none;
+        }
+
+        .text{
+            opacity: 1;
+            display: initial;
+        }
+    }
+
+
+        &--icon{
+            .icon{
+                opacity: 1;
+                display: grid;
+            }
+    
+            .text{
+                opacity: 0;
+                display: none;
+            }
+        
+        }
+
+}
+
+
+.row{
+    column-gap: 8px;
+}
