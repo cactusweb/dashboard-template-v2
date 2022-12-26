@@ -16,6 +16,7 @@ import { UnbindApproveComponent } from './components/unbind-approve/unbind-appro
 import { CryptoRenewComponent } from './components/crypto-renew/crypto-renew.component';
 import { CryptoPaymentModule } from '../crypto-payment/crypto-payment.module';
 import { RenewSuccessComponent } from './components/renew-success/renew-success.component';
+import { PaymentActionBtnsComponent } from './components/payment-action-btns/payment-action-btns.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent }
@@ -34,6 +35,7 @@ const routes: Routes = [
     UnbindApproveComponent,
     CryptoRenewComponent,
     RenewSuccessComponent,
+    PaymentActionBtnsComponent,
   ],
   imports: [
     CommonModule,
