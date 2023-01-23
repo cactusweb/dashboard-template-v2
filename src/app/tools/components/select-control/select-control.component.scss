@@ -1,0 +1,75 @@
+.form-control{
+    text-align: start;
+    justify-content: start;
+    padding-left: 12px;
+
+    &__icon{
+        width: 20px;
+        height: 20px;
+        padding: 0px;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translate(0, -50%);
+        transform-origin: center;
+
+        transition: .35s;
+        &--rotate{
+            transform: translate(0, -50%) rotate(180deg);
+        }
+
+        svg path{
+            fill: var(--input-color);
+        }
+    }
+}
+
+.dropdown{
+    width: 100%;
+    
+    position: absolute;
+
+    bottom: -4px;
+    left: 50%;
+    transform: scale(1, 0) translate(-50%, 100%);
+
+    background-color: inherit;
+    border-radius: inherit;
+
+    z-index: 2;
+
+    font-size: inherit;
+
+    transition: .35s;
+    transform-origin: bottom;
+
+    &--active{
+        transform: scale(1, 1) translate(-50%, 100%);
+    }
+
+    &__menu{
+        list-style: none;
+        display: grid;
+    }
+
+    &__menu-option{
+        display: flex;
+        padding: 10px 12px;
+
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: .1s;
+
+        &:hover{
+            border-color: var(--placeholder);
+        }
+
+        &:first-child{
+            border-radius: var(--radius) var(--radius) 0px 0px;
+        }
+
+        &:last-child{
+            border-radius: 0px 0px var(--radius) var(--radius);
+        }
+    }
+}
