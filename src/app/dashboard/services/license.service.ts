@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, filter, finalize, map, Observable, take, tap } from 'rxjs';
+import { BehaviorSubject, filter, finalize, map, Observable, of, take, tap } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { HttpService } from 'src/app/tools/services/http.service';
 import { ToolsService } from 'src/app/tools/services/tools.service';
+import { AdditionalActivationPlan } from '../interfaces/additional-activation-plan';
 import { License } from '../interfaces/license';
 import { ReferralPrize, ReferralPrizes } from '../interfaces/referral-prize';
 
@@ -12,6 +13,7 @@ import { ReferralPrize, ReferralPrizes } from '../interfaces/referral-prize';
 })
 export class LicenseService {
   private referralPrizes: ReferralPrizes|undefined;
+  private additionalActivationPlans: AdditionalActivationPlan[]|undefined;
 
   public _license!: License|null
 
@@ -144,6 +146,17 @@ export class LicenseService {
       .pipe(
         tap( d => this.referralPrizes = d ),
         map( d => d.prizes)
+      )
+  }
+
+  public getAdditionalActivationPlans(): Observable<AdditionalActivationPlan[]>{
+    if ( this.additionalActivationPlans )
+      return of(this.additionalActivationPlans);
+
+    return this.http.request( Requests['getAdditionalActivationPlans'] )
+      .pipe(
+        map( d => d.plans ),
+        tap( d => this.additionalActivationPlans = d ),
       )
   }
 
