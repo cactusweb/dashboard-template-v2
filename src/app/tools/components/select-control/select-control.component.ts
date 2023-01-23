@@ -39,7 +39,6 @@ export class SelectControlComponent implements ControlValueAccessor {
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
     if( this.eRef.nativeElement.contains(event.target) || !this.showDropDown ) return
-    console.log('asdsd')
     this.changeState();
   }
 
