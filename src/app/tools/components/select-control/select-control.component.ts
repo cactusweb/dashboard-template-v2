@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 type Value = string|number|null;
 
-interface SelectOption{
+export interface SelectOption{
   display: string|number,
   value: Value
 }
