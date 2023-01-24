@@ -170,4 +170,16 @@ export class LicenseService {
     }
   }
 
+
+  public addActivation(){
+    if ( !this.license ) return;
+
+    this.license = {
+      ...this.license,
+      activations: {
+        ...this.license.activations,
+        quantity: this.license.activations.quantity+1
+      }
+    }
+  }
 }
