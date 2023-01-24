@@ -30,7 +30,6 @@ export class MethodSelectorComponent implements ControlValueAccessor {
   constructor() { }
 
   writeValue(value: number): void {
-    console.log(value)
     this.val = value;
   }
 
