@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'renew-success',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 })
 export class RenewSuccessComponent {
   @Output() onClose = new EventEmitter()
+  @Input() subtitle = 'The subscription was successfully renewed.'
 
   @HostListener('document:keydown.escape', ['$event'])
   onEscape(e: KeyboardEvent){
