@@ -1,6 +1,9 @@
 import { User } from "src/app/tools/interfaces/user"
 import { CryptoPaymentMethod } from "./crypto-payment-method"
 
+type Created = 0;
+type Success = 5;
+
 export interface Order {
     Receipt: Record<any,any>,
     description: string,
@@ -17,6 +20,8 @@ export interface Order {
     
     email: string,
     user: string,
+
+    status: Created|Success
 
     inviter: User | null
 }
