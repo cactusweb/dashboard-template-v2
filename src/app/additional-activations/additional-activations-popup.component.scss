@@ -1,0 +1,17 @@
+.overlay{
+    @media screen and ( max-width: 780px ) {
+        position: fixed;
+        padding: 0px 20px;
+    }
+}
+
+.window{
+    @media screen and ( max-width: 780px ) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+fieldset{
+    row-gap: 10px;
+}
