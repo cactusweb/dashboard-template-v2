@@ -33,6 +33,8 @@
                     <path d="M4 20L0 16L4 12V15H14V11H16V16C16 16.5523 15.5523 17 15 17H4V20ZM4 9H2V4C2 3.44772 2.44772 3 3 3H14V0L18 4L14 8V5H4V9Z"/>
                 </svg>
             </button>
+
         </div>
+        <app-additional-activations *ngIf="showAdditionalActivations|async"></app-additional-activations>
     </div>
 </div>
