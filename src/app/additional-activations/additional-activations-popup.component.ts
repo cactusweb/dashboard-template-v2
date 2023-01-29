@@ -90,7 +90,7 @@ export class AdditionalActivationsPopupComponent implements OnInit {
   onSubmit(){
     this.form.markAllAsTouched();
 
-    if ( !this.form.valid ) return;
+    if ( this.form.get('duration')!.value === '' ) return;
 
     this.loading = true;
     (this.http.request( Requests['getAdditionalActivationOrder'], this.form.value ) as Observable<Order>)
