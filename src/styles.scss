@@ -386,6 +386,10 @@ main > *{
         color: var(--input-color) !important;
     }
 
+    &__placeholder{
+        color: var(--placeholder) !important;
+    }
+    
     border: 1px solid var(--border);
 
     // @media screen and ( max-width: $phone-size ) {
