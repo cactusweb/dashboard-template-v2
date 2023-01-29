@@ -38,7 +38,6 @@ export class PaymentActionBtnsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       let btnWidth = (this.eRef.nativeElement['offsetWidth']-8)/2 + 'px'
-      console.log(this.eRef.nativeElement['offsetWidth'] + 'px')
       this.eRef.nativeElement.style['max-width'] = this.eRef.nativeElement['offsetWidth'] + 'px'
       this.btnStates[1].width = btnWidth
       this.btnStates[2].width = btnWidth

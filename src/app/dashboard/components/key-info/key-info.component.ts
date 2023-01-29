@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { finalize, take } from 'rxjs';
+import { finalize, map, Observable, take } from 'rxjs';
 import { ToolsService } from 'src/app/tools/services/tools.service';
 import { License } from '../../interfaces/license';
 import { LicenseService } from '../../services/license.service';
@@ -13,12 +13,15 @@ export class KeyInfoComponent implements OnInit {
   @Input() license!: License|null;
   loading: boolean = false;
 
+  showAdditionalActivations!: Observable<boolean>;
+
   constructor(
     private lic: LicenseService,
     public tools: ToolsService
   ) { }
 
   ngOnInit(): void {
+    this.getAdditionalActivations()
   }
 
   onReset(){
@@ -32,6 +35,10 @@ export class KeyInfoComponent implements OnInit {
       .subscribe({
         error: () => {}
       })
+  }
+
+  getAdditionalActivations(){
+    this.showAdditionalActivations = this.lic.getAdditionalActivationPlans().pipe(map(d => !!d))
   }
 
 }
