@@ -17,6 +17,8 @@ import { CryptoRenewComponent } from './components/crypto-renew/crypto-renew.com
 import { CryptoPaymentModule } from '../crypto-payment/crypto-payment.module';
 import { RenewSuccessComponent } from './components/renew-success/renew-success.component';
 import { PaymentActionBtnsComponent } from './components/payment-action-btns/payment-action-btns.component';
+import { AdditionalActivationsComponent } from './components/additional-activations/additional-activations.component';
+import { AdditionalActivationsModule } from '../additional-activations/additional-activations.module';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent }
@@ -36,13 +38,15 @@ const routes: Routes = [
     CryptoRenewComponent,
     RenewSuccessComponent,
     PaymentActionBtnsComponent,
+    AdditionalActivationsComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ToolsModule,
     BindCardModule,
-    CryptoPaymentModule
+    CryptoPaymentModule,
+    AdditionalActivationsModule
   ],
   providers: [DatePipe, CurrencyPipe]
 })
