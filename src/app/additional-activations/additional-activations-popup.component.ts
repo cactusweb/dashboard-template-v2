@@ -68,7 +68,7 @@ export class AdditionalActivationsPopupComponent implements OnInit {
   }
 
   getPeriodNameByDays(daysCount: number|null){
-    if ( !daysCount ) return 'Lifetime'
+    if ( !daysCount ) return 'Lifetime license-bounded'
     if ( daysCount % 7 == 0 ) return `${daysCount / 7} week(s)`; 
     if ( daysCount % 30 == 0 ) return `${daysCount / 30} month(s)`;
     if ( daysCount % 365 == 0 ) return `${daysCount / 365} year(s)`;
