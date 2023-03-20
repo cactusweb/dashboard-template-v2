@@ -38,3 +38,20 @@
 </div>
 
 <renew-success *ngIf="showSuccessWindow" (onClose)="showSuccessWindow = false"></renew-success>
+
+
+<div class="overlay overlay--full-screen" *ngIf="needAgreement">
+    <div class="artboard" (click)="needAgreement = false"></div>
+    <div class="window popup">
+      <h2 class="window__title">Are you sure?</h2>
+      <p class="window__text">
+        Your renewal amount will be debited from the linked card. <br />
+        Continue?
+      </p>
+      <div class="btns row" style="column-gap: 1em">
+        <button class="btn btn--primary" (click)="onRenew()">Pay now</button>
+        <button class="btn btn--outline-primary" (click)="needAgreement = false">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
