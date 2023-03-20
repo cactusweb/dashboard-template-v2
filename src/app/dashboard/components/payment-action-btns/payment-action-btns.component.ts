@@ -7,7 +7,7 @@ import { RenewService } from '../../services/renew.service';
   selector: 'app-payment-action-btns',
   templateUrl: './payment-action-btns.component.html',
   styleUrls: ['./payment-action-btns.component.scss'],
-  providers: [RenewService]
+  providers: [RenewService],
 })
 export class PaymentActionBtnsComponent implements OnInit, AfterViewInit {
   loadingCancel: boolean = false;
@@ -15,104 +15,111 @@ export class PaymentActionBtnsComponent implements OnInit, AfterViewInit {
   loadingRenew: boolean = false;
   showSuccessWindow: boolean = false;
 
+  needAgreement: boolean = false;
+
   btnStates = {
     1: {
       width: 'auto',
-      icon: true
+      icon: true,
     },
     2: {
       width: 'auto',
-      icon: true
-    }
-  }
+      icon: true,
+    },
+  };
 
   constructor(
     private lic: LicenseService,
     private renew: RenewService,
-    private eRef: ElementRef,
-  ) { }
+    private eRef: ElementRef
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      let btnWidth = (this.eRef.nativeElement['offsetWidth']-8)/2 + 'px'
-      this.eRef.nativeElement.style['max-width'] = this.eRef.nativeElement['offsetWidth'] + 'px'
-      this.btnStates[1].width = btnWidth
-      this.btnStates[2].width = btnWidth
-    }, );
+      let btnWidth = (this.eRef.nativeElement['offsetWidth'] - 8) / 2 + 'px';
+      this.eRef.nativeElement.style['max-width'] =
+        this.eRef.nativeElement['offsetWidth'] + 'px';
+      this.btnStates[1].width = btnWidth;
+      this.btnStates[2].width = btnWidth;
+    });
   }
 
-  cancel(){
+  cancel() {
     this.loadingCancel = true;
 
-    this.lic.cancelPayment()
+    this.lic
+      .cancelPayment()
       .pipe(
         take(1),
-        finalize(() => this.loadingCancel = false)
+        finalize(() => (this.loadingCancel = false))
       )
-      .subscribe({error: () => {}})
+      .subscribe({ error: () => {} });
   }
 
-  async onRenew(){
+  async onRenew() {
+    if ( !this.needAgreement ){
+      this.needAgreement = true;
+      return
+    }
+    this.needAgreement = false;
+
     let success = true;
     this.loadingRenew = true;
 
+    await this.renew
+      .getOrder()
+      .pipe(take(1))
+      .toPromise()
+      .then((w) => {})
+      .catch((e) => (success = false));
 
-    await this.renew.getOrder()
-      .pipe(take(1)).toPromise()
-      .then(w => {})
-      .catch(e => success = false)
-
-    if ( !success ){
+    if (!success) {
       this.loadingRenew = false;
-      return
+      return;
     }
 
-    this.renew.putOrder({})
+    this.renew
+      .putOrder({})
       .pipe(
         take(1),
-        finalize(() => this.loadingRenew = false)
+        finalize(() => (this.loadingRenew = false))
       )
       .subscribe({
         next: () => {},
         error: () => this.renew.resetOrder(),
-        complete: () => this.handleSuccessRenew()
-      })
-      
+        complete: () => this.handleSuccessRenew(),
+      });
   }
 
-
-  handleSuccessRenew(){
+  handleSuccessRenew() {
     this.lic.renewLicense();
     this.renew.resetOrder();
     this.showSuccessWindow = true;
   }
 
-  onChangeBtnStates(maxBtn: 1|2, isHover: boolean){
-    if (!isHover){
-      let btnWidth = (this.eRef.nativeElement['offsetWidth']-8)/2 + 'px'
+  onChangeBtnStates(maxBtn: 1 | 2, isHover: boolean) {
+    if (!isHover) {
+      let btnWidth = (this.eRef.nativeElement['offsetWidth'] - 8) / 2 + 'px';
       let initial = {
         width: btnWidth,
-        icon: true
+        icon: true,
       };
 
       this.btnStates = {
         1: initial,
         2: initial,
-      }
+      };
 
-      return
+      return;
     }
-
 
     this.btnStates[maxBtn] = {
       icon: false,
-      width: (this.eRef.nativeElement['offsetWidth']-8-48) + 'px'
-    }
+      width: this.eRef.nativeElement['offsetWidth'] - 8 - 48 + 'px',
+    };
 
-    this.btnStates[(maxBtn%2+1) as 1|2].width = '48px'
+    this.btnStates[((maxBtn % 2) + 1) as 1 | 2].width = '48px';
   }
-
 }

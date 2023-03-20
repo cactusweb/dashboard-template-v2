@@ -29,6 +29,8 @@ export class AdditionalActivationsPopupComponent implements OnInit {
   selectOptions: SelectOption[] = []
   activationPlans: AdditionalActivationPlan[] = [];
 
+  needAgreement: boolean = false;
+
   constructor(
     private lic: LicenseService,
     private currency: CurrencyPipe,
@@ -91,7 +93,12 @@ export class AdditionalActivationsPopupComponent implements OnInit {
     this.form.markAllAsTouched();
 
     if ( this.form.get('duration')!.value === '' ) return;
-
+    
+    if (!this.needAgreement){
+      this.needAgreement = true;
+      return
+    }
+    this.needAgreement = false;
     this.loading = true;
     (this.http.request( Requests['getAdditionalActivationOrder'], this.form.value ) as Observable<Order>)
       .pipe(

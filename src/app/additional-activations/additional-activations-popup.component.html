@@ -1,7 +1,7 @@
-<div class="overlay overlay--full-screen">
+<div class="overlay overlay--full-screen"z>
     <div class="artboard" (click)="onClose.emit()"></div>
 
-    <form class="window popup" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="window popup" [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!needAgreement">
         <h1 class="window__title">Purchase of activations</h1>
         
         <fieldset class="window__body">
@@ -15,5 +15,25 @@
             </button>
         </fieldset>
     </form>
+    
+    <ng-container *ngIf="needAgreement">
+        <div class="window popup">
+            <h1 class="window__title">Are u sure?</h1>
+            <p class="window__text">
+                <span *ngIf="form.get('duration')!.value === null">
+                    You are buying a <span style="text-decoration: underline;">lifetim instance</span>, not a subscription. <br />
+                </span>
+                If your card is linked, the amount will be debited automatically <br />
+                Continue?
+            </p>
+        
+            <div class="row" style="grid-gap: 1em;">
+                <button class="btn btn--primary" (click)="onSubmit()">
+                    Pay now
+                </button>
+                <button class="btn btn--outline-primary" (click)="needAgreement = false">Cancel</button>
+            </div>
+        </div>
+    </ng-container>
 
 </div>
