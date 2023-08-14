@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.cactusweb.io/api/v2/user',
+  apiUrl: 'https://api.ryodancrypto.com/api/v2/user',
 
-  ownerName: 'CactusSoft',
-  site: 'http://localhost:4200',
+  ownerName: 'Ryodan Crypto',
+  site: 'https://dash.ryodancrypto.com',
   landing: '',
   
-  logo: '/assets/logo.svg',
+  logo: '/assets/logo.png',
   paymentInFrame: false
 };
