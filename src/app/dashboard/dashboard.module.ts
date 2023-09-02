@@ -19,6 +19,8 @@ import { RenewSuccessComponent } from './components/renew-success/renew-success.
 import { PaymentActionBtnsComponent } from './components/payment-action-btns/payment-action-btns.component';
 import { AdditionalActivationsComponent } from './components/additional-activations/additional-activations.component';
 import { AdditionalActivationsModule } from '../additional-activations/additional-activations.module';
+import { RyodanWindowComponent } from './customization/ryodan-window/ryodan-window.component';
+import { RyodanBinanceIDFormComponent } from './customization/ryodan-binanceid-form/ryodan-binanceid-form.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent }
@@ -39,6 +41,8 @@ const routes: Routes = [
     RenewSuccessComponent,
     PaymentActionBtnsComponent,
     AdditionalActivationsComponent,
+    RyodanWindowComponent,
+    RyodanBinanceIDFormComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +50,9 @@ const routes: Routes = [
     ToolsModule,
     BindCardModule,
     CryptoPaymentModule,
-    AdditionalActivationsModule
+    AdditionalActivationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [DatePipe, CurrencyPipe]
 })

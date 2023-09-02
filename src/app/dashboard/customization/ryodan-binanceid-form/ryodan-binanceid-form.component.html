@@ -1,0 +1,26 @@
+<div class="overlay overlay--full-screen">
+  <div class="artboard" (click)="close.emit()"></div>
+
+  <form class="window popup" (ngSubmit)="putBinanceId()" [formGroup]="form">
+    <h1 class="window__title">Binance ID form</h1>
+
+    <fieldset class="window__body">
+      <input
+        type="text"
+        class="form-control form-control--text-center"
+        autocomplete="off"
+        placeholder="Enter your Binance ID"
+        formControlName="binanceId"
+      />
+
+      <button
+        class="btn btn--primary"
+        *ngVar="loading$ | async as loading"
+        [disabled]="loading"
+        [class.btn--loading]="loading"
+      >
+        <btn-loader [isSpinner]="loading" text="Save"></btn-loader>
+      </button>
+    </fieldset>
+  </form>
+</div>

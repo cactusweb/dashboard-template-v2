@@ -26,7 +26,7 @@ export class LicenseService {
     return this._license
   }
 
-  private $license = new BehaviorSubject<License|null>(null)
+  $license = new BehaviorSubject<License|null>(null)
 
   public loading: boolean = false;
   public lastFetch: number = 0;

@@ -22,5 +22,7 @@ export interface License {
 
     discord: LicenseDs,
 
-    referral: LicenseReferral | null
+    referral: LicenseReferral | null,
+
+    description: string,
 }
