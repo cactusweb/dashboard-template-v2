@@ -1,0 +1,24 @@
+<div class="overlay overlay--full-screen">
+  <div class="artboard" (click)="close.emit()"></div>
+
+  <div class="window popup">
+    <div class="window__header">
+      <h2 class="window__title">{{ windowTitle }}</h2>
+      <div
+        class="window__state"
+        *ngIf="state"
+        [ngClass]="{
+          window__state_red: state === RyodanReportStates.REJECTED,
+          window__state_green: state === RyodanReportStates.CONFIRMED,
+          window__state_yellow:
+            state === RyodanReportStates.REVISION ||
+            state === RyodanReportStates.CHECK
+        }"
+      >
+        {{ state.toLowerCase() }}
+      </div>
+    </div>
+
+    <ng-content></ng-content>
+  </div>
+</div>

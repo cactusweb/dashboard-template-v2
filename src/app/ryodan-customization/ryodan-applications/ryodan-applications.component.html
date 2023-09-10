@@ -1,0 +1,33 @@
+<ryodan-wrapper
+  [items]="applications$ | async"
+  [pending]="!!(pending$ | async)"
+  (update)="getApplications()"
+  (viewItem)="onViewApplication($event)"
+>
+  <button
+    header-btn
+    class="btn btn--outline-primary"
+    (click)="formOpened$.next(true)"
+  >
+    New application
+  </button>
+</ryodan-wrapper>
+
+<ryodan-popup
+  *ngIf="viewingApplication"
+  [windowTitle]="'Application №' + viewingApplication.number"
+  [state]="viewingApplication.state"
+  (close)="viewingApplication = null"
+>
+  <ryodan-application-view
+    [application]="viewingApplication"
+  ></ryodan-application-view>
+</ryodan-popup>
+
+<ryodan-popup
+  *ngIf="formOpened$ | async"
+  windowTitle="New application"
+  (close)="formOpened$.next(false)"
+>
+  <ryodan-application-form></ryodan-application-form>
+</ryodan-popup>

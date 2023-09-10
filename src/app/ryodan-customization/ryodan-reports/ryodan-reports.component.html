@@ -1,0 +1,8 @@
+<ryodan-wrapper
+  [items]="reports$ | async"
+  [pending]="!!(pending$ | async)"
+  (update)="getReports()"
+  (viewItem)="onViewReport($event)"
+>
+  <button header-btn class="btn btn--outline-primary">New reports</button>
+</ryodan-wrapper>

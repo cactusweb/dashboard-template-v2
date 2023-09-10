@@ -1,0 +1,39 @@
+:host {
+  position: absolute;
+}
+
+.window {
+  max-width: 640px;
+  row-gap: 24px;
+
+  &__header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: start;
+  }
+
+  &__state {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    &_red {
+      color: var(--red-color);
+    }
+    &_green {
+      color: var(--green-color);
+    }
+    &_yellow {
+      color: var(--yellow-color);
+    }
+  }
+}

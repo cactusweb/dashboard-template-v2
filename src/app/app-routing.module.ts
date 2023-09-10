@@ -13,6 +13,8 @@ const routes: Routes = [
 
     { path: 'purchase', loadChildren: () => import('./purchase/purchase.module').then(m => m.PurchaseModule), data: { title: ' - Purchase'} },
 
+    { path: 'ryodan', loadChildren: () => import('./ryodan-customization/ryodan-customization.module').then(m => m.RyodanCustomizationModule), data: { title: ' - Ryodan'} },
+
     { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule), data: { title: ' - Not Found'} }
     // { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) }
 ]

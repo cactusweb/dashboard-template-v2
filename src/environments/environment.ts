@@ -9,5 +9,5 @@ export const environment = {
   logo: '/assets/logo.svg',
   paymentInFrame: false,
 
-  middleApiUrl: 'https://middle-api.ryodancrypto.com/user',
+  middleApiUrl: 'https://external.ryodancrypto.com/api/v1/user',
 };

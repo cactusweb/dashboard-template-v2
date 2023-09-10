@@ -1,0 +1,53 @@
+ryodan-wrapper,
+ryodan-reports,
+ryodan-applications,
+ryodan-popup {
+  --red-color: #bb2c2c;
+  --yellow-color: #dde235;
+  --green-color: #34af39;
+  --grey-color: #303030;
+
+  .overlay {
+    padding: 12px;
+  }
+
+  .btn--warn-outline {
+    padding: 0;
+    color: var(--yellow-color);
+    border: 1px solid var(--yellow-color);
+    &:hover:not(:disabled) {
+      background-color: var(--yellow-color);
+      color: var(--color);
+    }
+
+    ngx-spinner .la-ball-clip-rotate div {
+      color: var(--yellow-color) !important;
+    }
+  }
+
+  .popup {
+    padding: 24px;
+  }
+
+  .form-control_yellow {
+    border-color: var(--yellow-color);
+  }
+}
+
+ryodan-application-view,
+ryodan-report-view,
+ryodan-application-form {
+  .control-wrapper {
+    row-gap: 8px;
+  }
+
+  .form-control {
+    text-align: start;
+    justify-content: start;
+  }
+
+  .wrapper {
+    display: grid;
+    gap: 12px;
+  }
+}

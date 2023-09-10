@@ -1,0 +1,30 @@
+<form class="wrapper" [formGroup]="form" (ngSubmit)="postApplication()">
+  <div class="control-wrapper">
+    <p class="control-wrapper__label">Target</p>
+    <select-control
+      formControlName="target"
+      [options]="(targets$ | async) || []"
+      placeholder="Choose your target"
+    ></select-control>
+  </div>
+
+  <div class="control-wrapper" *ngIf="needWallet$ | async">
+    <p class="control-wrapper__label">Wallet</p>
+    <input
+      class="form-control"
+      placeholder="Enter your wallet"
+      formControlName="wallet"
+    />
+  </div>
+
+  <div class="control-wrapper">
+    <p class="control-wrapper__label">Description</p>
+    <textarea
+      class="form-control"
+      placeholder="Descript why you need the target"
+      formControlName="description"
+    ></textarea>
+  </div>
+
+  <button class="btn btn--primary">Post</button>
+</form>
