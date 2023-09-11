@@ -10,12 +10,4 @@ import { RyodanApplication } from 'src/app/ryodan-customization/common/interface
 export class RyodanApplicationViewComponent {
   @Input()
   application!: RyodanApplication;
-
-  getDescriptionAsArr(): string[] {
-    return JSON.parse(this.application.description);
-  }
-
-  trackByIndex(index: number) {
-    return index;
-  }
 }

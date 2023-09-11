@@ -83,7 +83,7 @@ export class RyodanApplicationFormComponent {
     ]).pipe(
       map(
         ([target, allTargets]) =>
-          allTargets.find((t) => t.name === target)!.needWallet
+          allTargets.find((t) => t.name === target)!.need_wallet
       ),
       tap((d) => this.form.get('wallet')![d ? 'enable' : 'disable']())
     );

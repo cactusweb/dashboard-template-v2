@@ -13,7 +13,7 @@
   <span class="ryodan__divider hr"></span>
 
   <div class="ryodan__content">
-    <div class="ryodan__list list" *ngIf="items; else noData">
+    <div class="ryodan__list list" *ngIf="items?.length; else noData">
       <div class="list__header">
         <span>No.</span>
         <span>Status</span>
@@ -21,7 +21,7 @@
       <ul class="list__content">
         <li
           class="list__row item"
-          *ngFor="let item of items"
+          *ngFor="let item of items; trackByIndex"
           (click)="viewItem.emit(item)"
         >
           <div class="item__general">

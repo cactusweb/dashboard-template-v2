@@ -5,6 +5,7 @@ import {
   RyodanApplication,
   RyodanShortReport,
 } from '../common/interfaces/ryodan-customization.interfaces';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'ryodan-reports',
@@ -16,7 +17,9 @@ export class RyodanReportsComponent implements OnInit {
   readonly reports$ = this.dataService.reports$;
   readonly pending$ = this.dataService.reportsPending$;
 
-  viewingReportId: null | string = null;
+  viewingReport: null | RyodanShortReport = null;
+
+  readonly formOpened$ = new BehaviorSubject(false);
 
   constructor(
     private dataService: RyodanDataService,
@@ -32,6 +35,6 @@ export class RyodanReportsComponent implements OnInit {
   }
 
   onViewReport(report: RyodanShortReport | RyodanApplication) {
-    this.viewingReportId = report.id;
+    this.viewingReport = report as RyodanShortReport;
   }
 }

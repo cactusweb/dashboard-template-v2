@@ -10,7 +10,7 @@
   }
 
   &__item {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 20px 1fr auto;
     gap: 8px;
   }
 
@@ -24,4 +24,9 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+textarea {
+  height: 70px;
+  padding: 4px 12px;
 }

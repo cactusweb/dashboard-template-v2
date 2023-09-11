@@ -29,5 +29,7 @@
   windowTitle="New application"
   (close)="formOpened$.next(false)"
 >
-  <ryodan-application-form></ryodan-application-form>
+  <ryodan-application-form
+    (close)="formOpened$.next(false)"
+  ></ryodan-application-form>
 </ryodan-popup>

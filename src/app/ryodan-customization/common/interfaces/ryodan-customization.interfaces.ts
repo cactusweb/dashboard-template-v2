@@ -41,5 +41,5 @@ export enum RyodanApplicationStates {
 export interface RyodanApplicationTarget {
   name: string;
   id: string;
-  needWallet: boolean;
+  need_wallet: boolean;
 }

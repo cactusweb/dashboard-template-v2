@@ -40,11 +40,14 @@ export class RyodanWrapperComponent implements OnChanges {
 
   readonly ItemStates = ItemStates;
 
-  constructor(private spinnerService: NgxSpinnerService) {
-  }
+  constructor(private spinnerService: NgxSpinnerService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['pending'])
       this.spinnerService[this.pending ? 'show' : 'hide']();
+  }
+
+  trackByIndex(index: number) {
+    return index;
   }
 }

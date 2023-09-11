@@ -18,17 +18,8 @@
 
   <div class="control-wrapper">
     <p class="control-wrapper__label">Description</p>
-    <div class="description-container">
-      <div
-        class="form-control description-point"
-        *ngFor="
-          let descriptionPoint of getDescriptionAsArr();
-          let i = index;
-          trackBy: trackByIndex
-        "
-      >
-        {{ i + 1 }}. {{ descriptionPoint }}
-      </div>
+    <div class="form-control description-point">
+      {{ application.description }}
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { RyodanReport } from '../../common/interfaces/ryodan-customization.interfaces';
 import { RyodanHttpService } from '../../common/services/ryodan-http.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'ryodan-report-view',
@@ -20,6 +20,10 @@ export class RyodanReportViewComponent implements OnInit {
 
   report$!: Observable<RyodanReport>;
 
+  reportDescriptionArr$ = this.report$.pipe(
+    map((d) => JSON.parse(d.description))
+  );
+
   constructor(private http: RyodanHttpService) {}
 
   ngOnInit(): void {
@@ -28,5 +32,9 @@ export class RyodanReportViewComponent implements OnInit {
 
   private getReport() {
     this.http.getReportById(this.reportId);
+  }
+
+  trackByIndex(index: number) {
+    return index;
   }
 }

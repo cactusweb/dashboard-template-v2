@@ -32,11 +32,16 @@ ryodan-popup {
   .form-control_yellow {
     border-color: var(--yellow-color);
   }
+
+  select-control .dropdown {
+    background-color: var(--grey-color) !important;
+  }
 }
 
 ryodan-application-view,
 ryodan-report-view,
-ryodan-application-form {
+ryodan-application-form,
+ryodan-report-form {
   .control-wrapper {
     row-gap: 8px;
   }

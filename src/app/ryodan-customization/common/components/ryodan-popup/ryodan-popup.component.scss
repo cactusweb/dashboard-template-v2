@@ -1,10 +1,14 @@
 :host {
   position: absolute;
+  z-index: 1000;
 }
 
 .window {
   max-width: 640px;
   row-gap: 24px;
+
+  max-height: calc(100vh - 40px);
+  overflow: auto;
 
   &__header {
     display: grid;

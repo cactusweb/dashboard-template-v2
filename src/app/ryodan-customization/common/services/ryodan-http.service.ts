@@ -9,6 +9,7 @@ import {
   map,
   of,
   switchMap,
+  take,
   tap,
   withLatestFrom,
 } from 'rxjs';
@@ -32,27 +33,13 @@ export class RyodanHttpService {
   ) {}
 
   getApplications() {
-    of([
-      {
-        target: '0.005 BNB',
-        number: 1293,
-        description:
-          '["Пункт один","Пункт Два","Информация о третьем пункте подлиннее.  подлиннее. подлиннее. подлиннее подлиннее."]',
-        created_at: 12319283,
-        state: RyodanApplicationStates.PENDING,
-        updated_at: 1928391,
-        id: '1239812oaskd',
-        adminComment: 'Ты сделал что-то не так',
-      } as RyodanApplication,
-    ])
-      // this.request<RyodanApplication[]>(
-      //   'application',
-      //   RyodanRequests['getApplications']
-      // )
-      .subscribe({
-        next: (res) => (this.dataService.applications = res),
-        error: () => {},
-      });
+    this.request<RyodanApplication[]>(
+      'application',
+      RyodanRequests['getApplications']
+    ).subscribe({
+      next: (res) => (this.dataService.applications = res),
+      error: () => {},
+    });
   }
 
   getReports() {
@@ -79,7 +66,8 @@ export class RyodanHttpService {
       switchMap(([newApp]) => of(newApp)),
       tap(() =>
         this.tools.generateNotification('Application created', 'success')
-      )
+      ),
+      take(1)
     );
   }
 
@@ -97,7 +85,8 @@ export class RyodanHttpService {
       switchMap(([newRep]) => of(newRep)),
       tap(() =>
         this.tools.generateNotification('Application created', 'success')
-      )
+      ),
+      take(1)
     );
   }
 
@@ -115,7 +104,8 @@ export class RyodanHttpService {
             rep.id === editRep.id ? editRep : rep
           ))
       ),
-      switchMap(([editRep]) => of(editRep))
+      switchMap(([editRep]) => of(editRep)),
+      take(1)
     );
   }
 

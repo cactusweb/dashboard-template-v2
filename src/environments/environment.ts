@@ -2,7 +2,7 @@ export const environment = {
   production: false,
   apiUrl: 'https://api.cactusweb.io/api/v2/user',
   
-  ownerName: 'CactusSoft',
+  ownerName: 'Ryodan Crypto',
   site: 'http://localhost:4200',
   landing: '',
 

@@ -20,11 +20,17 @@
   <div class="control-wrapper">
     <p class="control-wrapper__label">Description</p>
     <textarea
-      class="form-control"
+      class="form-control custom-scroll"
       placeholder="Descript why you need the target"
       formControlName="description"
     ></textarea>
   </div>
 
-  <button class="btn btn--primary">Post</button>
+  <button
+    class="btn btn--primary"
+    *ngVar="!!(loading$ | async) as loading"
+    [disabled]="loading"
+  >
+    <btn-loader [isSpinner]="loading" text="Post"></btn-loader>
+  </button>
 </form>

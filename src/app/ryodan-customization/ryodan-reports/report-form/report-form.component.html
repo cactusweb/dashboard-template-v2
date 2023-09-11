@@ -1,5 +1,10 @@
-<!-- 
-<div class="control-wrapper description" formArrayName="description">
+<form class="wrapper" [formGroup]="form" (ngSubmit)="postReport()">
+  <div class="control-wrapper">
+    <p class="control-wrapper__label">Images</p>
+    <div class="form-control"></div>
+  </div>
+
+  <div class="control-wrapper description" formArrayName="description">
     <p class="control-wrapper__label">Description</p>
     <div
       class="description__item row"
@@ -8,7 +13,7 @@
       <span>{{ i }}.</span>
       <textarea
         type="text"
-        class="form-control description__control"
+        class="form-control description__control custom-scroll"
         [formControlName]="i"
       ></textarea>
       <button
@@ -54,4 +59,8 @@
           stroke-linejoin="round"
         />
       </svg>
-    </button> -->
+    </button>
+  </div>
+
+  <button class="btn btn--primary">Post</button>
+</form>

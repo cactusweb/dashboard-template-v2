@@ -4,5 +4,30 @@
   (update)="getReports()"
   (viewItem)="onViewReport($event)"
 >
-  <button header-btn class="btn btn--outline-primary">New reports</button>
+  <button
+    header-btn
+    class="btn btn--outline-primary"
+    (click)="formOpened$.next(true)"
+  >
+    New reports
+  </button>
 </ryodan-wrapper>
+
+<ryodan-popup
+  *ngIf="viewingReport"
+  [windowTitle]="'Report №' + viewingReport.number"
+  [state]="viewingReport.state"
+  (close)="viewingReport = null"
+>
+  <!-- <ryodan-application-view
+    [application]="viewingApplication"
+  ></ryodan-application-view> -->
+</ryodan-popup>
+
+<ryodan-popup
+  *ngIf="formOpened$ | async"
+  windowTitle="New report"
+  (close)="formOpened$.next(false)"
+>
+  <ryodan-report-form (close)="formOpened$.next(false)"></ryodan-report-form>
+</ryodan-popup>
