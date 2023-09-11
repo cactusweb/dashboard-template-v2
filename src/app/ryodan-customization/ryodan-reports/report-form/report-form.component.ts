@@ -20,8 +20,7 @@ export class RyodanReportFormComponent {
 
   readonly form = new FormGroup({
     description: new FormArray([new FormControl('', Validators.required)]),
-    target: new FormControl('', Validators.required),
-    wallet: new FormControl({ value: '', disabled: true }),
+    images: new FormControl([], Validators.required),
   });
 
   loading$ = new BehaviorSubject(false);

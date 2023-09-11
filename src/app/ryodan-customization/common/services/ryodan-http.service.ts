@@ -128,6 +128,18 @@ export class RyodanHttpService {
     });
   }
 
+  postFile(data: FormData) {
+    return this.request<{ url: string }>(
+      undefined,
+      RyodanRequests['postFile'],
+      data
+    ).pipe(map((d) => d.url));
+  }
+
+  deleteFile(url: string) {
+    return this.request<void>(undefined, RyodanRequests['deleteFile'], { url });
+  }
+
   private request<T>(
     type: 'report' | 'application' | undefined,
     reqParams: Req,

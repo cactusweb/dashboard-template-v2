@@ -1,8 +1,5 @@
 <form class="wrapper" [formGroup]="form" (ngSubmit)="postReport()">
-  <div class="control-wrapper">
-    <p class="control-wrapper__label">Images</p>
-    <div class="form-control"></div>
-  </div>
+  <ryodan-files-control formControlName="images"></ryodan-files-control>
 
   <div class="control-wrapper description" formArrayName="description">
     <p class="control-wrapper__label">Description</p>
@@ -62,5 +59,11 @@
     </button>
   </div>
 
-  <button class="btn btn--primary">Post</button>
+  <button
+    class="btn btn--primary"
+    *ngVar="!!(loading$ | async) as loading"
+    [disabled]="loading"
+  >
+    <btn-loader [isSpinner]="loading" text="Post"></btn-loader>
+  </button>
 </form>

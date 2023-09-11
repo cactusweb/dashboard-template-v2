@@ -68,7 +68,7 @@
     </div>
 
     <ng-template #noData>
-      <div class="no-data" *ngIf="!pending">
+      <div class="no-data" *ngIf="!pending; else spinner">
         <p class="no-data__title">Nothing here yet</p>
         <button
           class="no-data__btn btn btn--outline-primary"
@@ -77,24 +77,17 @@
           Update
         </button>
       </div>
+      
+      <ng-template #spinner>
+        <div class="ryodan-spinner" *ngIf="pending">
+          <ngx-spinner
+            type="ball-clip-rotate"
+            [fullScreen]="false"
+            bdColor="rgba(51,51,51,0)"
+            size="medium"
+          ></ngx-spinner>
+        </div>
+      </ng-template>
     </ng-template>
-
-    <div class="ryodan-spinner" *ngIf="pending">
-      <ngx-spinner
-        type="ball-clip-rotate"
-        [fullScreen]="false"
-        bdColor="rgba(51,51,51,0)"
-        size="medium"
-      ></ngx-spinner>
-    </div>
   </div>
-
-  <!-- <div class="ryodan-spinner">
-      <ngx-spinner
-        type="ball-clip-rotate"
-        [fullScreen]="false"
-        bdColor="rgba(51,51,51,0)"
-        size="medium"
-      ></ngx-spinner> -->
-  <!-- </div> -->
 </div>

@@ -1,0 +1,54 @@
+<div
+  class="control-wrapper"
+  *ngVar="!!(loading$ | async) as loading"
+  [class.control-wrapper_disabled]="loading"
+>
+  <p class="control-wrapper__label">Images</p>
+  <div class="form-control">
+    <div class="images-container">
+      <div
+        class="images-container__item-wrapper"
+        *ngFor="let img of imgUrls; trackBy: trackByIndex"
+        (click)="removeFile(img)"
+      >
+        <img [src]="img" class="images-container__item" />
+
+        <div class="images-container__item-overlay">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+          >
+            <path
+              id="Vector"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0.250744 0.261676C0.411343 0.100986 0.629134 0.0107158 0.856221 0.0107158C1.08331 0.0107158 1.3011 0.100986 1.4617 0.261676L5.99465 4.79853L10.5276 0.261676C10.6066 0.17981 10.7011 0.114511 10.8056 0.0695887C10.9101 0.0246667 11.0224 0.00102135 11.1362 3.23632e-05C11.2499 -0.000956622 11.3626 0.0207304 11.4679 0.0638283C11.5731 0.106926 11.6688 0.170572 11.7492 0.251051C11.8296 0.331531 11.8932 0.427232 11.9362 0.532572C11.9793 0.637912 12.001 0.75078 12 0.864591C11.999 0.978402 11.9754 1.09088 11.9305 1.19545C11.8856 1.30003 11.8203 1.39461 11.7386 1.47368L7.2056 6.01053L11.7386 10.5474C11.8946 10.709 11.9809 10.9256 11.9789 11.1503C11.977 11.375 11.8869 11.59 11.7281 11.7489C11.5693 11.9079 11.3545 11.998 11.13 12C10.9054 12.0019 10.6891 11.9155 10.5276 11.7594L5.99465 7.22253L1.4617 11.7594C1.30018 11.9155 1.08385 12.0019 0.859303 12C0.634757 11.998 0.41996 11.9079 0.261176 11.7489C0.102391 11.59 0.0123241 11.375 0.0103729 11.1503C0.00842164 10.9256 0.0947427 10.709 0.250744 10.5474L4.78369 6.01053L0.250744 1.47368C0.0901927 1.31294 0 1.09496 0 0.867676C0 0.640392 0.0901927 0.422414 0.250744 0.261676Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <label for="images" class="btn btn--outline-primary">
+      <btn-loader [isSpinner]="loading" text="Select file"></btn-loader>
+    </label>
+
+    <!-- <button
+  class="btn btn--primary"
+  *ngVar="!!(loading$ | async) as loading"
+  [disabled]="loading"
+>
+  <btn-loader [isSpinner]="loading" text="Post"></btn-loader>
+</button> -->
+  </div>
+</div>
+<input
+  type="file"
+  hidden
+  id="images"
+  accept=".jpg, .png"
+  (change)="onFileInputEvent($event)"
+/>

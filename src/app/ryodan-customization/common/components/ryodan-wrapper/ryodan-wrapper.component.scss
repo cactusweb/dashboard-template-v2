@@ -48,6 +48,7 @@ $phone-size: 780px;
   &__content {
     position: relative;
     min-height: 75px;
+    z-index: 1;
   }
 }
 

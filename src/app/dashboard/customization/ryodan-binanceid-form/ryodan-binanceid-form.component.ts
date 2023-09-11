@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject, Observable, finalize, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, finalize, switchMap, take } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LicenseService } from '../../services/license.service';
 import { License } from '../../interfaces/license';
@@ -33,7 +33,16 @@ export class RyodanBinanceIDFormComponent {
     private http: HttpClient,
     private licService: LicenseService,
     private notifications: NotificationsService
-  ) {}
+  ) {
+    this.licService.$license.pipe(take(1))
+    .subscribe(res => {
+      try{
+        const binanceId = JSON.parse(res!.description).binanceId;
+        this.form.get('binanceId')!.setValue(binanceId);
+      }
+      catch{}
+    })
+  }
 
   @HostListener('document:keydown.escape', ['$event'])
   onEscape() {
@@ -47,10 +56,7 @@ export class RyodanBinanceIDFormComponent {
     this.loading$.next(true);
 
     this.http
-      .post<License>(
-        `${environment.middleApiUrl} + /binanceId`,
-        this.form.value
-      )
+      .post<License>(`${environment.middleApiUrl}/binanceId`, this.form.value)
       .pipe(finalize(() => this.loading$.next(false)))
       .subscribe((lic) => {
         this.licService.license = lic;

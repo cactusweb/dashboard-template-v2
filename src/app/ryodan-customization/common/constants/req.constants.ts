@@ -38,4 +38,13 @@ export const RyodanRequests: Record<string, req> = {
     url: '/applications/targets',
     method: 'GET',
   },
+
+  postFile: {
+    url: '/file',
+    method: 'POST',
+  },
+  deleteFile: {
+    url: '/file',
+    method: 'DELETE',
+  },
 };
