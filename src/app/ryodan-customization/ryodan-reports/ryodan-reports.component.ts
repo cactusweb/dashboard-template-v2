@@ -18,13 +18,7 @@ export class RyodanReportsComponent implements OnInit {
   readonly reports$ = this.dataService.reports$;
   readonly pending$ = this.dataService.reportsPending$;
 
-  viewingReport: null | RyodanShortReport = {
-    id: '123123',
-    updated_at: 123,
-    created_at: 123,
-    number: 919183,
-    state: RyodanReportStates.PENDING,
-  };
+  viewingReport: null | RyodanShortReport = null;
 
   editedReport: RyodanShortReport | null = null;
   readonly formOpened$ = new BehaviorSubject(false);
