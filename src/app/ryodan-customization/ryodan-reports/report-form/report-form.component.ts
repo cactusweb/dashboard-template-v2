@@ -2,11 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
+  OnInit,
   Output,
 } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { RyodanHttpService } from '../../common/services/ryodan-http.service';
-import { BehaviorSubject, finalize } from 'rxjs';
+import { BehaviorSubject, finalize, map } from 'rxjs';
 
 @Component({
   selector: 'ryodan-report-form',
@@ -14,7 +16,10 @@ import { BehaviorSubject, finalize } from 'rxjs';
   styleUrls: ['./report-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RyodanReportFormComponent {
+export class RyodanReportFormComponent implements OnInit {
+  @Input()
+  reportId: string | undefined;
+
   @Output()
   readonly close = new EventEmitter<void>();
 
@@ -31,21 +36,29 @@ export class RyodanReportFormComponent {
     return this.form.get('description') as FormArray;
   }
 
+  ngOnInit(): void {
+    this.patchReport();
+  }
+
   postReport() {
     this.form.markAllAsTouched();
 
     if (this.form.invalid) return;
 
+    const data = {
+      ...this.form.value,
+      description: this.getDescription(),
+    };
+
+    const req = this.reportId
+      ? this.http.putReport(data, this.reportId)
+      : this.http.postReport(data);
+
     this.loading$.next(true);
-    this.http
-      .postReport({
-        ...this.form.value,
-        description: this.getDescription(),
-      })
-      .pipe(finalize(() => this.loading$.next(false)))
-      .subscribe({
-        next: () => this.close.emit(),
-      });
+
+    req.pipe(finalize(() => this.loading$.next(false))).subscribe({
+      next: () => this.close.emit(),
+    });
   }
 
   addDescriptionControl() {
@@ -54,6 +67,27 @@ export class RyodanReportFormComponent {
 
   removeDescriptionControl(index: number) {
     this.descriptionControl.removeAt(index);
+  }
+
+  private patchReport() {
+    if (!this.reportId) return;
+    this.loading$.next(true);
+    this.http
+      .getReportById(this.reportId)
+      .pipe(
+        finalize(() => this.loading$.next(false)),
+        map((report) => ({
+          ...report,
+          description: JSON.parse(report.description) as string[],
+        }))
+      )
+      .subscribe((res) => {
+        this.descriptionControl.removeAt(0);
+        res.description.forEach(() =>
+          this.descriptionControl.push(new FormControl('', Validators.required))
+        );
+        this.form.patchValue(res);
+      });
   }
 
   private getDescription() {

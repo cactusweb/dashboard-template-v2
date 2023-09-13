@@ -97,7 +97,7 @@ export class RyodanFilesControlComponent implements ControlValueAccessor {
     }
 
     const formData: FormData = new FormData();
-    formData.set('image', file, file.name);
+    formData.set('file', file, file.name);
 
     return formData;
   }

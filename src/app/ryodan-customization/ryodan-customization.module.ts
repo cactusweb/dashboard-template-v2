@@ -18,6 +18,7 @@ import { RyodanApplicationFormComponent } from './ryodan-applications/components
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RyodanReportFormComponent } from './ryodan-reports/report-form/report-form.component';
 import { RyodanFilesControlComponent } from './common/components/ryodan-files-control/ryodan-files-control.component';
+import { RyodanReportViewComponent } from './ryodan-reports/report-view/report-view.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,7 @@ const routes: Routes = [
     RyodanApplicationViewComponent,
     RyodanApplicationFormComponent,
     RyodanReportFormComponent,
+    RyodanReportViewComponent,
     RyodanFilesControlComponent,
   ],
   imports: [

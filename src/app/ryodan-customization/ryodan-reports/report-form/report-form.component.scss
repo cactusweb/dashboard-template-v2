@@ -10,8 +10,19 @@
   }
 
   &__item {
-    grid-template-columns: 20px 1fr auto;
+    grid-template-columns: 1fr auto;
     gap: 8px;
+  }
+
+  &__control-wrapper {
+    position: relative;
+  }
+
+  &__index {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translate(0, -50%);
   }
 
   &__btn {
@@ -29,4 +40,5 @@
 textarea {
   height: 70px;
   padding: 4px 12px;
+  padding-left: 25px;
 }

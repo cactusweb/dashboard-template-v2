@@ -4,13 +4,13 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { RyodanReport } from '../../common/interfaces/ryodan-customization.interfaces';
 import { RyodanHttpService } from '../../common/services/ryodan-http.service';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { RyodanReport } from '../../common/interfaces/ryodan-customization.interfaces';
 
 @Component({
   selector: 'ryodan-report-view',
-  templateUrl: './report-view.component.ts',
+  templateUrl: './report-view.component.html',
   styleUrls: ['./report-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -20,21 +20,19 @@ export class RyodanReportViewComponent implements OnInit {
 
   report$!: Observable<RyodanReport>;
 
-  reportDescriptionArr$ = this.report$.pipe(
-    map((d) => JSON.parse(d.description))
-  );
+  reportDescriptionArr$!: Observable<string[]>;
 
   constructor(private http: RyodanHttpService) {}
 
   ngOnInit(): void {
-    this.getReport();
-  }
-
-  private getReport() {
-    this.http.getReportById(this.reportId);
+    this.report$ = this.http.getReportById(this.reportId);
   }
 
   trackByIndex(index: number) {
     return index;
+  }
+
+  getDescriptionArr(description: string) {
+    return JSON.parse(description) as string[];
   }
 }

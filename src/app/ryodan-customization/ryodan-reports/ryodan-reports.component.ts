@@ -3,6 +3,7 @@ import { RyodanDataService } from '../common/services/ryodan-data.service';
 import { RyodanHttpService } from '../common/services/ryodan-http.service';
 import {
   RyodanApplication,
+  RyodanReportStates,
   RyodanShortReport,
 } from '../common/interfaces/ryodan-customization.interfaces';
 import { BehaviorSubject } from 'rxjs';
@@ -17,8 +18,15 @@ export class RyodanReportsComponent implements OnInit {
   readonly reports$ = this.dataService.reports$;
   readonly pending$ = this.dataService.reportsPending$;
 
-  viewingReport: null | RyodanShortReport = null;
+  viewingReport: null | RyodanShortReport = {
+    id: '123123',
+    updated_at: 123,
+    created_at: 123,
+    number: 919183,
+    state: RyodanReportStates.PENDING,
+  };
 
+  editedReport: RyodanShortReport | null = null;
   readonly formOpened$ = new BehaviorSubject(false);
 
   constructor(
@@ -36,5 +44,15 @@ export class RyodanReportsComponent implements OnInit {
 
   onViewReport(report: RyodanShortReport | RyodanApplication) {
     this.viewingReport = report as RyodanShortReport;
+  }
+
+  onEditReport(report: RyodanShortReport | RyodanApplication) {
+    this.editedReport = report as RyodanShortReport;
+    this.formOpened$.next(true);
+  }
+
+  onCloseReportForm() {
+    this.formOpened$.next(false);
+    this.editedReport = null;
   }
 }

@@ -3,6 +3,7 @@
   [pending]="!!(pending$ | async)"
   (update)="getReports()"
   (viewItem)="onViewReport($event)"
+  (editItem)="onEditReport($event)"
 >
   <button
     header-btn
@@ -19,15 +20,16 @@
   [state]="viewingReport.state"
   (close)="viewingReport = null"
 >
-  <!-- <ryodan-application-view
-    [application]="viewingApplication"
-  ></ryodan-application-view> -->
+  <ryodan-report-view [reportId]="viewingReport.id"></ryodan-report-view>
 </ryodan-popup>
 
 <ryodan-popup
   *ngIf="formOpened$ | async"
-  windowTitle="New report"
-  (close)="formOpened$.next(false)"
+  [windowTitle]="editedReport ? 'Report №' + editedReport.number : 'New report'"
+  (close)="onCloseReportForm()"
 >
-  <ryodan-report-form (close)="formOpened$.next(false)"></ryodan-report-form>
+  <ryodan-report-form
+    (close)="onCloseReportForm()"
+    [reportId]="editedReport?.id"
+  ></ryodan-report-form>
 </ryodan-popup>

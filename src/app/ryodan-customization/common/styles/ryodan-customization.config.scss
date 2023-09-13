@@ -25,12 +25,32 @@ ryodan-popup {
     }
   }
 
+  .btn-icon {
+    background-color: var(--bg-color);
+    &--primary {
+      border-color: var(--yellow-color);
+      &:hover:not(:disabled) {
+        background-color: var(--yellow-color);
+
+        svg path {
+          fill: var(--bg-color);
+        }
+      }
+
+      svg path {
+        fill: var(--yellow-color);
+      }
+    }
+  }
+
   .popup {
     padding: 24px;
   }
 
   .form-control_yellow {
     border-color: var(--yellow-color);
+    height: auto;
+    min-height: 48px;
   }
 
   select-control .dropdown {

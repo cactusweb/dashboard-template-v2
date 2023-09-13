@@ -7,3 +7,21 @@
   height: auto;
   padding: 8px;
 }
+
+.images {
+  min-height: 48px;
+  height: auto;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 50px));
+  gap: 8px;
+  align-content: center;
+
+  &__item {
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    justify-self: center;
+  }
+}

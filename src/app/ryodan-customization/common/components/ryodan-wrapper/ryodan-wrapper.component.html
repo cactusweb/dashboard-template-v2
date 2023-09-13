@@ -27,26 +27,44 @@
           <div class="item__general">
             <span class="item__number">№{{ item.number }}</span>
             <button
-              class="item__edit-btn btn btn--warn-outline"
+              class="item__edit-btn btn btn-icon btn-icon--primary"
               *ngIf="item.state === ItemStates.REVISION"
               (click)="$event.stopPropagation(); editItem.emit(item)"
             >
-              Edit
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <g id="edit / edit">
+                  <path
+                    id="coolicon"
+                    d="M3.6843 17.1492C3.45054 17.1488 3.22769 17.0502 3.07014 16.8775C2.90968 16.7062 2.82994 16.4746 2.85097 16.2408L3.05514 13.9958L12.4868 4.5675L15.4343 7.51417L6.00514 16.9417L3.76014 17.1458C3.7343 17.1483 3.70847 17.1492 3.6843 17.1492ZM16.0226 6.925L13.076 3.97834L14.8435 2.21084C14.9998 2.05436 15.2119 1.96643 15.4331 1.96643C15.6542 1.96643 15.8663 2.05436 16.0226 2.21084L17.7901 3.97834C17.9466 4.13464 18.0345 4.34675 18.0345 4.56792C18.0345 4.78909 17.9466 5.0012 17.7901 5.1575L16.0235 6.92417L16.0226 6.925Z"
+                  />
+                </g>
+              </svg>
             </button>
           </div>
           <div class="item__sub-info">
-            <span
-              class="item__state"
-              [ngClass]="{
-                item__state_yellow:
-                  item.state === ItemStates.REVISION ||
-                  item.state === ItemStates.CHECK,
-                item__state_red: item.state === ItemStates.REJECTED,
-                item__state_green: item.state === ItemStates.CONFIRMED
-              }"
-            >
-              {{ item.state.toLowerCase() }}
-            </span>
+            <div class="col">
+              <span
+                class="item__state"
+                [ngClass]="{
+                  item__state_yellow:
+                    item.state === ItemStates.REVISION ||
+                    item.state === ItemStates.CHECK,
+                  item__state_red: item.state === ItemStates.REJECTED,
+                  item__state_green: item.state === ItemStates.CONFIRMED
+                }"
+              >
+                {{ item.state.toLowerCase() }}
+              </span>
+              <span class="item__date">
+                {{ item.updated_at * 1000 | date : "dd.MM.YY" }}
+              </span>
+            </div>
             <svg
               class="item__icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +95,7 @@
           Update
         </button>
       </div>
-      
+
       <ng-template #spinner>
         <div class="ryodan-spinner" *ngIf="pending">
           <ngx-spinner

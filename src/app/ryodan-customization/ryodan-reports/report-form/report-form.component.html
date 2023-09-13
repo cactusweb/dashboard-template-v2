@@ -7,12 +7,14 @@
       class="description__item row"
       *ngFor="let control of descriptionControl.controls; let i = index"
     >
-      <span>{{ i }}.</span>
-      <textarea
-        type="text"
-        class="form-control description__control custom-scroll"
-        [formControlName]="i"
-      ></textarea>
+      <div class="description__control-wrapper">
+        <span class="description__index">{{ i+1 }}.</span>
+        <textarea
+          type="text"
+          class="form-control description__control custom-scroll"
+          [formControlName]="i"
+        ></textarea>
+      </div>
       <button
         class="description__btn"
         (click)="removeDescriptionControl(i)"
@@ -64,6 +66,9 @@
     *ngVar="!!(loading$ | async) as loading"
     [disabled]="loading"
   >
-    <btn-loader [isSpinner]="loading" text="Post"></btn-loader>
+    <btn-loader
+      [isSpinner]="loading"
+      [text]="reportId ? 'Edit' : 'Post'"
+    ></btn-loader>
   </button>
 </form>

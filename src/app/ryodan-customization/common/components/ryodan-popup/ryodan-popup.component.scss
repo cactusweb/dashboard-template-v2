@@ -21,6 +21,10 @@
     font-size: 18px;
     line-height: 22px;
     text-align: start;
+    @media screen and (max-width: 780px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 
   &__state {
@@ -28,6 +32,11 @@
     line-height: 20px;
     font-weight: 500;
     text-transform: capitalize;
+
+    @media screen and (max-width: 780px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
 
     &_red {
       color: var(--red-color);

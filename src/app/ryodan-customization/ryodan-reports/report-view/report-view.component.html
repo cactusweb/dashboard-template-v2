@@ -1,34 +1,38 @@
-<!-- <div class="wrapper">
-  <div class="control-wrapper" *ngIf="report.adminComment">
-    <p class="control-wrapper__label">Admin’s comment</p>
-    <div class="form-control form-control_yellow">
-      {{ report.adminComment }}
-    </div>
-  </div>
-
-  <div class="control-wrapper">
-    <p class="control-wrapper__label">Target</p>
-    <div class="form-control">{{ report.target }}</div>
-  </div>
-
-  <div class="control-wrapper" *ngIf="report.wallet">
-    <p class="control-wrapper__label">Wallet</p>
-    <div class="form-control">{{ report.wallet }}</div>
-  </div>
-
-  <div class="control-wrapper">
-    <p class="control-wrapper__label">Description</p>
-    <div class="description-container">
-      <div
-        class="form-control description-point"
-        *ngFor="
-          let descriptionPoint of getDescriptionAsArr();
-          let i = index;
-          trackBy: trackByIndex
-        "
-      >
-        {{ i + 1 }}. {{ descriptionPoint }}
+<div class="wrapper">
+  <ng-container *ngIf="report$ | async as report; else spinner">
+    <div class="control-wrapper" *ngIf="report.adminComment">
+      <p class="control-wrapper__label">Admin’s comment</p>
+      <div class="form-control form-control_yellow">
+        {{ report.adminComment }}
       </div>
     </div>
-  </div>
-</div> -->
+
+    <div class="images form-control">
+      <img
+        *ngFor="let img of report.images; trackBy: trackByIndex"
+        [src]="img"
+        alt=""
+        class="images__item"
+      />
+    </div>
+
+    <div class="control-wrapper">
+      <p class="control-wrapper__label">Description</p>
+      <div class="description-container">
+        <div
+          class="form-control description-point"
+          *ngFor="
+            let descriptionPoint of getDescriptionArr(report.description);
+            let i = index;
+            trackBy: trackByIndex
+          "
+        >
+          {{ i + 1 }}. {{ descriptionPoint }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #spinner>
+    <p style="text-align: center">Loading...</p>
+  </ng-template>
+</div>
