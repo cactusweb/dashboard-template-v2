@@ -7,5 +7,7 @@ export const environment = {
   landing: '',
   
   logo: '/assets/logo.png',
-  paymentInFrame: false
+  paymentInFrame: false,
+
+  middleApiUrl: 'https://external.ryodancrypto.com/api/v1/user',
 };
