@@ -7,6 +7,7 @@ import {
   RyodanShortReport,
 } from '../common/interfaces/ryodan-customization.interfaces';
 import { BehaviorSubject } from 'rxjs';
+import { RyodanAccessServise } from '../common/services/ryodan-access.service';
 
 @Component({
   selector: 'ryodan-reports',
@@ -25,10 +26,12 @@ export class RyodanReportsComponent implements OnInit {
 
   constructor(
     private dataService: RyodanDataService,
-    private http: RyodanHttpService
+    private http: RyodanHttpService,
+    private accessService: RyodanAccessServise
   ) {}
 
   ngOnInit(): void {
+    this.accessService.validateAccess();
     this.getReports();
   }
 

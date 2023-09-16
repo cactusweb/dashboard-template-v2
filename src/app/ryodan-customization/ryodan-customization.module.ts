@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RyodanReportFormComponent } from './ryodan-reports/report-form/report-form.component';
 import { RyodanFilesControlComponent } from './common/components/ryodan-files-control/ryodan-files-control.component';
 import { RyodanReportViewComponent } from './ryodan-reports/report-view/report-view.component';
+import { RyodanAccessServise } from './common/services/ryodan-access.service';
 
 const routes: Routes = [
   {
@@ -67,6 +68,7 @@ const routes: Routes = [
   providers: [
     RyodanDataService,
     RyodanHttpService,
+    RyodanAccessServise,
     HttpService,
     {
       provide: HTTP_INTERCEPTORS,
