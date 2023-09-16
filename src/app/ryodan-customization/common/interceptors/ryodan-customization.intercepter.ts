@@ -24,13 +24,4 @@ export class RyodanCustomizationInterceptor implements HttpInterceptor {
       url: req.url.replace(environment.apiUrl, environment.middleApiUrl),
     });
   }
-
-  private setAuthHeader(req: HttpRequest<unknown>): HttpRequest<unknown> {
-    return req.clone({
-      headers: req.headers.set(
-        'authorization',
-        `Bearer ${localStorage['accessToken']}`
-      ),
-    });
-  }
 }
