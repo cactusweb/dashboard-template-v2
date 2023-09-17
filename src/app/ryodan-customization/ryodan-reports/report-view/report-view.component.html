@@ -7,13 +7,16 @@
       </div>
     </div>
 
-    <div class="images form-control">
-      <img
-        *ngFor="let img of report.images; trackBy: trackByIndex"
-        [src]="img"
-        alt=""
-        class="images__item"
-      />
+    <div class="control-wrapper">
+      <p class="control-wrapper__label">Images</p>
+      <div class="images form-control">
+        <img
+          *ngFor="let img of report.images; trackBy: trackByIndex"
+          [src]="img"
+          alt=""
+          class="images__item"
+        />
+      </div>
     </div>
 
     <div class="control-wrapper">

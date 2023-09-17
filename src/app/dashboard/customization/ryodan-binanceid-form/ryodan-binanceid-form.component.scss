@@ -1,0 +1,5 @@
+.window {
+  @media screen and (max-width: 520px) {
+    max-width: calc(100% - 24px);
+  }
+}

@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -30,7 +31,10 @@ export class RyodanReportFormComponent implements OnInit {
 
   loading$ = new BehaviorSubject(false);
 
-  constructor(private http: RyodanHttpService) {}
+  constructor(
+    private http: RyodanHttpService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   get descriptionControl() {
     return this.form.get('description') as FormArray;
@@ -87,6 +91,7 @@ export class RyodanReportFormComponent implements OnInit {
           this.descriptionControl.push(new FormControl('', Validators.required))
         );
         this.form.patchValue(res);
+        this.cdr.markForCheck();
       });
   }
 
