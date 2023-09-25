@@ -31,7 +31,7 @@ export class RyodanCommonList {
 
   readonly ItemStates = ItemStates;
 
-  trackByIndex(index: number) {
-    return index;
+  trackById(index: number, item: RyodanApplication | RyodanShortReport) {
+    return item.id;
   }
 }

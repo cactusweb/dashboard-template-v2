@@ -5,7 +5,8 @@ import {
   RyodanShortReport,
   RyodanWallet,
 } from '../interfaces/ryodan-customization.interfaces';
-import { BehaviorSubject, share } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, share } from 'rxjs';
+import { distinctUntilChangedJSON } from '../utils/pipelines.utils';
 
 @Injectable()
 export class RyodanDataService {
@@ -28,7 +29,9 @@ export class RyodanDataService {
   private readonly _wallets$ = new BehaviorSubject<RyodanWallet[] | null>(null);
 
   get reports$() {
-    return this._reports$.asObservable().pipe(share());
+    return this._reports$
+      .asObservable()
+      .pipe(share(), distinctUntilChangedJSON());
   }
 
   set reports(data: RyodanShortReport[]) {
@@ -36,7 +39,9 @@ export class RyodanDataService {
   }
 
   get applications$() {
-    return this._applications$.asObservable().pipe(share());
+    return this._applications$
+      .asObservable()
+      .pipe(share(), distinctUntilChangedJSON());
   }
 
   set applications(data: RyodanApplication[]) {
@@ -44,7 +49,9 @@ export class RyodanDataService {
   }
 
   get applicationsPending$() {
-    return this._applicationsPending$.asObservable().pipe(share());
+    return this._applicationsPending$
+      .asObservable()
+      .pipe(share(), distinctUntilChanged());
   }
 
   set applicationsPending(data: boolean) {
@@ -52,7 +59,9 @@ export class RyodanDataService {
   }
 
   get reportsPending$() {
-    return this._reportsPending$.asObservable().pipe(share());
+    return this._reportsPending$
+      .asObservable()
+      .pipe(share(), distinctUntilChanged());
   }
 
   set reportsPending(data: boolean) {
@@ -60,7 +69,9 @@ export class RyodanDataService {
   }
 
   get applicationTargets$() {
-    return this._applicationTargets$.asObservable();
+    return this._applicationTargets$
+      .asObservable()
+      .pipe(share(), distinctUntilChangedJSON());
   }
 
   set applicationTargets(data: RyodanApplicationTarget[]) {
@@ -68,7 +79,9 @@ export class RyodanDataService {
   }
 
   get wallets$() {
-    return this._wallets$.asObservable().pipe(share());
+    return this._wallets$
+      .asObservable()
+      .pipe(share(), distinctUntilChangedJSON());
   }
 
   set wallets(data: RyodanWallet[]) {
@@ -76,7 +89,9 @@ export class RyodanDataService {
   }
 
   get walletsPending$() {
-    return this._walletsPending$.asObservable().pipe(share());
+    return this._walletsPending$
+      .asObservable()
+      .pipe(share(), distinctUntilChanged());
   }
 
   set walletsPending(data: boolean) {

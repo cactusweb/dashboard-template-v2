@@ -6,7 +6,7 @@
   <ul class="list__content">
     <li
       class="list__row item"
-      *ngFor="let item of items; trackByIndex"
+      *ngFor="let item of items; trackById"
       (click)="viewItem.emit(item)"
     >
       <div class="item__general">
