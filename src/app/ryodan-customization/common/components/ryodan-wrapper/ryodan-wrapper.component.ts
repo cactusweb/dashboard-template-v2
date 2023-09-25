@@ -7,11 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import {
-  RyodanApplication,
-  RyodanReportStates,
-  RyodanShortReport,
-} from '../../interfaces/ryodan-customization.interfaces';
+import { RyodanReportStates } from '../../interfaces/ryodan-customization.interfaces';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 const ItemStates = RyodanReportStates;
@@ -24,16 +20,10 @@ const ItemStates = RyodanReportStates;
 })
 export class RyodanWrapperComponent implements OnChanges {
   @Input()
-  items: (RyodanApplication | RyodanShortReport)[] | null = null;
+  showList: boolean = false;
 
   @Input()
   pending = false;
-
-  @Output()
-  viewItem = new EventEmitter<RyodanApplication | RyodanShortReport>();
-
-  @Output()
-  editItem = new EventEmitter<RyodanApplication | RyodanShortReport>();
 
   @Output()
   update = new EventEmitter<void>();
@@ -45,9 +35,5 @@ export class RyodanWrapperComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['pending'])
       this.spinnerService[this.pending ? 'show' : 'hide']();
-  }
-
-  trackByIndex(index: number) {
-    return index;
   }
 }

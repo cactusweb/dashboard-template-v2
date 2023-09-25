@@ -1,8 +1,8 @@
 <ryodan-wrapper
-  [items]="applications$ | async"
+  *ngVar="applications$ | async as applications"
+  [showList]="!!applications?.length"
   [pending]="!!(pending$ | async)"
   (update)="getApplications()"
-  (viewItem)="onViewApplication($event)"
 >
   <button
     header-btn
@@ -11,6 +11,12 @@
   >
     New application
   </button>
+
+  <ryodan-common-list
+    list
+    [items]="applications"
+    (viewItem)="onViewApplication($event)"
+  ></ryodan-common-list>
 </ryodan-wrapper>
 
 <ryodan-popup

@@ -3,14 +3,16 @@ import {
   RyodanApplication,
   RyodanApplicationTarget,
   RyodanShortReport,
+  RyodanWallet,
 } from '../interfaces/ryodan-customization.interfaces';
 import { BehaviorSubject, share } from 'rxjs';
 
 @Injectable()
 export class RyodanDataService {
   private readonly _applicationsPending$ = new BehaviorSubject(false);
-
   private readonly _reportsPending$ = new BehaviorSubject(false);
+  private readonly _walletsPending$ = new BehaviorSubject(false);
+
   private readonly _applications$ = new BehaviorSubject<
     RyodanApplication[] | null
   >(null);
@@ -22,6 +24,8 @@ export class RyodanDataService {
   private readonly _reports$ = new BehaviorSubject<RyodanShortReport[] | null>(
     null
   );
+
+  private readonly _wallets$ = new BehaviorSubject<RyodanWallet[] | null>(null);
 
   get reports$() {
     return this._reports$.asObservable().pipe(share());
@@ -61,5 +65,21 @@ export class RyodanDataService {
 
   set applicationTargets(data: RyodanApplicationTarget[]) {
     this._applicationTargets$.next(data);
+  }
+
+  get wallets$() {
+    return this._wallets$.asObservable().pipe(share());
+  }
+
+  set wallets(data: RyodanWallet[]) {
+    this._wallets$.next(data);
+  }
+
+  get walletsPending$() {
+    return this._walletsPending$.asObservable().pipe(share());
+  }
+
+  set walletsPending(data: boolean) {
+    this._walletsPending$.next(data);
   }
 }

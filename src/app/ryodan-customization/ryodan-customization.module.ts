@@ -20,18 +20,32 @@ import { RyodanReportFormComponent } from './ryodan-reports/report-form/report-f
 import { RyodanFilesControlComponent } from './common/components/ryodan-files-control/ryodan-files-control.component';
 import { RyodanReportViewComponent } from './ryodan-reports/report-view/report-view.component';
 import { RyodanAccessServise } from './common/services/ryodan-access.service';
+import { RyodanWalletsComponent } from './ryodan-wallets/ryodan-wallets.component';
+import { RyodanWalletsFormComponent } from './ryodan-wallets/wallets-form/wallets-form.component';
+import { RyodanCommonList } from './common/components/ryodan-common-list/ryodan-common-list.component';
+import { RyodanWalletsListComponent } from './ryodan-wallets/wallets-list/wallets-list.component';
 
 const routes: Routes = [
   {
     path: 'reports',
     component: RyodanReportsComponent,
     data: {
-      title: '- Applications',
+      title: '- Reports',
     },
   },
   {
     path: 'applications',
     component: RyodanApplicationsComponent,
+    data: {
+      title: '- Applications',
+    },
+  },
+  {
+    path: 'metamasks',
+    component: RyodanWalletsComponent,
+    data: {
+      title: '- Metamasks',
+    },
   },
   {
     path: '',
@@ -54,7 +68,11 @@ const routes: Routes = [
     RyodanApplicationFormComponent,
     RyodanReportFormComponent,
     RyodanReportViewComponent,
+    RyodanWalletsComponent,
+    RyodanWalletsFormComponent,
     RyodanFilesControlComponent,
+    RyodanCommonList,
+    RyodanWalletsListComponent,
   ],
   imports: [
     CommonModule,

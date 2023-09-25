@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpService } from 'src/app/tools/services/http.service';
 import { RyodanDataService } from './ryodan-data.service';
 import {
-  BehaviorSubject,
   Observable,
   finalize,
   map,
@@ -15,10 +13,10 @@ import {
 } from 'rxjs';
 import {
   RyodanApplication,
-  RyodanApplicationStates,
   RyodanApplicationTarget,
   RyodanReport,
   RyodanShortReport,
+  RyodanWallet,
 } from '../interfaces/ryodan-customization.interfaces';
 import { RyodanRequests } from '../constants/req.constants';
 import { Req } from 'src/app/tools/interfaces/req-map';
@@ -128,6 +126,50 @@ export class RyodanHttpService {
     });
   }
 
+  getWallets() {
+    this.request<RyodanWallet[]>(
+      'wallet',
+      RyodanRequests['getWallets']
+    ).subscribe({
+      next: (d) => (this.dataService.wallets = d),
+      error: () => {},
+    });
+  }
+
+  deleteWallet(walletId: string) {
+    return this.request<void>(
+      'wallet',
+      RyodanRequests['deleteWallet'],
+      undefined,
+      walletId
+    ).pipe(
+      withLatestFrom(this.dataService.wallets$),
+      tap(
+        ([, wallets]) =>
+          (this.dataService.wallets = wallets!.filter((w) => w.id !== walletId))
+      ),
+      map(() => {}),
+      take(1)
+    );
+  }
+
+  receiveWallets(data: Record<string, any>) {
+    return this.request<RyodanWallet[]>(
+      'wallet',
+      RyodanRequests['receiveWallets'],
+      data
+    ).pipe(
+      map((wallets) => wallets.map((w) => ({ ...w, isNew: true }))),
+      withLatestFrom(this.dataService.wallets$),
+      tap(
+        ([newWallets, oldWallets]) =>
+          (this.dataService.wallets = [...newWallets, ...oldWallets!])
+      ),
+      map(([newWallets]) => newWallets),
+      take(1)
+    );
+  }
+
   postFile(data: FormData) {
     return this.request<{ url: string }>(
       undefined,
@@ -141,24 +183,37 @@ export class RyodanHttpService {
   }
 
   private request<T>(
-    type: 'report' | 'application' | undefined,
+    type: 'report' | 'application' | 'wallet' | undefined,
     reqParams: Req,
     body: any = '',
     urlParam: string = '',
     urlQuery: string = ''
   ) {
-    if (type)
-      type === 'report'
-        ? (this.dataService.reportsPending = true)
-        : (this.dataService.applicationsPending = true);
+    this.changePendingState(type, true);
 
-    return this.http.request(reqParams, body, urlParam, urlQuery).pipe(
-      finalize(() => {
-        if (type)
-          type === 'report'
-            ? (this.dataService.reportsPending = false)
-            : (this.dataService.applicationsPending = false);
-      })
-    ) as Observable<T>;
+    return this.http
+      .request(reqParams, body, urlParam, urlQuery)
+      .pipe(
+        finalize(() => this.changePendingState(type, false))
+      ) as Observable<T>;
+  }
+
+  private changePendingState(
+    type: 'report' | 'application' | 'wallet' | undefined,
+    state: boolean
+  ) {
+    if (!type) return;
+
+    switch (type) {
+      case 'report':
+        this.dataService.reportsPending = state;
+        break;
+      case 'application':
+        this.dataService.applicationsPending = state;
+        break;
+      case 'wallet':
+        this.dataService.walletsPending = state;
+        break;
+    }
   }
 }

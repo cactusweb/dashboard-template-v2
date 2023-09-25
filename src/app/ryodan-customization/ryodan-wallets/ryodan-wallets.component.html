@@ -1,0 +1,25 @@
+<!-- (viewItem)="onViewReport($event)" -->
+<ryodan-wrapper
+  *ngVar="wallets$ | async as wallets"
+  [showList]="!!wallets?.length"
+  [pending]="!!(pending$ | async)"
+  (update)="getWallets()"
+>
+  <button
+    header-btn
+    class="btn btn--outline-primary"
+    (click)="formOpened$.next(true)"
+  >
+    Request metamasks
+  </button>
+
+  <ryodan-wallets-list list [wallets]="wallets"></ryodan-wallets-list>
+</ryodan-wrapper>
+
+<ryodan-popup
+  *ngIf="formOpened$ | async"
+  windowTitle="Metamasks request"
+  (close)="formOpened$.next(false)"
+>
+  <ryodan-wallets-form (close)="formOpened$.next(false)"></ryodan-wallets-form>
+</ryodan-popup>

@@ -15,6 +15,7 @@ $phone-size: 780px;
 
   @media screen and (max-width: $phone-size) {
     gap: 16px;
+    padding: 16px;
   }
 
   &__divider {
@@ -37,8 +38,8 @@ $phone-size: 780px;
 
   &__links {
     padding: 4px;
-    width: 280px;
-    grid-template-columns: 1fr 1fr;
+    // width: 280px;
+    grid-template-columns: repeat(3, 1fr);
     height: 48px;
     @media screen and (max-width: $phone-size) {
       width: 100%;
@@ -55,100 +56,16 @@ $phone-size: 780px;
 .ryodan__links .btn {
   color: var(--placeholder) !important;
   height: 40px;
-
+  padding: 0;
+  width: 128px;
   &_active {
     color: white !important;
     background: var(--grey-color);
   }
-}
 
-.list {
-  display: grid;
-  row-gap: 16px;
-
-  * {
-    font-size: 16px;
-    line-height: 20px;
-    @media screen and (max-width: $phone-size) {
-      font-size: 14px;
-      line-height: 17px;
-    }
-  }
-
-  &__header,
-  &__row {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 120px;
-    gap: 16px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    @media screen and (max-width: $phone-size) {
-      grid-template-columns: 1fr 100px;
-    }
-  }
-
-  &__content {
-    display: grid;
-    gap: 8px;
-  }
-
-  &__row {
-    height: 48px;
-    border-radius: 8px;
-    background-color: var(--grey-color);
-    cursor: pointer;
-    &:hover {
-      background-color: #3f3f3f;
-    }
-  }
-}
-
-.item {
-  &__general {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 8px;
-    align-items: center;
-    justify-content: start;
-  }
-
-  &__edit-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  &__sub-info {
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__state {
-    text-transform: capitalize;
-
-    &_red {
-      color: var(--red-color);
-    }
-    &_green {
-      color: var(--green-color);
-    }
-    &_yellow {
-      color: var(--yellow-color);
-    }
-  }
-}
-.list .item__date {
-  color: var(--color--secondary);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-
-  @media screen and (max-width: 780px) {
-    font-size: 12px;
-    line-height: normal;
+  @media screen and (max-width: $phone-size) {
+    width: 100%;
+    font-size: 14px;
   }
 }
 
@@ -177,7 +94,3 @@ $phone-size: 780px;
   }
 }
 
-.col {
-  display: grid;
-  align-content: center;
-}

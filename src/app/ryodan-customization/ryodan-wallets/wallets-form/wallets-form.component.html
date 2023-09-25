@@ -1,0 +1,15 @@
+<form class="wrapper" [formGroup]="form" (ngSubmit)="receiveWallets()">
+  <input
+    type="number"
+    placeholder="Amount of metamasks"
+    formControlName="quantity"
+    class="form-control"
+  />
+  <button
+    class="btn btn--primary"
+    *ngVar="!!(loading$ | async) as loading"
+    [disabled]="loading"
+  >
+    <btn-loader [isSpinner]="loading" text="Request"></btn-loader>
+  </button>
+</form>

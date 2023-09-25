@@ -39,6 +39,21 @@ export const RyodanRequests: Record<string, req> = {
     method: 'GET',
   },
 
+  getWallets: {
+    url: '/metamask',
+    method: 'GET',
+  },
+
+  deleteWallet: {
+    url: '/metamask/:id',
+    method: 'DELETE',
+  },
+
+  receiveWallets: {
+    url: '/metamask',
+    method: 'POST',
+  },
+
   postFile: {
     url: '/file',
     method: 'POST',

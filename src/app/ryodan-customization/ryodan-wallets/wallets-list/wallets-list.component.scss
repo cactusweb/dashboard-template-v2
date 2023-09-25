@@ -1,0 +1,93 @@
+$tab-size: 1200px;
+$phone-size: 780px;
+
+.list {
+  display: grid;
+  row-gap: 16px;
+  position: relative;
+
+  * {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    @media screen and (max-width: $phone-size) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__header,
+  &__row {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 0.4fr 20px;
+    gap: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media screen and (max-width: $phone-size) {
+      grid-template-columns: 1fr 0.4fr 20px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__row {
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--grey-color);
+    &:hover {
+      background-color: #3f3f3f;
+    }
+  }
+}
+
+.list {
+  .item {
+    &__phrase {
+      justify-content: start;
+      gap: 8px;
+      @media screen and (max-width: $phone-size) {
+        gap: 4px;
+      }
+    }
+
+    &__phrase-content {
+      cursor: pointer;
+    }
+
+    &__indicator {
+      background-color: rgba($color: #fff, $alpha: 0.1);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      @media screen and (max-width: $phone-size) {
+        padding: 2px 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.btn_icon {
+  height: 20px;
+  width: 20px;
+  align-self: center;
+}
+
+.ryodan-spinner {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 8px;
+  //   background: rgba($color: #000000, $alpha: 0.4);
+  backdrop-filter: blur(3px);
+}

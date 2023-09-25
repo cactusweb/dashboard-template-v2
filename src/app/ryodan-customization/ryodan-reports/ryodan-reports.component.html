@@ -1,9 +1,8 @@
 <ryodan-wrapper
-  [items]="reports$ | async"
+  *ngVar="reports$ | async as reports"
+  [showList]="!!reports?.length"
   [pending]="!!(pending$ | async)"
   (update)="getReports()"
-  (viewItem)="onViewReport($event)"
-  (editItem)="onEditReport($event)"
 >
   <button
     header-btn
@@ -12,6 +11,13 @@
   >
     New reports
   </button>
+
+  <ryodan-common-list
+    list
+    [items]="reports"
+    (viewItem)="onViewReport($event)"
+    (editItem)="onEditReport($event)"
+  ></ryodan-common-list>
 </ryodan-wrapper>
 
 <ryodan-popup

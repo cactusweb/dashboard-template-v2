@@ -1,0 +1,71 @@
+<div class="ryodan__list list">
+  <div class="list__header">
+    <span>No.</span>
+    <span>Status</span>
+  </div>
+  <ul class="list__content">
+    <li
+      class="list__row item"
+      *ngFor="let item of items; trackByIndex"
+      (click)="viewItem.emit(item)"
+    >
+      <div class="item__general">
+        <span class="item__number">№{{ item.number }}</span>
+        <button
+          class="item__edit-btn btn btn-icon btn-icon--primary"
+          *ngIf="item.state === ItemStates.REVISION"
+          (click)="$event.stopPropagation(); editItem.emit(item)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <g id="edit / edit">
+              <path
+                id="coolicon"
+                d="M3.6843 17.1492C3.45054 17.1488 3.22769 17.0502 3.07014 16.8775C2.90968 16.7062 2.82994 16.4746 2.85097 16.2408L3.05514 13.9958L12.4868 4.5675L15.4343 7.51417L6.00514 16.9417L3.76014 17.1458C3.7343 17.1483 3.70847 17.1492 3.6843 17.1492ZM16.0226 6.925L13.076 3.97834L14.8435 2.21084C14.9998 2.05436 15.2119 1.96643 15.4331 1.96643C15.6542 1.96643 15.8663 2.05436 16.0226 2.21084L17.7901 3.97834C17.9466 4.13464 18.0345 4.34675 18.0345 4.56792C18.0345 4.78909 17.9466 5.0012 17.7901 5.1575L16.0235 6.92417L16.0226 6.925Z"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+      <div class="item__sub-info">
+        <div class="col">
+          <span
+            class="item__state"
+            [ngClass]="{
+              item__state_yellow:
+                item.state === ItemStates.REVISION ||
+                item.state === ItemStates.CHECK,
+              item__state_red: item.state === ItemStates.REJECTED,
+              item__state_green: item.state === ItemStates.CONFIRMED
+            }"
+          >
+            {{ item.state.toLowerCase() }}
+          </span>
+          <span class="item__date">
+            {{ item.updated_at * 1000 | date : "dd.MM.YY" }}
+          </span>
+        </div>
+        <svg
+          class="item__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="8"
+          height="15"
+          viewBox="0 0 8 15"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M0.50442 13.8396C0.348186 13.6834 0.260419 13.4714 0.260419 13.2505C0.260419 13.0295 0.348186 12.8176 0.50442 12.6613L5.74885 7.41713L0.504419 2.17297C0.424823 2.09609 0.361334 2.00414 0.317658 1.90247C0.273982 1.8008 0.250992 1.69145 0.250031 1.5808C0.249069 1.47015 0.270155 1.36042 0.312058 1.258C0.353961 1.15559 0.415842 1.06255 0.494089 0.984302C0.572337 0.906058 0.665385 0.844179 0.767804 0.802278C0.870222 0.760378 0.97996 0.739293 1.09062 0.740255C1.20127 0.741217 1.31063 0.764206 1.4123 0.80788C1.51398 0.851554 1.60593 0.915038 1.68281 0.99463L7.51643 6.82796C7.67267 6.98424 7.76043 7.19616 7.76043 7.41713C7.76043 7.6381 7.67267 7.85002 7.51643 8.0063L1.68281 13.8396C1.52653 13.9959 1.3146 14.0836 1.09362 14.0836C0.872634 14.0836 0.6607 13.9959 0.50442 13.8396Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+    </li>
+  </ul>
+</div>

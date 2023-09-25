@@ -43,3 +43,13 @@ export interface RyodanApplicationTarget {
   id: string;
   need_wallet: boolean;
 }
+
+export interface RyodanWalletDTO {
+  id: string;
+  updated_at: number; // date
+  phrase: string;
+}
+
+export interface RyodanWallet extends RyodanWalletDTO {
+  isNew?: boolean;
+}

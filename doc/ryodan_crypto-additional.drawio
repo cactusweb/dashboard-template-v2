@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" modified="2023-09-18T19:50:13.685Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="LzgNIQ8710AhBRXL3ZLe" version="21.7.2" type="device">
+  <diagram name="Страница — 1" id="fILLRmKcKVuDJJSrSAgJ">
+    <mxGraphModel dx="1167" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XOomLMe58m405Vj2v1mz-1" value="BD CLASSES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="271" y="30" width="286" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-2" value="WalletSid" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="323" y="90" width="180" height="150" as="geometry">
+            <mxRectangle x="590" y="750" width="70" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-3" value="+ phrase: string" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fillColor=default;" vertex="1" parent="XOomLMe58m405Vj2v1mz-2">
+          <mxGeometry y="30" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-4" value="+ id: string" style="text;strokeColor=none;fillColor=default;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="XOomLMe58m405Vj2v1mz-2">
+          <mxGeometry y="60" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-8" value="+ user: ObjectId(string) | null" style="text;strokeColor=none;fillColor=default;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="XOomLMe58m405Vj2v1mz-2">
+          <mxGeometry y="90" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-9" value="+ update_at: Date" style="text;strokeColor=none;fillColor=default;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="XOomLMe58m405Vj2v1mz-2">
+          <mxGeometry y="120" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-5" value="REQUESTS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="271" y="300" width="286" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-6" value="User requests from dash" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="90" y="360" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-7" value="POST /user/metamask { quantity: number }=&amp;gt; WalletSid[]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="35" y="400" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-10" value="GET /user/metamask =&amp;gt; WalletSids[]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="35" y="440" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-12" value="Admin requests from manager" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="557" y="360" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-13" value="POST /admin/metamask String[] =&amp;gt; void" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="400" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-14" value="GET /admin/metamask&amp;nbsp; =&amp;gt; UserAndWalletSid[]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="440" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-15" value="DELETE /user/metamask/{id} =&amp;gt; void" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="35" y="480" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-16" value="DELETE /admin/metamask/{walletSidId}&amp;nbsp; =&amp;gt; void" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="475" y="480" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-17" value="INTERFACES" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="580" width="286" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-18" value="UserAndWalletSids" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="323" y="640" width="180" height="90" as="geometry">
+            <mxRectangle x="590" y="750" width="70" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-19" value="+ user: User" style="text;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fillColor=default;" vertex="1" parent="XOomLMe58m405Vj2v1mz-18">
+          <mxGeometry y="30" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-20" value="+ walletSids: WalletSid[]" style="text;strokeColor=none;fillColor=default;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="XOomLMe58m405Vj2v1mz-18">
+          <mxGeometry y="60" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-21" value="DELETE /admin/metamask/user/{userId}&amp;nbsp; =&amp;gt; void" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="475" y="515" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-22" value="LOGIC" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="271" y="800" width="286" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-23" value="POST &lt;b&gt;Admin.Metamask:&lt;/b&gt;&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&lt;/b&gt;- будет отправляться массив строк, для каждой из которых нужно создать WalletSid&lt;br&gt;&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="870" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-24" value="Get &lt;b&gt;Admin.Metamask:&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;/b&gt;- возвращает список пользователей, которые имеют хоть 1 WalletSid и список WalletSid" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="870" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-25" value="DELETE&amp;nbsp;&lt;b&gt;Admin.Metamask &lt;/b&gt;by UserId&lt;b&gt;:&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;/b&gt;- удаляет все WalletSid, которые принадлежат Пользователю" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="960" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-26" value="DESIGN + FRONTENT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="1100" width="286" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-27" value="Новая вкладка Wallets для админа:&lt;br&gt;&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-- Поиск по юзерам, сортировка по дате;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-- Открывая окно пользователя видно все его кошельки и краткую информацию о пользователе;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-- Кошелек - это сид-фраза (показать ее часть + кнопка копирования) + дата получения;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-- Можно удалить все кошельки пользователя или каждый по отдельности;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-- Форма добавления кошельков (одно поле большое + кнопка)&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="1139" width="560" height="141" as="geometry" />
+        </mxCell>
+        <mxCell id="XOomLMe58m405Vj2v1mz-28" value="Новая вкладка Wallets для юзера:&lt;br&gt;&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-- Показать все кошельки (сид фраза сокращенная + кнопка копирования + дата получения)&lt;br&gt;-- Только полученные кошельки должны иметь что-то вроде индикатора NEW&lt;br&gt;-- Кошелек можно удалить из списка&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;-- Форма получения кошельков. Пользователь вводит только количество необходимых кошельков&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="1310" width="560" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
