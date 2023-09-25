@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RyodanDataService } from '../common/services/ryodan-data.service';
 import { RyodanHttpService } from '../common/services/ryodan-http.service';
 import { BehaviorSubject } from 'rxjs';
+import { RyodanAccessServise } from '../common/services/ryodan-access.service';
 
 @Component({
   selector: 'ryodan-wallets',
@@ -17,10 +18,12 @@ export class RyodanWalletsComponent implements OnInit {
 
   constructor(
     private dataService: RyodanDataService,
-    private http: RyodanHttpService
+    private http: RyodanHttpService,
+    private accessService: RyodanAccessServise
   ) {}
 
   ngOnInit(): void {
+    this.accessService.validateAccess();
     this.getWallets();
   }
 
