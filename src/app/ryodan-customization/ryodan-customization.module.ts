@@ -24,6 +24,7 @@ import { RyodanWalletsComponent } from './ryodan-wallets/ryodan-wallets.componen
 import { RyodanWalletsFormComponent } from './ryodan-wallets/wallets-form/wallets-form.component';
 import { RyodanCommonList } from './common/components/ryodan-common-list/ryodan-common-list.component';
 import { RyodanWalletsListComponent } from './ryodan-wallets/wallets-list/wallets-list.component';
+import { RyodanBackLinkComponent } from './common/components/ryodan-back-link/ryodan-back-link.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,7 @@ const routes: Routes = [
     RyodanFilesControlComponent,
     RyodanCommonList,
     RyodanWalletsListComponent,
+    RyodanBackLinkComponent,
   ],
   imports: [
     CommonModule,
