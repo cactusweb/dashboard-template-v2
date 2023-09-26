@@ -40,17 +40,17 @@ export const RyodanRequests: Record<string, req> = {
   },
 
   getWallets: {
-    url: '/metamask',
+    url: '/metamasks',
     method: 'GET',
   },
 
   deleteWallet: {
-    url: '/metamask/:id',
+    url: '/metamasks/:id',
     method: 'DELETE',
   },
 
   receiveWallets: {
-    url: '/metamask',
+    url: '/metamasks',
     method: 'POST',
   },
 
