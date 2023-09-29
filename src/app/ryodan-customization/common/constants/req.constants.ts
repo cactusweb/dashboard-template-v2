@@ -45,7 +45,7 @@ export const RyodanRequests: Record<string, req> = {
   },
 
   deleteWallet: {
-    url: '/metamasks/:id',
+    url: '/metamasks/:param',
     method: 'DELETE',
   },
 
