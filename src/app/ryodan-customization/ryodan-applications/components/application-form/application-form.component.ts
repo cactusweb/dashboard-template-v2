@@ -32,9 +32,9 @@ export class RyodanApplicationFormComponent {
   readonly close = new EventEmitter<void>();
 
   readonly form = new FormGroup({
-    description: new FormControl('', Validators.required),
+    description: new FormControl(''),
     target: new FormControl('', Validators.required),
-    wallet: new FormControl({ value: '', disabled: true }),
+    wallet: new FormControl({ value: '', disabled: true }, Validators.required),
   });
 
   readonly loading$ = new BehaviorSubject(false);
