@@ -6,6 +6,6 @@ export const environment = {
   site: 'https://dash.encoreio.com',
   landing: 'https://dash.encoreio.com',
   
-  logo: '',
+  logo: '/assets/logo.svg',
   paymentInFrame: false
 };
