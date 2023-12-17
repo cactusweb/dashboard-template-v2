@@ -4,7 +4,7 @@ export const environment = {
 
   ownerName: 'Encore IO',
   site: 'https://dash.encoreio.com',
-  landing: 'https://dash.encoreio.com',
+  landing: 'https://encoreio.com',
   
   logo: '/assets/logo.svg',
   paymentInFrame: false
