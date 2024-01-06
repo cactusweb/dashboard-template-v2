@@ -32,7 +32,7 @@ export class BindCardService {
   goToPayment(email: string){
     return this.http.request( Requests['postOrderEmail'], { email }, this.bindOrder?.id )
       .pipe(
-        tap(d => this.bindOrder?.payment_way == 'Ameria' ? window.location.href = d.payment_url : null),
+        tap(d => (this.bindOrder?.payment_way == 'Ameria' || this.bindOrder?.payment_way == 'Stripe') ? window.location.href = d.payment_url : null),
         tap(d => {
           if ( this.bindOrder?.payment_way == 'Tinkoff' )
             TinkoffWidget.pay(this.tinkoff.getForm(this.bindOrder, email, true))

@@ -19,6 +19,7 @@ import { RenewSuccessComponent } from './components/renew-success/renew-success.
 import { PaymentActionBtnsComponent } from './components/payment-action-btns/payment-action-btns.component';
 import { AdditionalActivationsComponent } from './components/additional-activations/additional-activations.component';
 import { AdditionalActivationsModule } from '../additional-activations/additional-activations.module';
+import { StripePaymentComponent } from './components/stripe-payment/stripe-payment.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent }
@@ -39,6 +40,7 @@ const routes: Routes = [
     RenewSuccessComponent,
     PaymentActionBtnsComponent,
     AdditionalActivationsComponent,
+    StripePaymentComponent,
   ],
   imports: [
     CommonModule,

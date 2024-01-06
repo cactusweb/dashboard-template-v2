@@ -9,5 +9,7 @@ export interface LicensePayment {
     last_4: string
     exp_date: string
 
-    way: '' | 'Tinkoff' | 'Ameria' | 'Crypto'
+    way: '' | 'Tinkoff' | 'Ameria' | 'Crypto' | 'Stripe',
+
+    stripe_customer_created: boolean;
 }

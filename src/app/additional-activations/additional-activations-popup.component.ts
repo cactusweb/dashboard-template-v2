@@ -127,7 +127,7 @@ export class AdditionalActivationsPopupComponent implements OnInit {
         take(1),
         tap( d => d.order.status == 5 ? this.onSuccessBuy() : null ),
         filter(d => d.order.status !== 5 ),
-        tap(d => d.order.payment_way == 'Ameria' && d.payment_url ? window.location.href = d.payment_url : null),
+        tap(d => (d.order.payment_way == 'Ameria' || d.order.payment_way === 'Stripe') && d.payment_url ? window.location.href = d.payment_url : null),
         tap(d => {
           if ( d.order.payment_way == 'Tinkoff' )
             TinkoffWidget.pay(this.tinkoff.getForm(d.order, email, true))

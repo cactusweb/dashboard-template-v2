@@ -83,7 +83,7 @@ export class DropService {
     return this.http.request( Requests['postOrderEmail'], { email }, this.drop?.id )
       .pipe(
         tap(d => this.$purchaseState.next('payment')),
-        tap(d => this.drop?.payment_way == 'Ameria' ? window.location.href = d.payment_url : null),
+        tap(d => (this.drop?.payment_way == 'Ameria' || this.drop?.payment_way == 'Stripe') ? window.location.href = d.payment_url : null),
         tap(d => {
           if ( this.drop?.payment_way == 'Tinkoff' )
             TinkoffWidget.pay(this.tinkoff.getForm(this.drop, email))

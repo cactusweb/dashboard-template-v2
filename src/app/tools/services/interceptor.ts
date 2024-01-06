@@ -43,7 +43,7 @@ export class Interceptor implements HttpInterceptor {
             this.auth.auth();
             this.tools.generateNotification( 'Error 401: You are not authorized' )
           }else
-          if ( err.status > 500 ){
+          if ( err.status >= 500 ){
             this.tools.generateNotification( `Error ${err.status}: Server is temporarily unavailable` );
             err.message = "Server is temporarily unavailable"
           }else
