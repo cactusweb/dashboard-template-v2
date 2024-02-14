@@ -50,8 +50,8 @@ export class WhopIntegrationComponent implements OnInit {
       .subscribe({
         next: (lic) => this.licService.onNewLicense(lic),
         error: (err: any) => {
-          if (err?.message) {
-            this.tools.generateNotification(err.message, 'err');
+          if (err?.error?.message) {
+            this.tools.generateNotification(err.error.message, 'err');
           }
         },
       });
