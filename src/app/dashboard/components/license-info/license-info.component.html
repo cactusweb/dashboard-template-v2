@@ -41,5 +41,9 @@
             [licenseType]="license?.type"
         ></app-payment>
         <app-crypto-renew *ngIf="license && license.payment.way == 'Crypto'" [disabled]="license.type == 'lifetime' || license.type == 'trial'"></app-crypto-renew>
-        <app-stripe-payment *ngIf="license" [paymentData]="license.payment"></app-stripe-payment>
+        
+        <app-stripe-payment
+            *ngIf="license && license.payment.way === 'Stripe'"
+            [paymentData]="license.payment"
+        ></app-stripe-payment>
 </div>
