@@ -4,6 +4,7 @@ import { BehaviorSubject, finalize, map } from 'rxjs';
 import { LicenseService } from '../dashboard/services/license.service';
 import { Router } from '@angular/router';
 import { License } from '../dashboard/interfaces/license';
+import { ToolsService } from '../tools/services/tools.service';
 
 @Component({
   selector: 'csd-whop-integration-component',
@@ -16,7 +17,8 @@ export class WhopIntegrationComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private licService: LicenseService,
-    private router: Router
+    private router: Router,
+    private tools: ToolsService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,11 @@ export class WhopIntegrationComponent implements OnInit {
       .pipe(finalize(() => this.loading$.next(false)))
       .subscribe({
         next: () => this.router.navigate(['/dashboard']),
-        error: () => {},
+        error: (err: any) => {
+          if (err?.message) {
+            this.tools.generateNotification(err.message, 'err');
+          }
+        },
       });
   }
 
