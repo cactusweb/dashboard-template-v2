@@ -31,11 +31,6 @@ export class WhopIntegrationComponent implements OnInit {
       .pipe(finalize(() => this.loading$.next(false)))
       .subscribe({
         next: () => this.router.navigate(['/dashboard']),
-        error: (err: any) => {
-          if (err?.message) {
-            this.tools.generateNotification(err.message, 'err');
-          }
-        },
       });
   }
 
@@ -54,7 +49,11 @@ export class WhopIntegrationComponent implements OnInit {
       )
       .subscribe({
         next: (lic) => this.licService.onNewLicense(lic),
-        error: () => {},
+        error: (err: any) => {
+          if (err?.message) {
+            this.tools.generateNotification(err.message, 'err');
+          }
+        },
       });
   }
 }
