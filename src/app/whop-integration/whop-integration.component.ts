@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { BehaviorSubject, finalize, map } from 'rxjs';
+import { BehaviorSubject, finalize } from 'rxjs';
 import { LicenseService } from '../dashboard/services/license.service';
 import { Router } from '@angular/router';
 import { License } from '../dashboard/interfaces/license';
@@ -38,17 +38,9 @@ export class WhopIntegrationComponent implements OnInit {
     this.loading$.next(true);
     this.http
       .get<License>('https://whop-integration.spmembership.com' + '/license')
-      .pipe(
-        map((l: License) => ({
-          ...l,
-          expires_in: l.expires_in * 1000,
-          bought_at: l.bought_at * 1000,
-          created_at: l.created_at * 1000,
-        })),
-        finalize(() => this.loading$.next(false))
-      )
+      .pipe(finalize(() => this.loading$.next(false)))
       .subscribe({
-        next: (lic) => this.licService.onNewLicense(lic),
+        next: () => this.router.navigate(['/dashboard']),
         error: (err: any) => {
           if (err?.error?.message) {
             this.tools.generateNotification(err.error.message, 'err');
