@@ -36,7 +36,7 @@ export class WhopIntegrationComponent implements OnInit {
   onRecieveLicense() {
     this.loading$.next(true);
     this.http
-      .get<License>('/license')
+      .get<License>('https://whop-integration.spmembership.com' + '/license')
       .pipe(
         map((l: License) => ({
           ...l,
