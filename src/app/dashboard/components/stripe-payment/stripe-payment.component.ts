@@ -24,6 +24,9 @@ export class StripePaymentComponent {
   readonly REFUND_LINK =
     'https://discord.com/channels/869225451439140885/1184140674010988655/1184141686104920185';
 
+  readonly MANAGE_PAYMENT_LINK =
+    'https://discord.com/channels/1043236553436180491/1207686192804536371';
+
   constructor(
     private stripeService: StripePaymentService,
     private cdr: ChangeDetectorRef

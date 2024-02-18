@@ -2,11 +2,13 @@
   display: grid;
 }
 
-.refund-link {
+.links {
   margin-top: 4px;
-  font-size: 14px;
-  justify-self: end;
-  &:hover {
-    text-decoration: underline;
+  justify-content: space-between;
+  > * {
+    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
