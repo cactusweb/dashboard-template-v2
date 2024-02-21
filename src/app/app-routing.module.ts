@@ -13,6 +13,15 @@ const routes: Routes = [
 
     { path: 'purchase', loadChildren: () => import('./purchase/purchase.module').then(m => m.PurchaseModule), data: { title: ' - Purchase'} },
 
+    {
+        path: 'get-access',
+        loadChildren: () =>
+          import('./whop-integration/whop-integration.module').then(
+            (m) => m.WhopIntegrationModule
+          ),
+        data: { title: ' - Recieve license' },
+    },
+    
     { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule), data: { title: ' - Not Found'} }
     // { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule) }
 ]

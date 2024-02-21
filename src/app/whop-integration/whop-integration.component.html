@@ -1,0 +1,7 @@
+<button
+  class="btn btn--primary"
+  (click)="onRecieveLicense()"
+  [disabled]="loading$ | async"
+>
+  <btn-loader text="Get access" [isSpinner]="!!(loading$ | async)"></btn-loader>
+</button>
