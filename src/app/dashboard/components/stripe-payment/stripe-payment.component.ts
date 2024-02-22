@@ -21,6 +21,11 @@ export class StripePaymentComponent {
 
   loading = false;
 
+  readonly REFUND_LINK =
+    'https://discord.com/channels/1102872915587891232/1186270282835574814';
+
+  readonly MANAGE_PAYMENT_LINK = 'http://encoreio.cc/manage';
+
   constructor(
     private stripeService: StripePaymentService,
     private cdr: ChangeDetectorRef

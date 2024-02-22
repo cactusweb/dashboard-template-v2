@@ -3,5 +3,8 @@
   (click)="onRecieveLicense()"
   [disabled]="loading$ | async"
 >
-  <btn-loader text="Get access" [isSpinner]="!!(loading$ | async)"></btn-loader>
+  <btn-loader
+    text="Activate license"
+    [isSpinner]="!!(loading$ | async)"
+  ></btn-loader>
 </button>

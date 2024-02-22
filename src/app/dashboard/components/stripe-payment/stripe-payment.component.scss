@@ -1,0 +1,14 @@
+:host {
+  display: grid;
+}
+
+.links {
+  margin-top: 4px;
+  justify-content: space-between;
+  > * {
+    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

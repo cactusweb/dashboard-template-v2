@@ -14,12 +14,12 @@ const routes: Routes = [
     { path: 'purchase', loadChildren: () => import('./purchase/purchase.module').then(m => m.PurchaseModule), data: { title: ' - Purchase'} },
 
     {
-        path: 'get-access',
+        path: 'activate',
         loadChildren: () =>
           import('./whop-integration/whop-integration.module').then(
             (m) => m.WhopIntegrationModule
           ),
-        data: { title: ' - Recieve license' },
+        data: { title: ' - Activate license' },
     },
     
     { path: '**', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule), data: { title: ' - Not Found'} }
