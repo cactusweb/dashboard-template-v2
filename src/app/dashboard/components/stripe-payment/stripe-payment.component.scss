@@ -4,9 +4,9 @@
 
 .links {
   margin-top: 4px;
-  justify-content: space-between;
   > * {
     font-size: 14px;
+    justify-self: end;
     &:hover {
       text-decoration: underline;
     }
