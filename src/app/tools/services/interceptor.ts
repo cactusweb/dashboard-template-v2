@@ -26,7 +26,6 @@ export class Interceptor implements HttpInterceptor {
     return next.handle(req)
       .pipe(
         catchError(err => {
-
           if ( err?.error?.message ) err.error.message = this.tools.capitalizeFirstLetter(err.error.message)
 
           if ( err.status == 0 ){
@@ -43,12 +42,13 @@ export class Interceptor implements HttpInterceptor {
             this.auth.auth();
             this.tools.generateNotification( 'Error 401: You are not authorized' )
           }else
-          if ( err.status > 500 ){
+          if ( err.status >= 500 ){
             this.tools.generateNotification( `Error ${err.status}: Server is temporarily unavailable` );
             err.message = "Server is temporarily unavailable"
           }else
-          if ( err.status >= 400 && err.status <= 500 && !this.isGetLicenseReq(req) )
+          if ( err.status >= 400 && err.status <= 500 && !this.isGetLicenseReq(req) ){
             this.tools.generateNotification( `${err.error.message || err.error.error || err.message}` )
+          }
 
           return throwError(err)
         })
