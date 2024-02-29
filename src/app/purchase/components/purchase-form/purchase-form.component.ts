@@ -16,6 +16,9 @@ export class PurchaseFormComponent implements OnInit {
 
   payment: Observable<{ way: string, currency: string, price: number }>
 
+  showDisclaimer = false;
+  disclaimerApproved = false;
+
   constructor(
     private drop: DropService,
     private currency: CurrencyPipe
@@ -47,6 +50,12 @@ export class PurchaseFormComponent implements OnInit {
     this.form.markAllAsTouched();
     if ( this.form.invalid || !this.form.controls['agreement'].value ) return;
 
+    if ( !this.disclaimerApproved ){
+      this.showDisclaimer = true;
+      return
+    }
+
+    this.showDisclaimer = false;
     this.loading = true;
     this.drop.onPurchase( this.form.controls['email'].value )
       .pipe(
