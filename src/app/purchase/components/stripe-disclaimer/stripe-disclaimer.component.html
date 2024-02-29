@@ -1,0 +1,25 @@
+<div class="overlay overlay--full-screen">
+  <div class="artboard" (click)="approve.emit()"></div>
+  <div class="window popup">
+    <h2 class="window__title">Card payment rules</h2>
+
+    <ul>
+      <li>
+        <strong> Limit on retry attempts [&lt;2x]</strong> <br />
+        <p>
+          If your payment is blocked or declined twice, please, open a support
+          ticket on Discord, and we will assist you promptly.
+        </p>
+      </li>
+      <li>
+        <strong> Avoid chargebacks </strong> <br />
+        <p>
+          If you wish to request a refund for any reason, simply open a support
+          ticket on Discord, and we will process it on the same day.
+        </p>
+      </li>
+    </ul>
+
+    <button class="btn btn--primary" (click)="approve.emit()">Approve</button>
+  </div>
+</div>

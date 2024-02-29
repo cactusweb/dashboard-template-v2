@@ -1,0 +1,29 @@
+:host {
+  position: absolute;
+}
+
+.overlay {
+  padding: 0px 20px;
+}
+
+.window {
+  gap: 12px;
+}
+
+ul {
+  display: grid;
+  gap: 12px;
+
+  list-style: none;
+
+  @media screen and (max-width: 780px) {
+    font-size: 14px;
+  }
+}
+
+.btn {
+  @media screen and (max-width: 780px) {
+    height: 44px;
+    font-size: 16px;
+  }
+}

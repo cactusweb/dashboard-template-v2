@@ -13,6 +13,7 @@ import { StatusFailedComponent } from './components/status-failed/status-failed.
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 import { CryptoPaymentModule } from '../crypto-payment/crypto-payment.module';
 import { CryptoPaymentComponent } from './components/crypto-payment/crypto-payment.component';
+import { StripeDisclaimerComponent } from './components/stripe-disclaimer/stripe-disclaimer.component';
 
 const routes: Routes = [
   { path: '', component: PurchaseComponent }
@@ -29,6 +30,7 @@ const routes: Routes = [
     StatusFailedComponent,
     CurrencyConverterComponent,
     CryptoPaymentComponent,
+    StripeDisclaimerComponent,
   ],
   imports: [
     CommonModule,
