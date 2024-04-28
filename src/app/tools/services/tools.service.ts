@@ -27,7 +27,7 @@ export class ToolsService {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
-    this.generateNotification(notifText, "success");
+    this.generateNotification(notifText, "primary");
   }
 
   

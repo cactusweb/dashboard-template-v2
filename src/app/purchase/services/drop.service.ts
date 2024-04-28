@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, catchError, EMPTY, filter, finalize, map, Observable, take, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, filter, finalize, map, Observable, of, take, tap, throwError } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { License } from 'src/app/dashboard/interfaces/license';
 import { LicenseService } from 'src/app/dashboard/services/license.service';
 import { Req } from 'src/app/tools/interfaces/req-map';
 import { HttpService } from 'src/app/tools/services/http.service';
 import { environment } from 'src/environments/environment';
-import { Drop } from '../interfaces/drop';
+import { Order } from '../interfaces/order';
 import { TinkoffService } from './tinkoff.service';
 
 declare const TinkoffWidget: any;
@@ -16,10 +16,19 @@ declare const TinkoffWidget: any;
   providedIn: 'root'
 })
 export class DropService {
-  private drop: Drop|undefined;
+  private drop: Order|undefined;
   private loading: boolean = false;
 
-  public $purchaseState = new BehaviorSubject<'btn' | 'form' | 'payment' | 'status-check' | 'status-failed' | 'status-success' | 'status-payment-failed'>('btn')
+  public $purchaseState = new BehaviorSubject<
+    'btn' | 
+    'form' | 
+    'payment' | 
+    'crypto-payment' |
+    'status-check' | 
+    'status-failed' |
+    'status-success' |
+    'status-payment-failed'
+  >('btn')
 
   constructor(
     private http: HttpService,
@@ -30,9 +39,9 @@ export class DropService {
   }
 
 
-  getDrop(): Observable<Drop>{
+  getDrop(): Observable<Order>{
     if ( this.drop ) 
-      return new BehaviorSubject<Drop>(this.drop)
+      return of<Order>(this.drop)
 
     this.loading = true;
 

@@ -1,0 +1,27 @@
+<button class="btn" (click)="showAdditionalForm = true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+        <path d="M8.00065 15.1668C4.31875 15.1668 1.33398 12.1821 1.33398 8.50016C1.33398 4.81826 4.31875 1.8335 8.00065 1.8335C11.6825 1.8335 14.6673 4.81826 14.6673 8.50016C14.6633 12.1804 11.6809 15.1628 8.00065 15.1668ZM2.66732 8.61483C2.69886 11.549 5.09472 13.9065 8.02901 13.8908C10.9633 13.875 13.3337 11.4918 13.3337 8.55749C13.3337 5.62317 10.9633 3.24001 8.02901 3.22416C5.09472 3.20847 2.69886 5.566 2.66732 8.50016V8.61483ZM8.66732 11.8335H7.33398V9.16683H4.66732V7.8335H7.33398V5.16683H8.66732V7.8335H11.334V9.16683H8.66732V11.8335Z" fill="#11BB7D"/>
+    </svg>    
+    Additional instance
+</button>
+
+<additional-activations-popup 
+    *ngIf="showAdditionalForm && !order"
+    (onClose)="showAdditionalForm = false"
+    (onGetOrder)="order = $event"
+    (onSuccess)="onSuccessRenew()"
+></additional-activations-popup>
+
+
+<div class="overlay overlay--full-screen" *ngIf="order">
+    <div class="artboard" (click)="order = undefined"></div>
+    <payment-window class="popup"
+        [order]="order" (onClose)="order = undefined"
+        (onSuccess)="onSuccessRenew()"
+    ></payment-window>
+</div>
+
+<renew-success *ngIf="showSuccessWindow" 
+    subtitle="Activation purchased successfully"
+    (onClose)="showSuccessWindow = false"
+></renew-success>

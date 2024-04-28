@@ -34,7 +34,10 @@ export class Interceptor implements HttpInterceptor {
             this.tools.generateNotification('Connection timeout. Check you internet connection.')
           }else
 
-          if ( err.status == 404 ) err.message = "Endpoint not found"; else
+          if ( err.status == 404 ){
+            err.message = "Failed request: Endpoint not found"
+            this.tools.generateNotification(err.message)
+          } else
 
           if ( err.status == 401 ){
             this.auth.auth();

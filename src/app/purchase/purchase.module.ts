@@ -11,6 +11,8 @@ import { StatusCheckComponent } from './components/status-check/status-check.com
 import { StatusSuccessComponent } from './components/status-success/status-success.component';
 import { StatusFailedComponent } from './components/status-failed/status-failed.component';
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
+import { CryptoPaymentModule } from '../crypto-payment/crypto-payment.module';
+import { CryptoPaymentComponent } from './components/crypto-payment/crypto-payment.component';
 
 const routes: Routes = [
   { path: '', component: PurchaseComponent }
@@ -26,13 +28,15 @@ const routes: Routes = [
     StatusSuccessComponent,
     StatusFailedComponent,
     CurrencyConverterComponent,
+    CryptoPaymentComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    ToolsModule
+    ToolsModule,
+    CryptoPaymentModule
   ]
 })
 export class PurchaseModule { }

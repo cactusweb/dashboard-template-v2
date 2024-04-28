@@ -9,7 +9,7 @@ import { DropService } from './services/drop.service';
   styleUrls: ['./purchase.component.scss']
 })
 export class PurchaseComponent implements OnInit {
-  purchaseState: Observable<'btn'|'form'|'payment'|'status-check'|'status-failed'|'status-success'|'status-payment-failed'>
+  purchaseState: Observable<'btn'|'form'|'payment'|'crypto-payment'|'status-check'|'status-failed'|'status-success'|'status-payment-failed'>
 
   constructor(
     private drop: DropService,

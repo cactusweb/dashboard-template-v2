@@ -5,6 +5,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgvarDirective } from './directives/ngvar.directive';
 import { CheckboxAgreementComponent } from './components/checkbox-agreement/checkbox-agreement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectControlComponent } from './components/select-control/select-control.component';
 
 
 
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     BtnLoaderComponent,
     NgvarDirective,
-    CheckboxAgreementComponent
+    CheckboxAgreementComponent,
+    SelectControlComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     BtnLoaderComponent,
     NgvarDirective,
-    CheckboxAgreementComponent
+    CheckboxAgreementComponent,
+    SelectControlComponent
   ]
 })
 export class ToolsModule { }

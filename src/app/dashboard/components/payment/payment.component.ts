@@ -32,16 +32,6 @@ export class PaymentComponent implements OnInit {
     return `**** ${this.payment.last_4}`
   }
 
-  cancel(){
-    this.loading = true;
-
-    this.lic.cancelPayment()
-      .pipe(
-        take(1),
-        finalize(() => this.loading = false)
-      )
-      .subscribe({error: () => {}})
-  }
 
   
   bindCard(){
