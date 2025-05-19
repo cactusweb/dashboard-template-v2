@@ -27,11 +27,11 @@ export class CryptoRenewComponent implements OnInit {
   }
 
   onSuccessRenew() {
+    this.license.renewLicense(this.order?.duration);
     this.showPayment = false;
     this.showPaymentDuration$.next(false);
     this.order = undefined;
     this.renew.resetOrder();
-    this.license.renewLicense();
     this.showSuccessWindow = true;
   }
 }
