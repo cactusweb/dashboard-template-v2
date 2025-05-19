@@ -20,10 +20,12 @@ import { PaymentActionBtnsComponent } from './components/payment-action-btns/pay
 import { AdditionalActivationsComponent } from './components/additional-activations/additional-activations.component';
 import { AdditionalActivationsModule } from '../additional-activations/additional-activations.module';
 import { StripePaymentComponent } from './components/stripe-payment/stripe-payment.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { CsdDashboardRenewDurationComponent } from './components/renew-duration/renew-duration.component';
+import { InfoLinkComponent } from './components/info-link/info-link.component';
 
-const routes: Routes = [
-  { path: '', component: DashboardComponent }
-]
+const routes: Routes = [{ path: '', component: DashboardComponent }];
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ const routes: Routes = [
     PaymentActionBtnsComponent,
     AdditionalActivationsComponent,
     StripePaymentComponent,
+    CsdDashboardRenewDurationComponent,
+    InfoLinkComponent,
   ],
   imports: [
     CommonModule,
@@ -48,8 +52,13 @@ const routes: Routes = [
     ToolsModule,
     BindCardModule,
     CryptoPaymentModule,
-    AdditionalActivationsModule
+    AdditionalActivationsModule,
+    MatDialogModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToolsModule,
   ],
-  providers: [DatePipe, CurrencyPipe]
+  providers: [DatePipe, CurrencyPipe],
 })
-export class DashboardModule { }
+export class DashboardModule {}

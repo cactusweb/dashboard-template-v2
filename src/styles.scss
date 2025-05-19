@@ -1,43 +1,144 @@
-@import '/src/environments/environment.scss';
+@use "@angular/material" as mat;
 
-html,body, app-root{
-    min-height: 100vh;
-    padding: 0px;
-    margin: 0px;
-    display: grid;
-    // @extend .custom-scroll;
+@include mat.core();
 
-    &::-webkit-scrollbar{ width: 7px !important; }
+$primary-color: #3880ec;
+
+$dark-primary-color: #fff;
+
+$error-color: #da3a3a;
+
+$primary-colors: (
+  500: $primary-color,
+  700: $primary-color,
+  900: $primary-color,
+  contrast: (),
+);
+
+$accent-colors: (
+  500: $dark-primary-color,
+  700: $dark-primary-color,
+  900: $dark-primary-color,
+  contrast: (),
+);
+
+$warn-colors: (
+  100: $error-color,
+  500: $error-color,
+  700: $error-color,
+  contrast: (),
+);
+
+$theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette($primary-colors, 500, 900),
+      accent: mat.define-palette($accent-colors, 500, 900),
+      warn: mat.define-palette($warn-colors, 500),
+    ),
+  )
+);
+
+@include mat.all-component-themes($theme);
+
+// @import "./mat-icon";
+// @import "./mat-dialog";
+// @import "./mat-radio-button";
+
+@import "/src/environments/environment.scss";
+
+html,
+body,
+app-root {
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  // @extend .custom-scroll;
+
+  &::-webkit-scrollbar {
+    width: 7px !important;
+  }
 }
 
-body, span.hr{
-    background-color: var(--bg-color);
+body,
+span.hr {
+  background-color: var(--bg-color);
 }
 
-body{
-    background-position: center;
-    background-repeat: no-repeat;
+body {
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-
-
-a{text-decoration: none;}
-a:focus{outline: auto;}
-button, select, a, input[type="checkbox"], input[type="radio"]{cursor: pointer; box-sizing: border-box; padding: 0;margin: 0;}
-button, input{background: none; border: none; padding: 0px; box-sizing: border-box;}
-input[type="date"]{cursor: text; text-align: start;}
-input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator{display: none; -webkit-appearance: none;}
-a, a *, button{transition: .4s;}
-div, form, textarea, input, ul{box-sizing: border-box;}
-h1, h2, h3, h4, p{margin: 0px; padding: 0px;}
-ul{ padding: 0px; margin: 0px; }
-fieldset{
-    border: none;
-    padding: 0px;
-    margin: 0px;
+a {
+  text-decoration: none;
 }
-label{cursor: pointer;}
-button:disabled, input:disabled{cursor: default;}
+a:focus {
+  outline: auto;
+}
+button,
+select,
+a,
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+button,
+input {
+  background: none;
+  border: none;
+  padding: 0px;
+  box-sizing: border-box;
+}
+input[type="date"] {
+  cursor: text;
+  text-align: start;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+a,
+a *,
+button {
+  transition: 0.4s;
+}
+div,
+form,
+textarea,
+input,
+ul {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+fieldset {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+label {
+  cursor: pointer;
+}
+button:disabled,
+input:disabled {
+  cursor: default;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -46,429 +147,449 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-router-outlet{position: absolute;}
-*{outline: none;}
-ngx-spinner{border-radius: inherit; }
-
-.bg-cover{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
+router-outlet {
+  position: absolute;
+}
+* {
+  outline: none;
+}
+ngx-spinner {
+  border-radius: inherit;
 }
 
-
-.flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
-*::selection{
-    color: #fff;
-    background-color: #78AFF8;
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.custom-scroll{
-    
-    &::-webkit-scrollbar{
-        width:5px;
-        background-color: #EEEEEE;
-        border-radius: 2px;
-    }
-
-    &::-webkit-scrollbar-thumb{
-        border: none;
-        border-radius: 2px;
-        width: 3px;
-        background: #78AFF8;
-    }
-
-    &::-webkit-scrollbar-thumb:hover{
-        background: #5da3ff;
-    }
-
-    &::-webkit-scrollbar-track{
-        border-radius: 2px;
-        border-width:0;
-        background: #EEEEEE;
-    }
-
+*::selection {
+  color: #fff;
+  background-color: #78aff8;
 }
 
-main > *{
-    display: grid;
+.custom-scroll {
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: #eeeeee;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: none;
+    border-radius: 2px;
+    width: 3px;
+    background: #78aff8;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #5da3ff;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    border-width: 0;
+    background: #eeeeee;
+  }
 }
 
-
-.row{
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
+main > * {
+  display: grid;
 }
 
-
-.window{
-    display: grid;
-    row-gap: 32px;
-
-    padding: 40px 32px;
-    max-width: 530px;
-    width: 100%;
-    
-    border-radius: var(--radius);
-    background: var(--bg-color);
-
-    justify-self: center;
-    align-self: center;
-
-    @media screen and ( max-width: $phone-size ) {
-        padding: 32px 24px;
-        max-width: 480px;
-    }
-
-    *:not(button, input, .form-control, .btn){
-        color: var(--text-color--label)
-    }
-    
-    &__title{
-        text-align: center;
-        font-weight: 600;
-        font-size: 22px;
-        line-height: 27px;
-
-        @media screen and ( max-width: $phone-size ) {
-            font-size: 20px;
-            line-height: 24px;
-        }
-    }
-    
-    &__subtitle{
-        text-align: center;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 22px;
-
-        @media screen and ( max-width: $phone-size ) {
-            font-size: 16px;
-            line-height: 19.5px;
-        }
-    }
-
-    &__body{
-        display: grid;
-        row-gap: 24px;
-        justify-self: center;
-        max-width: 320px;
-        width: 100%;
-    }
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
 }
 
+.window {
+  display: grid;
+  row-gap: 32px;
 
+  padding: 40px 32px;
+  max-width: 530px;
+  width: 100%;
 
+  border-radius: var(--radius);
+  background: var(--bg-color);
 
-.overlay{
-    display: grid;
-    place-items: center;
+  justify-self: center;
+  align-self: center;
 
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
+  @media screen and (max-width: $phone-size) {
+    padding: 32px 24px;
+    max-width: 480px;
+  }
 
-    z-index: 10;
-    &--full-screen{
-        position: fixed
-    }
+  *:not(button, input, .form-control, .btn) {
+    color: var(--text-color--label);
+  }
 
-    .popup{
-        z-index: 1;
-    }
-}
-
-.artboard{
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-}
-
-
-.btn{
-    @extend .flex-center;
-    padding: 0px 16px;
-    height: 48px;
-    width: 100%;
-
+  &__title {
+    text-align: center;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 100%;
+    font-size: 22px;
+    line-height: 27px;
 
-    border-radius: var(--radius);
+    @media screen and (max-width: $phone-size) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
 
-    transition: .4s;
-    position: relative;
+  &__subtitle {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+
+    @media screen and (max-width: $phone-size) {
+      font-size: 16px;
+      line-height: 19.5px;
+    }
+  }
+
+  &__body {
+    display: grid;
+    row-gap: 24px;
+    justify-self: center;
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+.overlay {
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+
+  z-index: 10;
+  &--full-screen {
+    position: fixed;
+  }
+
+  .popup {
+    z-index: 1;
+  }
+}
+
+.artboard {
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  @extend .flex-center;
+  padding: 0px 16px;
+  height: 48px;
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+
+  border-radius: var(--radius);
+
+  transition: 0.4s;
+  position: relative;
+
+  // @media screen and ( max-width: $phone-size) {
+  //     height: 40px;
+  // }
+
+  &:disabled:not(.btn--loading) {
+    opacity: 0.5;
+  }
+
+  ngx-spinner .la-ball-clip-rotate div {
+    color: var(--color) !important;
+  }
+
+  &--primary {
+    background-color: var(--primary-color);
+    color: var(--color);
+    &:hover:not(:disabled) {
+      background-color: var(--primary-color--hover);
+    }
+  }
+
+  &--success {
+    background-color: var(--success-color);
+    color: var(--color);
+    &:hover:not(:disabled) {
+      background-color: var(--success-color--hover);
+    }
+
+    ngx-spinner .la-ball-clip-rotate div {
+      color: var(--color) !important;
+    }
+  }
+
+  &--err {
+    background-color: var(--err-color);
+    color: var(--color);
+    &:hover:not(:disabled) {
+      background-color: var(--err-color--hover);
+    }
+
+    ngx-spinner .la-ball-clip-rotate div {
+      color: var(--color) !important;
+    }
+  }
+
+  &--outline-err {
+    color: var(--err-color);
+    border: 1px solid var(--err-color);
+    &:hover:not(:disabled) {
+      background-color: var(--err-color);
+      color: var(--color);
+    }
+
+    ngx-spinner .la-ball-clip-rotate div {
+      color: var(--err-color) !important;
+    }
+  }
+
+  &--outline-primary {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    &:hover:not(:disabled) {
+      background-color: var(--primary-color);
+      color: var(--color);
+    }
+
+    ngx-spinner .la-ball-clip-rotate div {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  &--outline-secondary {
+    color: var(--color--secondary);
+    border: 1px solid var(--color--secondary);
+    &:hover:not(:disabled) {
+      border-color: var(--color--secondary-hover);
+      color: var(--color--secondary-hover);
+    }
+
+    ngx-spinner .la-ball-clip-rotate div {
+      color: var(--color--secondary) !important;
+    }
+  }
+
+  &-icon {
+    width: 48px;
+    padding: 0px;
+    border: 2px solid;
+    background-color: var(--bg-color);
 
     // @media screen and ( max-width: $phone-size) {
-    //     height: 40px;
+    //     width: 40px;
     // }
 
-    &:disabled:not(.btn--loading){
-        opacity: .5;
+    svg path {
+      transition: 0.4s;
     }
 
-    ngx-spinner .la-ball-clip-rotate div{
-        color: var(--color) !important;
-    }
-
-    &--primary{
+    &--primary {
+      border-color: var(--primary-color);
+      &:hover:not(:disabled) {
         background-color: var(--primary-color);
-        color: var(--color);
-        &:hover:not(:disabled){
-            background-color: var(--primary-color--hover);
+
+        svg path {
+          fill: var(--bg-color);
         }
-    }
+      }
 
-    &--success{
-        background-color: var(--success-color);
-        color: var(--color);
-        &:hover:not(:disabled){
-            background-color: var(--success-color--hover);
-        }
-
-        ngx-spinner .la-ball-clip-rotate div{
-            color: var(--color) !important;
-        }
-    }
-
-    
-    &--err{
-        background-color: var(--err-color);
-        color: var(--color);
-        &:hover:not(:disabled){
-            background-color: var(--err-color--hover);
-        }
-
-        ngx-spinner .la-ball-clip-rotate div{
-            color: var(--color) !important;
-        }
-    }
-
-    &--outline-err{
-        color: var(--err-color);
-        border: 1px solid var(--err-color);
-        &:hover:not(:disabled){
-            background-color: var(--err-color);
-            color: var(--color);
-        }
-        
-        ngx-spinner .la-ball-clip-rotate div{
-            color: var(--err-color) !important;
-        }
-    }
-
-    &--outline-primary{
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-        &:hover:not(:disabled){
-            background-color: var(--primary-color);
-            color: var(--color);
-        }
-        
-        ngx-spinner .la-ball-clip-rotate div{
-            color: var(--primary-color) !important;
-        }
-    }
-
-    &--outline-secondary{
-        color: var(--color--secondary);
-        border: 1px solid var(--color--secondary);
-        &:hover:not(:disabled){
-            border-color: var(--color--secondary-hover);
-            color: var(--color--secondary-hover);
-        }
-        
-        ngx-spinner .la-ball-clip-rotate div{
-            color: var(--color--secondary) !important;
-        }
-    }
-
-    &-icon{
-        width: 48px;
-        padding: 0px;
-        border: 2px solid;
-        background-color: var(--bg-color);
-
-        // @media screen and ( max-width: $phone-size) {
-        //     width: 40px;
-        // }
-
-        svg path{
-            transition: .4s;
-        }
-
-        &--primary{
-            border-color: var(--primary-color);
-            &:hover:not(:disabled){
-                background-color: var(--primary-color);
-
-                svg path{
-                    fill: var(--bg-color)
-                }
-            }
-
-            svg path{
-                fill: var(--primary-color)
-            }
-        }
-
-    }
-
-    &__svg{
-        margin-left: 8px;
-        transition: .4s;
-        path{
-            transition: .4s;
-        }
-    }
-
-    &--outline-primary &__svg path{
+      svg path {
         fill: var(--primary-color);
+      }
     }
-    
-    &--outline-primary:hover:not(:disabled) &__svg path{
-        fill: var(--color);
-    }
+  }
 
-    
-    &--outline-err &__svg path{
-        fill: var(--err-color);
+  &__svg {
+    margin-left: 8px;
+    transition: 0.4s;
+    path {
+      transition: 0.4s;
     }
-    
-    &--outline-err:hover &__svg path{
-        fill: var(--color);
-    }
-    
-    ngx-spinner > div > div{
-        width: 25px !important;
-        height: 25px !important;
-        > div{
-            width: inherit !important;
-            height: inherit !important;
-            border-width: 3.5px !important;
-        }
-    }
+  }
 
+  &--outline-primary &__svg path {
+    fill: var(--primary-color);
+  }
+
+  &--outline-primary:hover:not(:disabled) &__svg path {
+    fill: var(--color);
+  }
+
+  &--outline-err &__svg path {
+    fill: var(--err-color);
+  }
+
+  &--outline-err:hover &__svg path {
+    fill: var(--color);
+  }
+
+  ngx-spinner > div > div {
+    width: 25px !important;
+    height: 25px !important;
+    > div {
+      width: inherit !important;
+      height: inherit !important;
+      border-width: 3.5px !important;
+    }
+  }
 }
 
+.form-control {
+  @extend .btn;
+  background-color: var(--bg-color);
+  height: 44px;
+  box-sizing: border-box;
+  text-align: center;
 
-.form-control{
-    @extend .btn;
-    background-color: var(--bg-color);
-    height: 44px;
-    box-sizing: border-box;
-    text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: var(--radius);
 
+  color: var(--input-color);
+  * {
+    color: var(--input-color) !important;
+  }
+
+  &__placeholder {
+    color: var(--placeholder) !important;
+  }
+
+  border: 1px solid var(--border);
+
+  // @media screen and ( max-width: $phone-size ) {
+  //     height: 40px;
+  // }
+  &--btn {
+    @extend .row;
+    grid-template-columns: 1fr auto;
+    padding: 0px;
+
+    .btn-icon {
+      position: relative;
+      top: -1px;
+      right: -1px;
+    }
+  }
+
+  &::placeholder {
+    color: var(--placeholder);
+  }
+
+  &.ng-touched.ng-invalid {
+    border-color: var(--err-color);
+  }
+}
+
+.control-wrapper {
+  display: grid;
+  row-gap: 10px;
+  align-content: start;
+  transition: 0.3s;
+
+  &--disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    .btn:disabled {
+      opacity: 1;
+    }
+  }
+
+  &__label {
     font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    border-radius: var(--radius);
-
-    color: var(--input-color);
-    *{
-        color: var(--input-color) !important;
-    }
-
-    &__placeholder{
-        color: var(--placeholder) !important;
-    }
-    
-    border: 1px solid var(--border);
-
-    // @media screen and ( max-width: $phone-size ) {
-    //     height: 40px;
-    // }
-    &--btn{
-        @extend .row;
-        grid-template-columns: 1fr auto;
-        padding: 0px;
-        
-        .btn-icon{
-            position: relative;
-            top: -1px;
-            right: -1px;
-        }
-    }
-
-    &::placeholder{
-        color: var(--placeholder);
-    }
-
-    &.ng-touched.ng-invalid{
-        border-color: var(--err-color);
-    }
+    line-height: 19.5px;
+    color: var(--text-color--label);
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
+.t-wrapper {
+  z-index: 100000 !important;
 
-
-
-.control-wrapper{
-    display: grid;
-    row-gap: 10px;
-    align-content: start;
-    transition: .3s;
-
-    &--disabled{
-        opacity: .3;
-        pointer-events: none;
-        .btn:disabled{
-            opacity: 1;
-        }
+  .t-frame-wrapper {
+    > input {
+      display: none !important;
     }
+  }
 
-    &__label{
-        font-size: 16px;
-        line-height: 19.5px;
-        color: var(--text-color--label);
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+  top: 50% !important;
+  transform: translate(0, -50%) !important;
+
+  @media screen and (max-width: 600px) {
+    height: auto !important;
+  }
+
+  > * {
+    width: 500px !important;
+    min-width: 0px;
+    max-height: 650px;
+    @media screen and (max-width: 600px) {
+      width: 90% !important;
     }
+  }
 }
 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}
+mat-radio-button {
+  .mdc-label {
+    @apply tw-text-black;
+  }
 
+  .mat-radio-outer-circle {
+    border-color: #00000050;
+  }
+  &.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: var(--primary-color);
+  }
+  &.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+    background-color: var(--primary-color);
+  }
+  //   .mdc-radio__native-control {
+  //     @apply -tw-left-2 -tw-top-2 #{!important};
+  //   }
 
-.t-wrapper{
-    z-index: 100000 !important;
-
-    .t-frame-wrapper{
-        > input{
-            display: none !important;
-        }
-    }
-    
-    top: 50% !important;
-    transform: translate(0, -50%) !important;
-
-    @media screen and ( max-width: 600px ) {
-        height: auto !important;
-    }
-
-    > *{
-        width: 500px !important;
-        min-width: 0px;
-        max-height: 650px;
-        @media screen and ( max-width: 600px ) {
-            width: 90% !important;
-        }
-    }
+  //   .mdc-radio {
+  //     @apply tw-p-1 #{!important};
+  //   }
 }

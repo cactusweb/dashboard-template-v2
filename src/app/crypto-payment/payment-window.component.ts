@@ -1,24 +1,33 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription, distinctUntilChanged, take, finalize } from 'rxjs';
 import { Requests } from 'src/app/const';
 import { Order } from 'src/app/purchase/interfaces/order';
 import { HttpService } from 'src/app/tools/services/http.service';
 import { ToolsService } from 'src/app/tools/services/tools.service';
+import { LicenseService } from '../dashboard/services/license.service';
 
 @Component({
   selector: 'payment-window',
   templateUrl: './payment-window.component.html',
-  styleUrls: ['./payment-window.component.scss']
+  styleUrls: ['./payment-window.component.scss'],
 })
-export class PaymentWindowComponent implements OnInit, OnDestroy{
-  @Input() order!: Order
+export class PaymentWindowComponent implements OnInit, OnDestroy {
+  @Input() order!: Order;
   @Output() onClose = new EventEmitter();
   @Output() onSuccess = new EventEmitter();
 
-  form!: FormGroup
+  readonly supportLink: string | undefined;
+  form!: FormGroup;
 
-  sub!: Subscription
+  sub!: Subscription;
 
   recevierAddress: string = '';
 
@@ -26,8 +35,11 @@ export class PaymentWindowComponent implements OnInit, OnDestroy{
 
   constructor(
     private http: HttpService,
-    private tools: ToolsService
-  ) { }
+    private tools: ToolsService,
+    licenseService: LicenseService
+  ) {
+    this.supportLink = licenseService.license?.owner.support_link;
+  }
 
   ngOnInit(): void {
     // this.recevierAddress = this.order.crypto[0].recipient;
@@ -38,47 +50,49 @@ export class PaymentWindowComponent implements OnInit, OnDestroy{
     this.sub?.unsubscribe();
   }
 
-  generateForm(){
+  generateForm() {
     this.form = new FormGroup({
       typeId: new FormControl(null, Validators.required),
-      tx: new FormControl(null, Validators.required)
-    })
+      tx: new FormControl(null, Validators.required),
+    });
 
     this.sub = this.form.controls['typeId'].valueChanges
       .pipe(distinctUntilChanged())
-      .subscribe(res => this.recevierAddress = this.order.crypto.find(m => m.id == res)?.recipient||'')
+      .subscribe(
+        (res) =>
+          (this.recevierAddress =
+            this.order.crypto.find((m) => m.id == res)?.recipient || '')
+      );
   }
 
-  onConfirm(){
+  onConfirm() {
     this.form.markAllAsTouched();
 
-    if ( this.form.controls['typeId'].invalid )
-      this.tools.generateNotification('Choose the payment method')
+    if (this.form.controls['typeId'].invalid)
+      this.tools.generateNotification('Choose the payment method');
 
-    if ( this.form.controls['tx'].invalid )
-      this.tools.generateNotification('Input the transaction hash')
+    if (this.form.controls['tx'].invalid)
+      this.tools.generateNotification('Input the transaction hash');
 
-    if ( this.form.invalid ) return;
+    if (this.form.invalid) return;
 
     this.loading = true;
 
     let data = {
       email: '',
-      crypto: this.form.value
-    }
+      crypto: this.form.value,
+    };
 
-
-    this.http.request( Requests['postOrderEmail'], data, this.order.id )
+    this.http
+      .request(Requests['postOrderEmail'], data, this.order.id)
       .pipe(
         take(1),
-        finalize(() => this.loading = false)
+        finalize(() => (this.loading = false))
       )
       .subscribe({
         next: () => {},
-        error: e => {},
-        complete: () => this.onSuccess.emit()
-      })
+        error: (e) => {},
+        complete: () => this.onSuccess.emit(),
+      });
   }
-
-
 }

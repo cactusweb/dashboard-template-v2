@@ -1,22 +1,13 @@
-<!-- <div class="overlay overlay--full-screen">
-    <div class="artboard" (click)="onClose.emit()"></div> -->
-
-<form class="window" [formGroup]="form" (ngSubmit)="onConfirm()">
+<form class="window" (ngSubmit)="onSubmit()">
   <div
     class="header"
-    [ngClass]="supportLink ? 'header_between' : 'header_center'"
+    [ngClass]="ownerSupportLink ? 'header_between' : 'header_center'"
   >
-    <h3>
-      Payment
-      <ng-container *ngIf="order.duration > 1">
-        •
-        <span class="tw-font-medium">{{ order.duration }} months</span>
-      </ng-container>
-    </h3>
+    <h3>Select the renewal period</h3>
 
     <a
-      *ngIf="supportLink"
-      [href]="supportLink"
+      *ngIf="ownerSupportLink"
+      [href]="ownerSupportLink"
       target="_blank"
       rel="noopener"
       class="support-link"
@@ -40,33 +31,56 @@
       <span>Support</span>
     </a>
   </div>
+  <div class="form-control tw-my-6 checkbox-group">
+    <label>
+      <mat-radio-button
+        [value]="1"
+        [formControl]="duractionControl"
+        ngDefaultControl
+        checked
+      >
+        1 month
+      </mat-radio-button>
+    </label>
 
-  <fieldset>
-    <method-selector
-      formControlName="typeId"
-      [paymentMethods]="order.crypto"
-    ></method-selector>
+    <label>
+      <mat-radio-button
+        [value]="3"
+        [formControl]="duractionControl"
+        ngDefaultControl
+      >
+        3 months
+      </mat-radio-button>
+    </label>
 
-    <app-recevier [address]="recevierAddress"></app-recevier>
-  </fieldset>
+    <label>
+      <mat-radio-button
+        [value]="6"
+        [formControl]="duractionControl"
+        ngDefaultControl
+      >
+        6 months
+      </mat-radio-button>
+    </label>
 
-  <input
-    type="text"
-    formControlName="tx"
-    class="form-control"
-    placeholder="Input transaction hash"
-    autocomplete="OFF"
-  />
+    <label>
+      <mat-radio-button
+        [value]="12"
+        [formControl]="duractionControl"
+        ngDefaultControl
+      >
+        1 year
+      </mat-radio-button>
+    </label>
+  </div>
 
   <button
     class="btn btn--primary"
+    *ngVar="loading$ | async as loading"
     [disabled]="loading"
     [class.btn--loading]="loading"
   >
-    <btn-loader text="Confirm payment" [isSpinner]="loading"></btn-loader>
+    <btn-loader text="Select" [isSpinner]="loading"></btn-loader>
   </button>
-
   <info-link></info-link>
 </form>
-
-<!-- </div> -->

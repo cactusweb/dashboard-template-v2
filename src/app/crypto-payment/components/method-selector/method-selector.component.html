@@ -1,5 +1,6 @@
 <div id="phone-control">
     
+    
     <div class="form-control" (click)="showDropDown = !showDropDown">
         <span class="form-control__placeholder" *ngIf="!_val">Select payment method</span>
     
@@ -33,7 +34,6 @@
 
 
 <div class="control-wrapper" id="fp-control">
-    <span class="control-wrapper__label">Select the payment method</span>
     <div class="form-control">
         <method-card 
             *ngFor="let method of paymentMethods" [method]="method"

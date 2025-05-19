@@ -8,33 +8,34 @@ import { ToolsService } from 'src/app/tools/services/tools.service';
 
 @Injectable()
 export class RenewService {
-  private order: Order|undefined
+  private order: Order | undefined;
 
-  constructor(
-    private http: HttpService,
-    private tools: ToolsService
-  ) { }
+  constructor(private http: HttpService, private tools: ToolsService) {}
 
-  public getOrder(): Observable<Order>{
-    if ( this.order )
-      return of(this.order)
-    
-    return this.http.request( Requests['getRenewOrder'] )
-      .pipe(
-        tap(d => this.order = d)
+  public getOrder(duraction?: number | null): Observable<Order> {
+    if (this.order && this.order.duration == (duraction || 1))
+      return of(this.order);
+
+    return this.http
+      .request(
+        Requests['getRenewOrder'],
+        null,
+        undefined,
+        `?duration=${duraction || 1}`
       )
+      .pipe(tap((d) => (this.order = d)));
   }
 
-  putOrder(data: Record<any,any>): Observable<any>{
-    if ( !this.order ){
-      this.tools.generateNotification( 'Order is undefined', 'err' )
-      return throwError({ message: 'Order is undefined' })
+  putOrder(data: Record<any, any>): Observable<any> {
+    if (!this.order) {
+      this.tools.generateNotification('Order is undefined', 'err');
+      return throwError({ message: 'Order is undefined' });
     }
-    
-    return this.http.request( Requests['postOrderEmail'], data, this.order.id )
+
+    return this.http.request(Requests['postOrderEmail'], data, this.order.id);
   }
-  
-  resetOrder(){
+
+  resetOrder() {
     this.order = undefined;
   }
 }

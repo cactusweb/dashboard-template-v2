@@ -1,0 +1,66 @@
+.checkbox-group {
+  display: grid;
+  padding: 0;
+  justify-content: stretch;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+
+  label {
+    height: 48px;
+    display: grid;
+    align-items: center;
+    padding: 0 4px;
+
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+    }
+  }
+}
+
+.header {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+
+  &_between {
+    justify-content: space-between;
+  }
+
+  &_center {
+    justify-content: center;
+  }
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+:host {
+  display: grid;
+  max-width: 600px;
+  width: 100%;
+}
+
+.window {
+  max-width: initial;
+  width: 100%;
+  row-gap: 24px;
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+.support-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  span {
+    text-decoration: underline;
+  }
+}
